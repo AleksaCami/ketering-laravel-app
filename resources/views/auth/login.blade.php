@@ -3,14 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
-                    <div>
-                       <img src="/storage/img/catering_logo.png" style="max-height: 100px; display: block; margin: auto;">
-                    </div>
-                </div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -57,12 +51,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Prijava') }}
+                                <button type="submit" class="btn btn-primary" style="width: 150px">
+                                    <b>{{ __('Prijava') }}</b>
                                 </button>
-
+                                <br>
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" style="margin-top: 10px" href="{{ route('password.request') }}">
                                         {{ __('Zaboravio si lozinku?') }}
                                     </a>
                                 @endif
