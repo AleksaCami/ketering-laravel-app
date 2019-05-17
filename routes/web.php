@@ -19,3 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index');
+Route::get('/prodaja', 'ProdajaController@index');
+Route::get('/kuhinja', 'KuhinjaController@index');
+Route::get('/magacin', 'MagacinController@index');
+Route::get('/vozac', 'VozacController@index');
+Route::get('/office', 'OfficeController@index');
+Route::get('/kontakt', 'ContactController@index');
