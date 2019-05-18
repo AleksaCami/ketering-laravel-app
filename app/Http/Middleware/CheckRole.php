@@ -5,22 +5,23 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
+class CheckRole
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next, $role)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/' . Auth::user()->tip_korisnika);
+        $tip_korisnika = Auth::user()->tip_korisnika;
+
+        if($role == $tip_korisnika) {
+            return $next($request);
         }
 
-        return $next($request);
+        return redirect('/'. $tip_korisnika);
     }
 }

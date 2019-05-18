@@ -11,11 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@index');
+// Admin Dashboard
+Route::get('/admin', 'Users\AdminController@index');
+
+// Kuhinja Dashboard
+Route::get('/kuhinja', 'Users\KuhinjaController@index');
+
+// Magacin Dashboard
+Route::get('/magacin', 'Users\MagacinController@index');
+
+//Office administrator Dashboard
+Route::get('/office', 'Users\OfficeController@index');
+
+// Prodaja Dashboard
+Route::get('/prodaja', 'Users\ProdajaController@index');
+
+// Vozac Dashboard
+Route::get('/vozac', 'Users\VozacController@index');

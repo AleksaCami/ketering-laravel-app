@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 mt-3">
             <div class="card">
-                <div class="card-header">Admin Dashboard</div>
+                <div class="card-header">VOZAC Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,11 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in as admin!
+                    Vozac are logged in!
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection

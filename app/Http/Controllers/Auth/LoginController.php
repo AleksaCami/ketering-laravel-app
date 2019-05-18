@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -20,13 +22,27 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
 
+    public function redirectTo()
+    {
+        $tip_korisnika = Auth::user()->tip_korisnika;
+
+        return '/' . $tip_korisnika;
+    }
+
+    /*
+     * Logout funkciju sam owerride-ovao, zato sto zelim da kada se
+     * korisnik klikne na dugme logout, da ga redirekuje na /login
+     * rutu.
+     * */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/login');
+    }
     /**
      * Create a new controller instance.
      *

@@ -45,11 +45,12 @@
                             <div class="col-md-6">
 {{--                                <input id="tip_korisnika" type="text" class="form-control @error('tip_korisnika') is-invalid @enderror" name="tip_korisnika" value="{{ old('tip_korisnika') }}" required autocomplete="tip_korisnika">--}}
                                 <select name="tip_korisnika" class="form-control" id="exampleFormControlSelect1">
-                                    <option value="kuvar">Kuvar</option>
+                                    <option value="kuhinja">Kuvar</option>
                                     <option value="prodaja">Prodaja</option>
                                     <option value="vozac">Vozac</option>
-                                    <option value="magacioner">Magacioner</option>
+                                    <option value="magacin">Magacioner</option>
                                     <option value="office">Office administrator</option>
+                                    <option value="admin">Admin</option>
                                 </select>
                                 @error('tip_korisnika')
                                 <span class="invalid-feedback" role="alert">
