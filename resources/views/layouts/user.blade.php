@@ -29,8 +29,27 @@
 <body>
     <div id="app">
         <div class="wrapper">
-            @include('include.sidebar')
-            <!-- Page Content Holder -->
+            @switch(Auth::user()->tip_korisnika)
+                @case('magacin')
+                    @include('include.admin-sidebar')
+                    @break
+                @case('kuhinja')
+                    @include('include.kuhinja-sidebar')
+                    @break
+                @case('vozac')
+                    @include('include.vozac-sidebar')
+                    @break
+                @case('office')
+                    @include('include.office-sidebar')
+                    @break
+                @case('prodaja')
+                    @include('include.prodaja-sidebar')
+                    @break
+                @default
+                    @include('include.admin-sidebar')
+            @endswitch
+
+                <!-- Page Content Holder -->
             <div id="content">
                 @include('include.navbar')
 
