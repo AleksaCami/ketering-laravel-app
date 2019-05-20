@@ -28,7 +28,6 @@
         <li>
             <a href="/office">Office</a>
         </li>
-        <hr>
 {{--        <li>--}}
 {{--            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>--}}
 {{--            <ul class="collapse list-unstyled" id="homeSubmenu">--}}
@@ -46,5 +45,7 @@
         <li>
             <a href="/kontakt">Kontakt</a>
         </li>
+        <hr>
+        @include('include.footer')
     </ul>
 </nav>
