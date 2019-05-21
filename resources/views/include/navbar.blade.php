@@ -25,6 +25,9 @@
                     @endif
                 @else
                     <li class="nav-item">
+                        <a class="nav-link" href='/contact'>Kontaktirajte nas</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
@@ -34,9 +37,6 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                    </li>
-                    <li>
-                        <a class="nav-link" href='/contact'>Kontaktirajte nas</a>
                     </li>
                 @endguest
             </ul>
