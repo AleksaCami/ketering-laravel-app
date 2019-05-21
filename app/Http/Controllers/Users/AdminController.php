@@ -18,4 +18,10 @@ class AdminController extends Controller
     {
         return view('users.admin');
     }
+
+    public function prikaz_korisnika()
+    {
+        $users = User::all();
+        return view('users.prikaz_korisnika')->with('users', $users);
+    }
 }
