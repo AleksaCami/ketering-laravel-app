@@ -12,4 +12,5 @@
             <a href="#">Pregled svih narudžbina</a>
         </li>
     </ul>
+    @include('include.footer')
 </nav>

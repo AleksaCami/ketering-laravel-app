@@ -85,6 +85,7 @@
                 </li>
             </ul>
         </li>
+        @include('include.footer')
 
     </ul>
 </nav>

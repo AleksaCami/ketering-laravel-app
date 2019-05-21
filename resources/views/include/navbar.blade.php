@@ -35,6 +35,9 @@
                             @csrf
                         </form>
                     </li>
+                    <li>
+                        <a class="nav-link" href='/contact'>Kontaktirajte nas</a>
+                    </li>
                 @endguest
             </ul>
         </div>

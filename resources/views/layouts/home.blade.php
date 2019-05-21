@@ -13,12 +13,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<<<<<<< HEAD:resources/views/layouts/user.blade.php
-=======
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <!-- Our Custom CSS -->
->>>>>>> 677c731579ba1c54b37a64085cef93f7ae822904:resources/views/layouts/app.blade.php
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -54,10 +52,7 @@
                 <!-- Page Content Holder -->
             <div id="content">
                 @include('include.navbar')
-<<<<<<< HEAD:resources/views/layouts/user.blade.php
                 @include('include.massages')
-=======
->>>>>>> 677c731579ba1c54b37a64085cef93f7ae822904:resources/views/layouts/app.blade.php
                 @yield('content')
             </div>
         </div>
@@ -68,7 +63,6 @@
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 
-    <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <script type="text/javascript">
         $(document).ready(function () {

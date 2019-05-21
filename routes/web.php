@@ -31,3 +31,11 @@ Route::get('/prodaja', 'Users\ProdajaController@index');
 
 // Vozac Dashboard
 Route::get('/vozac', 'Users\VozacController@index');
+
+// Redirekcija na /login sa /
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
+// Kontakt strana
+Route::get('/contact', 'Pages\ContactController@index');

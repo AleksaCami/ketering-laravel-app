@@ -50,7 +50,6 @@
                                     <option value="vozac">Vozac</option>
                                     <option value="magacin">Magacioner</option>
                                     <option value="office">Office administrator</option>
-                                    <option value="admin">Admin</option>
                                 </select>
                                 @error('tip_korisnika')
                                 <span class="invalid-feedback" role="alert">
@@ -85,7 +84,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Registruj se!') }}
+                                    {{ __('Dodaj korisnika') }}
                                 </button>
                             </div>
                         </div>
