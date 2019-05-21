@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -23,12 +26,13 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+
+    public function redirectTo()
+    {
+        $tip_korisnika = Auth::user()->tip_korisnika;
+
+        return '/' . $tip_korisnika;
+    }
 
     /**
      * Create a new controller instance.
@@ -37,7 +41,21 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('role:admin');
+    }
+
+    // Override funckija zato sto ne zelim kada admin, doda korsinika
+    // da se automatski ulogije
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+//        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath())->with('success', 'Uspesno ste dodali novog korisnika');
     }
 
     /**
@@ -53,7 +71,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'tip_korisnika' => ['required', 'string'],
+            'tip_korisnika' => 'required',
         ]);
     }
 
@@ -66,7 +84,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        //dd($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

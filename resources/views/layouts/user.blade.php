@@ -12,12 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-{{--    <link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
-    <!--link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"-->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -29,19 +24,41 @@
 <body>
     <div id="app">
         <div class="wrapper">
-            @include('include.sidebar')
-            <!-- Page Content Holder -->
+            @switch(Auth::user()->tip_korisnika)
+                @case('magacin')
+                    @include('include.users-sidebar.admin-sidebar')
+                    @break
+                @case('kuhinja')
+                    @include('include.users-sidebar.kuhinja-sidebar')
+                    @break
+                @case('vozac')
+                    @include('include.users-sidebar.vozac-sidebar')
+                    @break
+                @case('office')
+                    @include('include.users-sidebar.office-sidebar')
+                    @break
+                @case('prodaja')
+                    @include('include.users-sidebar.prodaja-sidebar')
+                    @break
+                @default
+                    @include('include.users-sidebar.admin-sidebar')
+            @endswitch
+
+                <!-- Page Content Holder -->
             <div id="content">
                 @include('include.navbar')
-
+                @include('include.massages')
                 @yield('content')
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  crossorigin="anonymous"></script>
+{{--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>--}}
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -51,5 +68,7 @@
             });
         });
     </script>
+
+    <script></script>
 </body>
 </html>

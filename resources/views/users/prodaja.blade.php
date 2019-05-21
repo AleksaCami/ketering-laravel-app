@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 mt-3">
             <div class="card">
-                <div class="card-header">Admin Dashboard</div>
+                <div class="card-header">PRODAJA Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,11 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in as admin!
+                    Prodaja are logged in!
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection
