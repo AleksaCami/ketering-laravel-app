@@ -12,10 +12,10 @@
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Korisnici</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="{{route('register')}}">Dodaj novog korisnika</a>
+                    <a href="{{route('register')}}">Dodaj korisnika</a>
                 </li>
                 <li>
-                    <a href="#" id="pregledSvihKorisnika">Pregled svih korisnika</a>
+                    <a href="/prikaz-korisnika" id="pregledSvihKorisnika">Pregled korisnika</a>
                 </li>
             </ul>
         </li>

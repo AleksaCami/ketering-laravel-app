@@ -241,19 +241,6 @@ a.article:hover {
   }
 }
 
-<<<<<<< HEAD
-table.dataTable thead .sorting:after,
-table.dataTable thead .sorting:before,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_asc_disabled:after,
-table.dataTable thead .sorting_asc_disabled:before,
-table.dataTable thead .sorting_desc:after,
-table.dataTable thead .sorting_desc:before,
-table.dataTable thead .sorting_desc_disabled:after,
-table.dataTable thead .sorting_desc_disabled:before {
-  bottom: 0.5em;
-=======
 table {
   width: 100%;
 }
@@ -270,6 +257,5 @@ label {
   display: inline-flex;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
->>>>>>> 2f4ea06504865bc9c08c8caa5738c933f771c1f2
 }
 

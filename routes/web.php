@@ -18,7 +18,6 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-
 // Admin Dashboard
 Route::get('/admin', 'Users\AdminController@index');
 
@@ -28,16 +27,13 @@ Route::get('/kuhinja', 'Users\KuhinjaController@index');
 // Magacin Dashboard
 Route::get('/magacin', 'Users\MagacinController@index');
 
-//Office administrator Dashboard
-Route::get('/office', 'Users\OfficeController@index');
-
 // Prodaja Dashboard
 Route::get('/prodaja', 'Users\ProdajaController@index');
 
 // Vozac Dashboard
 Route::get('/vozac', 'Users\VozacController@index');
 
-Route::get('/prikaz_korisnika', 'Users\AdminController@prikaz_korisnika');
+Route::get('/prikaz-korisnika', 'Users\AdminController@prikaz_korisnika');
 
 // Kontakt strana
 Route::get('/contact', 'Pages\ContactController@index');

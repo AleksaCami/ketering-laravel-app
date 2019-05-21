@@ -49,7 +49,6 @@
                                     <option value="prodaja">Prodaja</option>
                                     <option value="vozac">Vozac</option>
                                     <option value="magacin">Magacioner</option>
-                                    <option value="office">Office administrator</option>
                                 </select>
                                 @error('tip_korisnika')
                                 <span class="invalid-feedback" role="alert">
