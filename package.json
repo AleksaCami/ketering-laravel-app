@@ -23,6 +23,10 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+<<<<<<< HEAD
         "vue": "^2.6.10"
+=======
+        "mdbootstrap": "^4.8.1"
+>>>>>>> 2f4ea06504865bc9c08c8caa5738c933f771c1f2
     }
 }

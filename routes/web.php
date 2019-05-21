@@ -14,6 +14,11 @@
 
 Auth::routes();
 
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
+
 // Admin Dashboard
 Route::get('/admin', 'Users\AdminController@index');
 
@@ -32,11 +37,7 @@ Route::get('/prodaja', 'Users\ProdajaController@index');
 // Vozac Dashboard
 Route::get('/vozac', 'Users\VozacController@index');
 
-// Redirekcija na /login sa /
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+Route::get('/prikaz_korisnika', 'Users\AdminController@prikaz_korisnika');
 
 // Kontakt strana
 Route::get('/contact', 'Pages\ContactController@index');
-
