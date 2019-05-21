@@ -39,3 +39,4 @@ Route::get('/', function () {
 
 // Kontakt strana
 Route::get('/contact', 'Pages\ContactController@index');
+
