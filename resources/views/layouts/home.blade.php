@@ -13,6 +13,13 @@
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<<<<<<< HEAD
+=======
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- Our Custom CSS -->
+>>>>>>> 2bde1a7a84f1df72816d1b96895fcb008bba6170
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -48,9 +55,13 @@
                 <!-- Page Content Holder -->
             <div id="content">
                 @include('include.navbar')
+<<<<<<< HEAD
 
                 @include('include.massages')
 
+=======
+                @include('include.massages')
+>>>>>>> 2bde1a7a84f1df72816d1b96895fcb008bba6170
                 @yield('content')
             </div>
         </div>

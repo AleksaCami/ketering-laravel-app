@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header"><h3>{{ __('Prijavite se') }}</h3></div>
+            <div class="card" style="margin: 6em auto;">
+                <img src="/storage/img/catering_logo.png" style="max-height: 100px; display: block; margin: auto;">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

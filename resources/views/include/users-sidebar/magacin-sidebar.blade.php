@@ -22,5 +22,6 @@
         <li>
             <a href="#">Pregled kompletiranih narudžbina</a>
         </li>
+        @include('include.footer')
     </ul>
 </nav>

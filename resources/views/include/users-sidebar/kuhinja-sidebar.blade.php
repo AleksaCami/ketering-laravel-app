@@ -22,5 +22,6 @@
         <li>
             <a href="#">Dodavanje inventara u narudžbinu</a>
         </li>
+        @include('include.footer')
     </ul>
 </nav>

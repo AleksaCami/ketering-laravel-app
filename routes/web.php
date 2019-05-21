@@ -14,10 +14,13 @@
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return redirect()->route('login');
 });
 
+=======
+>>>>>>> 2bde1a7a84f1df72816d1b96895fcb008bba6170
 // Admin Dashboard
 Route::get('/admin', 'Users\AdminController@index');
 
@@ -36,4 +39,14 @@ Route::get('/prodaja', 'Users\ProdajaController@index');
 // Vozac Dashboard
 Route::get('/vozac', 'Users\VozacController@index');
 
+<<<<<<< HEAD
 Route::get('/prikaz_korisnika', 'Users\AdminController@prikaz_korisnika');
+=======
+// Redirekcija na /login sa /
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
+// Kontakt strana
+Route::get('/contact', 'Pages\ContactController@index');
+>>>>>>> 2bde1a7a84f1df72816d1b96895fcb008bba6170
