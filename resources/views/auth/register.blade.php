@@ -1,11 +1,11 @@
-@extends('layouts.login')
+@extends('layouts.user')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registracija') }}</div>
+                <div class="card-header">{{ __('Dodaj novog korisnika') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
