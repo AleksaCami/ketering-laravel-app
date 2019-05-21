@@ -14,16 +14,6 @@
 
 Auth::routes();
 
-<<<<<<< HEAD
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@index');
-Route::get('/prodaja', 'ProdajaController@index');
-Route::get('/kuhinja', 'KuhinjaController@index');
-Route::get('/magacin', 'MagacinController@index');
-Route::get('/vozac', 'VozacController@index');
-Route::get('/office', 'OfficeController@index');
-Route::get('/kontakt', 'ContactController@index');
-=======
 // Admin Dashboard
 Route::get('/admin', 'Users\AdminController@index');
 
@@ -41,4 +31,3 @@ Route::get('/prodaja', 'Users\ProdajaController@index');
 
 // Vozac Dashboard
 Route::get('/vozac', 'Users\VozacController@index');
->>>>>>> marko
