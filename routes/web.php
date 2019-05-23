@@ -36,5 +36,14 @@ Route::get('/vozac', 'UsersController@vozacHome');
 // Prikaz svih korisnika
 Route::get('/prikaz-korisnika', 'UsersController@prikaz_korisnika');
 
+Route::group(['prefix'=>'klijenti'], function(){
+    Route::get('/', 'KlijentiController@index');
+    Route::get('/create', 'KlijentiController@create');
+    Route::post('/store', 'KlijentiController@store');
+});
+
+
 // Kontakt strana
 Route::get('/contact', 'ContactController@index');
+
+

@@ -64,10 +64,10 @@
                 <a href="#klijentiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Klijenti</a>
                 <ul class="collapse list-unstyled" id="klijentiSubmenu">
                     <li>
-                        <a href="#">Dodaj novog klijenta</a>
+                        <a href="/klijenti/create">Dodaj novog klijenta</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih klijenata</a>
+                        <a href="/klijenti">Pregled svih klijenata</a>
                     </li>
                 </ul>
             </li>
@@ -146,10 +146,10 @@
                 <a href="#klijentiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Klijenti</a>
                 <ul class="collapse list-unstyled" id="klijentiSubmenu">
                     <li>
-                        <a href="#">Dodaj novog klijenta</a>
+                        <a href="/klijenti/create">Dodaj novog klijenta</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih klijenata</a>
+                        <a href="/klijenti">Pregled svih klijenata</a>
                     </li>
                 </ul>
             </li>
