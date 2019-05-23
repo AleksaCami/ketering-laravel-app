@@ -45,7 +45,43 @@ class KlijentiController extends Controller
 
         $klijent->save();
 
-        return redirect('/klijenti')->with('success', 'Uspsno dodat novi klijent');
+        return redirect('/klijenti')->with('success', 'Uspesno dodat novi klijent!');
+    }
 
+    public function edit($id)
+    {
+        $klijent = Klijent::find($id);
+
+        return view('klijenti.edit')->with('klijent', $klijent);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'naziv' => 'required',
+            'adresa' => 'required',
+            'broj_telefona' => 'required|numeric',
+            'email' => 'required|email',
+            'kontakt_osoba' => 'required',
+        ]);
+
+        $klijent = Klijent::find($id);
+        $klijent->naziv = $request->input('naziv');
+        $klijent->adresa = $request->input('adresa');
+        $klijent->broj_telefona = $request->input('broj_telefona');
+        $klijent->email = $request->input('email');
+        $klijent->kontakt_osoba = $request->input('kontakt_osoba');
+
+        $klijent->save();
+
+        return redirect('/klijenti')->with('success', 'Vase promene su uspesno sacuvane!');
+    }
+
+    public function destroy($id)
+    {
+        $klijent = Klijent::find($id);
+        $klijent->delete();
+
+        return redirect('/klijenti')->with('success', 'Klijent uspesno obrisan!');
     }
 }

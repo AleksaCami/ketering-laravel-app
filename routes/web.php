@@ -41,6 +41,9 @@ Route::group(['prefix'=>'klijenti'], function(){
     Route::get('/', 'KlijentiController@index');
     Route::get('/create', 'KlijentiController@create');
     Route::post('/store', 'KlijentiController@store');
+    Route::get('/edit/{id}', 'KlijentiController@edit');
+    Route::put('/update/{id}', 'KlijentiController@update');
+    Route::delete('/destroy/{id}', 'KlijentiController@destroy');
 });
 
 Route::group(['prefix'=>'eventi'], function (){
