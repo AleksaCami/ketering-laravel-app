@@ -29,8 +29,14 @@
                         <td>{{$klijent->broj_telefona}}</td>
                         <td>{{$klijent->email}}</td>
                         <td>{{$klijent->kontakt_osoba}}</td>
-                        <td><a href="#"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
-                        <td><button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button></td>
+                        <td><a href="/klijenti/edit/{{$klijent->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
+                        <td>
+                            <form method="POST" action="/klijenti/destroy/{{$klijent->id}}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
