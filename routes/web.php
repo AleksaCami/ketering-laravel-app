@@ -19,21 +19,22 @@ Route::get('/', function () {
 });
 
 // Admin Dashboard
-Route::get('/admin', 'Users\AdminController@index');
+Route::get('/admin', 'UsersController@adminHome');
 
 // Kuhinja Dashboard
-Route::get('/kuhinja', 'Users\KuhinjaController@index');
+Route::get('/kuhinja', 'UsersController@kuhinjaHome');
 
 // Magacin Dashboard
-Route::get('/magacin', 'Users\MagacinController@index');
+Route::get('/magacin', 'UsersController@magacinHome');
 
 // Prodaja Dashboard
-Route::get('/prodaja', 'Users\ProdajaController@index');
+Route::get('/prodaja', 'UsersController@prodajaHome');
 
 // Vozac Dashboard
-Route::get('/vozac', 'Users\VozacController@index');
+Route::get('/vozac', 'UsersController@vozacHome');
 
-Route::get('/prikaz-korisnika', 'Users\AdminController@prikaz_korisnika');
+// Prikaz svih korisnika
+Route::get('/prikaz-korisnika', 'UsersController@prikaz_korisnika');
 
 // Kontakt strana
-Route::get('/contact', 'Pages\ContactController@index');
+Route::get('/contact', 'ContactController@index');

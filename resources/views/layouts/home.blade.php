@@ -39,27 +39,10 @@
     <div id="app" style="position: relative;
   min-height: 100vh;">
         <div class="wrapper">
-            @switch(Auth::user()->tip_korisnika)
-                @case('magacin')
-                    @include('include.users-sidebar.admin-sidebar')
-                    @break
-                @case('kuhinja')
-                    @include('include.users-sidebar.kuhinja-sidebar')
-                    @break
-                @case('vozac')
-                    @include('include.users-sidebar.vozac-sidebar')
-                    @break
-                @case('prodaja')
-                    @include('include.users-sidebar.prodaja-sidebar')
-                    @break
-                @default
-                    @include('include.users-sidebar.admin-sidebar')
-            @endswitch
-
+            @include('include.sidebar')
                 <!-- Page Content Holder -->
             <div id="content">
                 @include('include.navbar')
-                @include('include.massages')
                 @include('include.massages')
                 @yield('content')
             </div>
