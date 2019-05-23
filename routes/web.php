@@ -43,6 +43,12 @@ Route::group(['prefix'=>'klijenti'], function(){
     Route::post('/store', 'KlijentiController@store');
 });
 
+Route::group(['prefix'=>'eventi'], function (){
+    Route::get('/', 'EventController@index');
+    Route::get('/create', 'EventController@create');
+    Route::post('/store', 'EventController@store');
+});
+
 // Kontakt strana
 Route::get('/contact', 'ContactController@index');
 
