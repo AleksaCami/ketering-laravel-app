@@ -35,6 +35,10 @@ Route::get('/vozac', 'UsersController@vozacHome')->middleware('role:vozac');
 
 // Prikaz svih korisnika
 Route::get('/prikaz-korisnika', 'UsersController@prikaz_korisnika')->middleware('role:admin');
+// Editovanje korisnika
+Route::get('/korisnici/edit/{id}', 'UsersController@edit')->middleware('role:admin');
+Route::put('/korisnici/update/{id}', 'UsersController@update')->middleware('role:admin');
+
 
 // Prikaz i dodavanje klijenata
 Route::group(['prefix'=>'klijenti'], function(){
@@ -43,6 +47,7 @@ Route::group(['prefix'=>'klijenti'], function(){
     Route::post('/store', 'KlijentiController@store');
 });
 
+// Prikaz i dodavanje evenata
 Route::group(['prefix'=>'eventi'], function (){
     Route::get('/', 'EventController@index');
     Route::get('/create', 'EventController@create');

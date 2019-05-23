@@ -27,7 +27,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->tip_korisnika}}</td>
                         <td>{{$user->created_at}}</td>
-                        <td><a href="#"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
+                        <td><a href="korisnici/edit/{{$user->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
                         <td><button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button></td>
                     </tr>
                 @endforeach
