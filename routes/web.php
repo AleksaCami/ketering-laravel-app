@@ -19,29 +19,29 @@ Route::get('/', function () {
 });
 
 // Admin Dashboard
-Route::get('/admin', 'UsersController@adminHome');
+Route::get('/admin', 'UsersController@adminHome')->middleware('role:admin');
 
 // Kuhinja Dashboard
-Route::get('/kuhinja', 'UsersController@kuhinjaHome');
+Route::get('/kuhinja', 'UsersController@kuhinjaHome')->middleware('role:kuhinja');
 
 // Magacin Dashboard
-Route::get('/magacin', 'UsersController@magacinHome');
+Route::get('/magacin', 'UsersController@magacinHome')->middleware('role:magacin');
 
 // Prodaja Dashboard
-Route::get('/prodaja', 'UsersController@prodajaHome');
+Route::get('/prodaja', 'UsersController@prodajaHome')->middleware('role:prodaja');
 
 // Vozac Dashboard
-Route::get('/vozac', 'UsersController@vozacHome');
+Route::get('/vozac', 'UsersController@vozacHome')->middleware('role:vozac');
 
 // Prikaz svih korisnika
-Route::get('/prikaz-korisnika', 'UsersController@prikaz_korisnika');
+Route::get('/prikaz-korisnika', 'UsersController@prikaz_korisnika')->middleware('role:admin');
 
+// Prikaz i dodavanje klijenata
 Route::group(['prefix'=>'klijenti'], function(){
     Route::get('/', 'KlijentiController@index');
     Route::get('/create', 'KlijentiController@create');
     Route::post('/store', 'KlijentiController@store');
 });
-
 
 // Kontakt strana
 Route::get('/contact', 'ContactController@index');
