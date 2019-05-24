@@ -57,7 +57,7 @@
                                 <label for="vreme_pocetka" class="col-md-4 col-form-label text-md-right">{{ __('Vreme pocetka') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="vreme_pocetka" type="string" class="form-control @error('vreme_pocetka') is-invalid @enderror" name="vreme_pocetka" required autocomplete="vreme_pocetka">
+                                    <input id="vreme_pocetka" type="time" class="form-control @error('vreme_pocetka') is-invalid @enderror" name="vreme_pocetka" required autocomplete="vreme_pocetka">
 
                                     @error('vreme_pocetka')
                                     <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                                 <label for="vreme_zavrsetka" class="col-md-4 col-form-label text-md-right">{{ __('Vreme zavrsetka') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="vreme_zavrsetka" type="string" class="form-control @error('vreme_zavrsetka') is-invalid @enderror" name="vreme_zavrsetka" required autocomplete="vreme_zavrsetka">
+                                    <input id="vreme_zavrsetka" type="time" class="form-control @error('vreme_zavrsetka') is-invalid @enderror" name="vreme_zavrsetka" required autocomplete="vreme_zavrsetka">
 
                                     @error('vreme_zavrsetka')
                                     <span class="invalid-feedback" role="alert">
