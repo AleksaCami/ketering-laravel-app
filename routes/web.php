@@ -53,22 +53,22 @@ Route::group(['prefix'=>'klijenti', 'middleware' => 'role:admin|prodaja'], funct
 
 // Prikaz i dodavanje evenata
 Route::group(['prefix'=>'eventi', 'middleware' => 'role:admin|prodaja'], function (){
-    Route::get('/', 'EventController@index');
-    Route::get('/create', 'EventController@create');
-    Route::post('/store', 'EventController@store');
-    Route::get('/edit/{id}', 'EventController@edit');
-    Route::put('/update/{id}', 'EventController@update');
-    Route::delete('/destroy/{id}', 'EventController@destroy');
+    Route::get('/', 'EventiController@index');
+    Route::get('/create', 'EventiController@create');
+    Route::post('/store', 'EventiController@store');
+    Route::get('/edit/{id}', 'EventiController@edit');
+    Route::put('/update/{id}', 'EventiController@update');
+    Route::delete('/destroy/{id}', 'EventiController@destroy');
 });
 
 // Prikaz, dodavanje, editovanje i brisanje magacina
 Route::group(['prefix'=>'magacini', 'middleware' => 'role:admin|prodaja'], function (){
-    Route::get('/', 'MagacinController@index');
-    Route::get('/create', 'MagacinController@create');
-    Route::post('/store', 'MagacinController@store');
-    Route::get('/edit/{id}', 'MagacinController@edit');
-    Route::put('/update/{id}', 'MagacinController@update');
-    Route::delete('/destroy/{id}', 'MagacinController@destroy');
+    Route::get('/', 'MagaciniController@index');
+    Route::get('/create', 'MagaciniController@create');
+    Route::post('/store', 'MagaciniController@store');
+    Route::get('/edit/{id}', 'MagaciniController@edit');
+    Route::put('/update/{id}', 'MagaciniController@update');
+    Route::delete('/destroy/{id}', 'MagaciniController@destroy');
 });
 
 // Prikaz, dodavanje, editovanje i brisanje proizvoda

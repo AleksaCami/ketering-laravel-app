@@ -6,7 +6,7 @@ use App\Event;
 use App\Klijent;
 use Illuminate\Http\Request;
 
-class EventController extends Controller
+class EventiController extends Controller
 {
     public function __construct()
     {

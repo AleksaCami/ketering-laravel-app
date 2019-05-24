@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Magacin;
 use Illuminate\Http\Request;
 
-class MagacinController extends Controller
+class MagaciniController extends Controller
 {
 
     public function index()

@@ -13,7 +13,7 @@ class CreateEvent extends Migration
      */
     public function up()
     {
-        Schema::create('event', function (Blueprint $table) {
+        Schema::create('eventi', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('naziv');
             $table->date('datum_pocetka');
@@ -31,6 +31,6 @@ class CreateEvent extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event');
+        Schema::dropIfExists('eventi');
     }
 }
