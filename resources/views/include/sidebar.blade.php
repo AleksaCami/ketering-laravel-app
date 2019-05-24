@@ -75,10 +75,10 @@
                 <a href="#eventiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Eventi</a>
                 <ul class="collapse list-unstyled" id="eventiSubmenu">
                     <li>
-                        <a href="#">Dodaj novi event</a>
+                        <a href="/eventi/create">Dodaj novi event</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih eveneta</a>
+                        <a href="/eventi">Pregled svih eveneta</a>
                     </li>
                 </ul>
             </li>
@@ -97,10 +97,10 @@
                 <a href="#prozivodiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Proizvodi</a>
                 <ul class="collapse list-unstyled" id="prozivodiSubmenu">
                     <li>
-                        <a href="#">Dodaj novi proizvod</a>
+                        <a href="/products/create">Dodaj novi proizvod</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih prodizvoda</a>
+                        <a href="/products">Pregled svih prodizvoda</a>
                     </li>
                 </ul>
             </li>
@@ -190,10 +190,10 @@
                 <a href="#prozivodiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Proizvodi</a>
                 <ul class="collapse list-unstyled" id="prozivodiSubmenu">
                     <li>
-                        <a href="#">Dodaj novi proizvod</a>
+                        <a href="/products/create">Dodaj novi proizvod</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih prodizvoda</a>
+                        <a href="/products">Pregled svih prodizvoda</a>
                     </li>
                 </ul>
             </li>

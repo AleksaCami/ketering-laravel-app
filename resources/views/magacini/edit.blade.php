@@ -29,7 +29,9 @@
                                 <label for="opis" class="col-md-4 col-form-label text-md-right">{{ __('Opis') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="opis" type="text" class="form-control @error('opis') is-invalid @enderror" name="opis" value="{{ old('opis', $magacin->opis) }}" required autocomplete="opis"></textarea>
+                                    <textarea id="opis" type="text" class="form-control @error('opis') is-invalid @enderror" name="opis" required autocomplete="opis">
+                                        {{ old('opis', $magacin->opis) }}
+                                    </textarea>
 
                                     @error('opis')
                                     <span class="invalid-feedback" role="alert">

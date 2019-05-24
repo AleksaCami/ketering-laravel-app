@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvent extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateEvent extends Migration
      */
     public function up()
     {
-        Schema::create('event', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('naziv');
-            $table->date('datum_pocetka');
-            $table->time('vreme_pocetka');
-            $table->date('datum_zavrsetka');
-            $table->time('vreme_zavrsetka');
-            $table->string('klijent');
+            $table->string('mera');
+            $table->float('cena');
+            $table->string('opis');
+            $table->string('kategorija');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateEvent extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event');
+        Schema::dropIfExists('products');
     }
 }
