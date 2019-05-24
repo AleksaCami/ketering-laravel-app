@@ -30,9 +30,7 @@
 
                                 <div class="col-md-6">
 
-                                    <textarea id="opis" type="text" class="form-control @error('opis') is-invalid @enderror" name="opis" required autocomplete="opis">
-                                        {{ old('opis', $magacin->opis) }}
-                                    </textarea>
+                                    <textarea id="opis" type="text" class="form-control @error('opis') is-invalid @enderror" name="opis" required autocomplete="opis">{{ old('opis', $magacin->opis) }}</textarea>
 
                                     @error('opis')
                                     <span class="invalid-feedback" role="alert">

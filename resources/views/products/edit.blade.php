@@ -42,7 +42,6 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group row">
                                 <label for="cena" class="col-md-4 col-form-label text-md-right">{{ __('Cena') }}</label>
 
@@ -75,9 +74,7 @@
                                 <label for="opis" class="col-md-4 col-form-label text-md-right">{{ __('Opis') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="opis" type="text" class="form-control @error('opis') is-invalid @enderror" name="opis" required autocomplete="opis">
-                                        {{ old('opis', $product->opis) }}
-                                    </textarea>
+                                    <textarea id="opis" type="text" class="form-control @error('opis') is-invalid @enderror" name="opis" required autocomplete="opis">{{ old('opis', $product->opis) }}</textarea>
 
                                     @error('opis')
                                     <span class="invalid-feedback" role="alert">
