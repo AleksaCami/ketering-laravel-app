@@ -33,12 +33,13 @@ Route::get('/prodaja', 'UsersController@prodajaHome')->middleware('role:prodaja'
 // Vozac Dashboard
 Route::get('/vozac', 'UsersController@vozacHome')->middleware('role:vozac');
 
-// Prikaz svih korisnika
-Route::get('/prikaz-korisnika', 'UsersController@prikaz_korisnika')->middleware('role:admin');
-// Editovanje korisnika
-Route::get('/korisnici/edit/{id}', 'UsersController@edit')->middleware('role:admin');
-Route::put('/korisnici/update/{id}', 'UsersController@update')->middleware('role:admin');
 
+// Prikaz, edit, delete svih korisnika
+Route::group(['prefix' => 'korisnici', 'middleware' => 'role:admin'], function () {
+    Route::get('/', 'UsersController@index');
+    Route::get('/edit/{id}', 'UsersController@edit');
+    Route::put('/update/{id}', 'UsersController@update');
+});
 
 // Prikaz i dodavanje klijenata
 Route::group(['prefix'=>'klijenti', 'middleware' => 'role:admin|prodaja'], function(){

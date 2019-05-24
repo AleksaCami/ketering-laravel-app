@@ -10,4 +10,14 @@ class Klijent extends Model
     protected $fillable = [
         'naziv', 'adresa', 'broj_telefona', 'email', 'kontakt_osoba'
     ];
+
+    /*
+     * Relationship
+     * Svaki evnet pripada nekom klijentu.
+     * Pravimo relationship jedan prema vise, posto jedan klijent moze imati
+     * vise evenata, dok jedan event moze pripadati samo jednom klijentu.
+     * */
+    public function event() {
+        return $this->hasMany('App\Event');
+    }
 }

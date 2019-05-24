@@ -30,7 +30,7 @@
                             <td>{{$event->vreme_pocetka}}</td>
                             <td>{{$event->datum_zavrsetka}}</td>
                             <td>{{$event->vreme_zavrsetka}}</td>
-                            <td>{{$event->klijent}}</td>
+                            <td>{{$event->klijent->naziv}}</td>
                             <td><a href="#"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
                             <td><button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button></td>
                         </tr>

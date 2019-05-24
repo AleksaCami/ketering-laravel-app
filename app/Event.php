@@ -12,4 +12,15 @@ class Event extends Model
         'naziv', 'datum_pocetka', 'vreme_pocetka', 'datum_zavrsetka', 'vreme_zavrsetka', 'klijent'
     ];
 
+
+    /*
+     * Relationship
+     * Svaki evnet pripada nekom klijentu.
+     * Pravimo relationship jedan prema vise, posto jedan klijent moze imati
+     * vise evenata, dok jedan event moze pripadati samo jednom klijentu.
+     * */
+    public function klijent() {
+        return $this->belongsTo('App\Klijent');
+    }
+
 }

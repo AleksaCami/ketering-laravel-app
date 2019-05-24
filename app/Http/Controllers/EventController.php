@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Klijent;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -21,8 +22,8 @@ class EventController extends Controller
 
     public function create()
     {
-        // Dodaj novog klijenta
-        return view('eventi.create');
+        $klijenti = Klijent::all();
+        return view('eventi.create')->with('klijenti', $klijenti);
     }
 
     public function store(Request $request)
@@ -33,7 +34,7 @@ class EventController extends Controller
             'vreme_pocetka' => 'required',
             'datum_zavrsetka' => 'required',
             'vreme_zavrsetka' => 'required',
-            'klijent' => 'required',
+            'klijent' => 'required|numeric',
         ]);
 
         $eventi = new Event;
@@ -42,7 +43,7 @@ class EventController extends Controller
         $eventi->vreme_pocetka = $request->input('vreme_pocetka');
         $eventi->datum_zavrsetka = $request->input('datum_zavrsetka');
         $eventi->vreme_zavrsetka = $request->input('vreme_zavrsetka');
-        $eventi->klijent = $request->input('klijent');
+        $eventi->klijent_id = $request->input('klijent');
 
         $eventi->save();
 

@@ -138,7 +138,7 @@
                         <a href="{{route('register')}}">Dodaj korisnika</a>
                     </li>
                     <li>
-                        <a href="/prikaz-korisnika" id="pregledSvihKorisnika">Pregled korisnika</a>
+                        <a href="/korisnici" id="pregledSvihKorisnika">Pregled korisnika</a>
                     </li>
                 </ul>
             </li>

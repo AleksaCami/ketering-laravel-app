@@ -13,12 +13,14 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
 
-    public function prikaz_korisnika()
+    // Prikaz svih korisnika
+    public function index()
     {
         $users = User::all();
-        return view('users.prikaz_korisnika')->with('users', $users);
+        return view('users.index')->with('users', $users);
     }
 
+    // Stranica za editovanje korisnika
     public function edit($id)
     {
         $korisnik = User::find($id);
@@ -26,9 +28,9 @@ class UsersController extends Controller
         return view('users.edit')->with('korisnik', $korisnik);
     }
 
+    // Metod sa upisivanje novih promena u bazu
     public function update(Request $request, $id)
     {
-//        dd($request->all());
 
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
@@ -41,6 +43,7 @@ class UsersController extends Controller
         $korisnik->name = $request->input('name');
         $korisnik->email = $request->input('email');
         $korisnik->tip_korisnika = $request->input('tip_korisnika');
+        // Ako je korisnik uneo lozinku
         if($request->input('password') != "") {
             $this->validate($request, [
                 'password' => ['confirmed', 'required', 'min:8'],
@@ -50,10 +53,7 @@ class UsersController extends Controller
 
         $korisnik->save();
 
-        return redirect('/prikaz-korisnika')->with('success', 'Vase promene su uspesno sacuvane');
-
-
-
+        return redirect('/korisnici')->with('success', 'Vase promene su uspesno sacuvane');
     }
 
     public function adminHome()

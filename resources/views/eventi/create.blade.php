@@ -15,8 +15,13 @@
                                 <label for="klijent" class="col-md-4 col-form-label text-md-right">{{ __('Klijent') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="klijent" type="text" class="form-control @error('klijent') is-invalid @enderror" name="klijent" required autocomplete="klijent">
-
+                                    {{--                                <input id="tip_korisnika" type="text" class="form-control @error('tip_korisnika') is-invalid @enderror" name="tip_korisnika" value="{{ old('tip_korisnika') }}" required autocomplete="tip_korisnika">--}}
+                                    <select name="klijent" class="form-control" id="exampleFormControlSelect1">
+                                        <option selected="selected" value="null">- Izaberite klijenta -</option>
+                                        @foreach($klijenti as $klijent)
+                                            <option value="{{ $klijent->id }}">{{ $klijent->naziv }}</option>
+                                        @endforeach
+                                    </select>
                                     @error('klijent')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
