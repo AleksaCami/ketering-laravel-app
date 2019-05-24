@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddKlijentIdToEvent extends Migration
+class CreateKuhinjeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddKlijentIdToEvent extends Migration
      */
     public function up()
     {
-        Schema::table('event', function (Blueprint $table) {
-            $table->integer('klijent_id');
+        Schema::create('kuhinje', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('naziv');
+            $table->text('opis');
+            $table->integer('magacin_id');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddKlijentIdToEvent extends Migration
      */
     public function down()
     {
-        Schema::table('event', function (Blueprint $table) {
-            $table->dropColumn('klijent_id');
-        });
+        Schema::dropIfExists('kuhinje');
     }
 }
