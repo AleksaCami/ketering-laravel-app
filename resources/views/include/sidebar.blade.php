@@ -37,7 +37,7 @@
                         <a href="#">Pregled svih pristiglih narudžbina</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svhih prihvacenih narudžbina</a>
+                        <a href="#">Pregled svih prihvacenih narudžbina</a>
                     </li>
                 </ul>
             </li>
@@ -50,7 +50,7 @@
             @case('vozac')
             {{--  VOZAC SIDEBAR --}}
             <li class="active">
-                <a href="#">Pregled narudžbenica spreminh za dostavu</a>
+                <a href="#">Pregled narudžbenica spreminih za dostavu</a>
             </li>
             <li>
                 <a href="#">Pregled narudžbina koji nisu vrećene</a>
@@ -64,10 +64,10 @@
                 <a href="#klijentiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Klijenti</a>
                 <ul class="collapse list-unstyled" id="klijentiSubmenu">
                     <li>
-                        <a href="/klijenti/create">Dodaj novog klijenta</a>
+                        <a href="/klijenti/create">Dodaj klijenta</a>
                     </li>
                     <li>
-                        <a href="/klijenti">Pregled svih klijenata</a>
+                        <a href="/klijenti">Pregled klijenata</a>
                     </li>
                 </ul>
             </li>
@@ -75,10 +75,10 @@
                 <a href="#eventiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Eventi</a>
                 <ul class="collapse list-unstyled" id="eventiSubmenu">
                     <li>
-                        <a href="/eventi/create">Dodaj novi event</a>
+                        <a href="/eventi/create">Dodaj event</a>
                     </li>
                     <li>
-                        <a href="/eventi">Pregled svih eveneta</a>
+                        <a href="/eventi">Pregled evenata</a>
                     </li>
                 </ul>
             </li>
@@ -86,10 +86,10 @@
                 <a href="#kuhinjaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kuhinja</a>
                 <ul class="collapse list-unstyled" id="kuhinjaSubmenu">
                     <li>
-                        <a href="#">Dodaj novu kuhinju</a>
+                        <a href="#">Dodaj kuhinju</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih kuhinja</a>
+                        <a href="#">Pregled kuhinja</a>
                     </li>
                 </ul>
             </li>
@@ -97,10 +97,10 @@
                 <a href="#prozivodiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Proizvodi</a>
                 <ul class="collapse list-unstyled" id="prozivodiSubmenu">
                     <li>
-                        <a href="/products/create">Dodaj novi proizvod</a>
+                        <a href="/products/create">Dodaj proizvod</a>
                     </li>
                     <li>
-                        <a href="/products">Pregled svih prodizvoda</a>
+                        <a href="/products">Pregled prodizvoda</a>
                     </li>
                 </ul>
             </li>
@@ -119,10 +119,10 @@
                 <a href="#narudzbineKlijentaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine klijenata</a>
                 <ul class="collapse list-unstyled" id="narudzbineKlijentaSubmenu">
                     <li>
-                        <a href="#">Dodaj novu narudžbinu</a>
+                        <a href="#">Dodaj narudžbinu</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih narudžbina</a>
+                        <a href="#">Pregled narudžbina</a>
                     </li>
                 </ul>
             </li>
@@ -146,10 +146,10 @@
                 <a href="#klijentiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Klijenti</a>
                 <ul class="collapse list-unstyled" id="klijentiSubmenu">
                     <li>
-                        <a href="/klijenti/create">Dodaj novog klijenta</a>
+                        <a href="/klijenti/create">Dodaj klijenta</a>
                     </li>
                     <li>
-                        <a href="/klijenti">Pregled svih klijenata</a>
+                        <a href="/klijenti">Pregled klijenata</a>
                     </li>
                 </ul>
             </li>
@@ -157,10 +157,10 @@
                 <a href="#eventiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Eventi</a>
                 <ul class="collapse list-unstyled" id="eventiSubmenu">
                     <li>
-                        <a href="/eventi/create">Dodaj novi event</a>
+                        <a href="/eventi/create">Dodaj event</a>
                     </li>
                     <li>
-                        <a href="/eventi">Pregled svih eveneta</a>
+                        <a href="/eventi">Pregled evenata</a>
                     </li>
                 </ul>
             </li>
@@ -168,10 +168,10 @@
                 <a href="#magaciniSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Magacini</a>
                 <ul class="collapse list-unstyled" id="magaciniSubmenu">
                     <li>
-                        <a href="/magacini/create">Dodaj novi magacin</a>
+                        <a href="/magacini/create">Dodaj magacin</a>
                     </li>
                     <li>
-                        <a href="/magacini">Pregled svih magacina</a>
+                        <a href="/magacini">Pregled magacina</a>
                     </li>
                 </ul>
             </li>
@@ -179,10 +179,10 @@
                 <a href="#kuhinjaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kuhinja</a>
                 <ul class="collapse list-unstyled" id="kuhinjaSubmenu">
                     <li>
-                        <a href="#">Dodaj novu kuhinju</a>
+                        <a href="#">Dodaj kuhinju</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih kuhinja</a>
+                        <a href="#">Pregled kuhinja</a>
                     </li>
                 </ul>
             </li>
@@ -190,10 +190,10 @@
                 <a href="#prozivodiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Proizvodi</a>
                 <ul class="collapse list-unstyled" id="prozivodiSubmenu">
                     <li>
-                        <a href="/products/create">Dodaj novi proizvod</a>
+                        <a href="/products/create">Dodaj proizvod</a>
                     </li>
                     <li>
-                        <a href="/products">Pregled svih prodizvoda</a>
+                        <a href="/products">Pregled prodizvoda</a>
                     </li>
                 </ul>
             </li>
@@ -212,10 +212,10 @@
                 <a href="#narudzbineKlijentaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine klijenata</a>
                 <ul class="collapse list-unstyled" id="narudzbineKlijentaSubmenu">
                     <li>
-                        <a href="#">Dodaj novu narudžbinu</a>
+                        <a href="#">Dodaj narudžbinu</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih narudžbina</a>
+                        <a href="#">Pregled narudžbina</a>
                     </li>
                 </ul>
             </li>
