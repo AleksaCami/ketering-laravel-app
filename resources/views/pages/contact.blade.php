@@ -22,8 +22,8 @@
                             <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control">
                                     <label for="name" class="">Ime</label>
+                                    <input type="text" id="name" name="name" class="form-control">
                                 </div>
                             </div>
                             <!--Grid column-->
@@ -31,8 +31,8 @@
                             <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="email" name="email" class="form-control">
                                     <label for="email" class="">Email</label>
+                                    <input type="text" id="email" name="email" class="form-control">
                                 </div>
                             </div>
                             <!--Grid column-->
@@ -44,8 +44,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="subject" name="subject" class="form-control">
                                     <label for="subject" class="">Predmet poruke</label>
+                                    <input type="text" id="subject" name="subject" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -58,8 +58,8 @@
                             <div class="col-md-12">
 
                                 <div class="md-form">
-                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                     <label for="message">Poruka</label>
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                 </div>
 
                             </div>
@@ -68,7 +68,7 @@
 
                     </form>
 
-                    <div class="text-center text-md-center">
+                    <div class="text-center text-md-center mt-3">
                         <a class="btn btn-primary p-3" onclick="document.getElementById('contact-form').submit();" style="color: white;"><b>Posalji</b></a>
                     </div>
                     <div class="status"></div>
