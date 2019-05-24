@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Klijent;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class EventiController extends Controller
 {
@@ -34,8 +35,29 @@ class EventiController extends Controller
             'vreme_pocetka' => 'required',
             'datum_zavrsetka' => 'required',
             'vreme_zavrsetka' => 'required',
-            'klijent' => 'required|numeric',
+            'klijent' => 'required|nullable',
         ]);
+
+        $datum_pocetka = Carbon::parse($request->input('datum_pocetka'));
+        $datum_zavrsetka = Carbon::parse($request->input('datum_zavrsetka'));
+
+        $vreme_pocetka = Carbon::parse($request->input('vreme_pocetka'));
+        $vreme_zavrsetka = Carbon::parse($request->input('vreme_zavrsetka'));
+
+        $razlika_datuma = $datum_pocetka->diffInDays($datum_zavrsetka, false);
+        $razlika_vremena = $vreme_pocetka->diffInMinutes($vreme_zavrsetka, false);
+
+        if ($razlika_datuma < 0)
+        {
+            return redirect('/eventi/create')->with('error', "Datum pocetka ne sme biti veci od datuma zavrsetka.");
+        }
+        elseif ($razlika_datuma == 0)
+        {
+            if($razlika_vremena < 0)
+            {
+                return redirect('/eventi/create')->with('error', "Vreme pocetka ne sme biti vece od vremena zavrsetka.");
+            }
+        }
 
         $eventi = new Event;
         $eventi->naziv = $request->input('naziv');
@@ -53,8 +75,9 @@ class EventiController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
+        $klijenti = Klijent::all();
 
-        return view('eventi.edit')->with('event', $event);
+        return view('eventi.edit')->with('event', $event)->with('klijenti', $klijenti);
     }
 
     public function update(Request $request, $id)
@@ -68,13 +91,34 @@ class EventiController extends Controller
             'klijent' => 'required',
         ]);
 
+        $datum_pocetka = Carbon::parse($request->input('datum_pocetka'));
+        $datum_zavrsetka = Carbon::parse($request->input('datum_zavrsetka'));
+
+        $vreme_pocetka = Carbon::parse($request->input('vreme_pocetka'));
+        $vreme_zavrsetka = Carbon::parse($request->input('vreme_zavrsetka'));
+
+        $razlika_datuma = $datum_pocetka->diffInDays($datum_zavrsetka, false);
+        $razlika_vremena = $vreme_pocetka->diffInMinutes($vreme_zavrsetka, false);
+
+        if ($razlika_datuma < 0)
+        {
+            return redirect('/eventi/edit/' . $id)->with('error', "Datum pocetka ne sme biti veci od datuma zavrsetka.");
+        }
+        elseif ($razlika_datuma == 0)
+        {
+            if($razlika_vremena <= 0)
+            {
+                return redirect('/eventi/edit/' . $id)->with('error', "Vreme pocetka ne sme biti vece ili jednako vremenu zavrsetka.");
+            }
+        }
+
         $eventi = Event::find($id);
         $eventi->naziv = $request->input('naziv');
         $eventi->datum_pocetka = $request->input('datum_pocetka');
         $eventi->vreme_pocetka = $request->input('vreme_pocetka');
         $eventi->datum_zavrsetka = $request->input('datum_zavrsetka');
         $eventi->vreme_zavrsetka = $request->input('vreme_zavrsetka');
-        $eventi->klijent = $request->input('klijent');
+        $eventi->klijent_id = $request->input('klijent');
 
         $eventi->save();
 
