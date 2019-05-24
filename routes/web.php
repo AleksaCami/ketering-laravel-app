@@ -55,6 +55,9 @@ Route::group(['prefix'=>'eventi'], function (){
     Route::get('/', 'EventController@index');
     Route::get('/create', 'EventController@create');
     Route::post('/store', 'EventController@store');
+    Route::get('/edit/{id}', 'EventController@edit');
+    Route::put('/update/{id}', 'EventController@update');
+    Route::delete('/destroy/{id}', 'EventController@destroy');
 });
 
 // Kontakt strana

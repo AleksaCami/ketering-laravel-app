@@ -31,8 +31,14 @@
                             <td>{{$event->datum_zavrsetka}}</td>
                             <td>{{$event->vreme_zavrsetka}}</td>
                             <td>{{$event->klijent}}</td>
-                            <td><a href="#"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
-                            <td><button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button></td>
+                            <td><a href="/eventi/edit/{{$event->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
+                            <td>
+                                <form method="POST" action="/eventi/destroy/{{$event->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
