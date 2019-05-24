@@ -47,7 +47,45 @@ class EventController extends Controller
 
         $eventi->save();
 
-        return redirect('/eventi')->with('success', 'Uspesno dodat novi event');
+        return redirect('/eventi')->with('success', 'Uspesno dodat novi event!');
+    }
 
+    public function edit($id)
+    {
+        $event = Event::find($id);
+
+        return view('eventi.edit')->with('event', $event);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'naziv' => 'required',
+            'datum_pocetka' => 'required',
+            'vreme_pocetka' => 'required',
+            'datum_zavrsetka' => 'required',
+            'vreme_zavrsetka' => 'required',
+            'klijent' => 'required',
+        ]);
+
+        $eventi = Event::find($id);
+        $eventi->naziv = $request->input('naziv');
+        $eventi->datum_pocetka = $request->input('datum_pocetka');
+        $eventi->vreme_pocetka = $request->input('vreme_pocetka');
+        $eventi->datum_zavrsetka = $request->input('datum_zavrsetka');
+        $eventi->vreme_zavrsetka = $request->input('vreme_zavrsetka');
+        $eventi->klijent = $request->input('klijent');
+
+        $eventi->save();
+
+        return redirect('/eventi')->with('success', 'Vase promene su uspesno sacuvane!');
+    }
+
+    public function destroy($id)
+    {
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect('/eventi')->with('success', 'Event uspesno obrisan!');
     }
 }
