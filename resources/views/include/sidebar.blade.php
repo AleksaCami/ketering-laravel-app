@@ -165,6 +165,17 @@
                 </ul>
             </li>
             <li>
+                <a href="#magaciniSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Magacini</a>
+                <ul class="collapse list-unstyled" id="magaciniSubmenu">
+                    <li>
+                        <a href="/magacini/create">Dodaj novi magacin</a>
+                    </li>
+                    <li>
+                        <a href="/magacini">Pregled svih magacina</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="#kuhinjaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kuhinja</a>
                 <ul class="collapse list-unstyled" id="kuhinjaSubmenu">
                     <li>

@@ -57,6 +57,17 @@ Route::group(['prefix'=>'eventi'], function (){
     Route::post('/store', 'EventController@store');
 });
 
+
+// Prikaz, dodavanje, editovanje i brisanje magacina
+Route::group(['prefix'=>'magacini'], function (){
+    Route::get('/', 'MagacinController@index');
+    Route::get('/create', 'MagacinController@create');
+    Route::post('/store', 'MagacinController@store');
+    Route::get('/edit/{id}', 'MagacinController@edit');
+    Route::put('/update/{id}', 'MagacinController@update');
+    Route::delete('/destroy/{id}', 'MagacinController@destroy');
+});
+
 // Kontakt strana
 Route::get('/contact', 'ContactController@index');
 
