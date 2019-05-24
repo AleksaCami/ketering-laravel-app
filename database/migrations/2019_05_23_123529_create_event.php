@@ -16,10 +16,10 @@ class CreateEvent extends Migration
         Schema::create('event', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('naziv');
-            $table->dateTime('datum_pocetka');
-            $table->string('vreme_pocetka');
-            $table->dateTime('datum_zavrsetka');
-            $table->string('vreme_zavrsetka');
+            $table->date('datum_pocetka');
+            $table->time('vreme_pocetka');
+            $table->date('datum_zavrsetka');
+            $table->time('vreme_zavrsetka');
             $table->string('klijent');
             $table->timestamps();
         });

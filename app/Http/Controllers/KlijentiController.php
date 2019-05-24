@@ -35,7 +35,7 @@ class KlijentiController extends Controller
             'email' => 'required|email',
             'kontakt_osoba' => 'required',
         ]);
-        
+
         $klijent = new Klijent;
         $klijent->naziv = $request->input('naziv');
         $klijent->adresa = $request->input('adresa');
