@@ -81,6 +81,13 @@ Route::group(['prefix'=>'products', 'middleware' => 'role:admin|prodaja'], funct
     Route::delete('/destroy/{id}', 'ProductsController@destroy');
 });
 
+Route::group(['prefix'=>'kuhinje', 'middleware' => 'role:admin|prodaja'], function () {
+    Route::get('/', 'KuhinjeController@index');
+    Route::get('/create', 'KuhinjeController@create');
+    Route::post('/store', 'KuhinjeController@store');
+
+});
+
 // Kontakt strana
 Route::get('/contact', 'ContactController@index');
 
