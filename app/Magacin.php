@@ -13,4 +13,8 @@ class Magacin extends Model
         'naziv', 'opis'
     ];
 
+    public function kuhinja() {
+        return $this->hasMany('App\Kuhinja');
+    }
+
 }

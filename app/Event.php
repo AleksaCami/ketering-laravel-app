@@ -9,7 +9,7 @@ class Event extends Model
 {
     protected $table = 'eventi';
     protected $fillable = [
-        'naziv', 'datum_pocetka', 'vreme_pocetka', 'datum_zavrsetka', 'vreme_zavrsetka', 'klijent'
+        'naziv', 'datum_pocetka', 'vreme_pocetka', 'datum_zavrsetka', 'vreme_zavrsetka', 'klijent_id'
     ];
 
 

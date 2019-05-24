@@ -179,10 +179,10 @@
                 <a href="#kuhinjaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kuhinja</a>
                 <ul class="collapse list-unstyled" id="kuhinjaSubmenu">
                     <li>
-                        <a href="#">Dodaj kuhinju</a>
+                        <a href="/kuhinje/create">Dodaj kuhinju</a>
                     </li>
                     <li>
-                        <a href="#">Pregled kuhinja</a>
+                        <a href="/kuhinje">Pregled kuhinja</a>
                     </li>
                 </ul>
             </li>
