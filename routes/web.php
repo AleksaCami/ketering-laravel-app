@@ -41,7 +41,7 @@ Route::put('/korisnici/update/{id}', 'UsersController@update')->middleware('role
 
 
 // Prikaz i dodavanje klijenata
-Route::group(['prefix'=>'klijenti'], function(){
+Route::group(['prefix'=>'klijenti', 'middleware' => 'role:admin|prodaja'], function(){
     Route::get('/', 'KlijentiController@index');
     Route::get('/create', 'KlijentiController@create');
     Route::post('/store', 'KlijentiController@store');
@@ -51,7 +51,7 @@ Route::group(['prefix'=>'klijenti'], function(){
 });
 
 // Prikaz i dodavanje evenata
-Route::group(['prefix'=>'eventi'], function (){
+Route::group(['prefix'=>'eventi', 'middleware' => 'role:admin|prodaja'], function (){
     Route::get('/', 'EventController@index');
     Route::get('/create', 'EventController@create');
     Route::post('/store', 'EventController@store');

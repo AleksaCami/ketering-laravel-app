@@ -16,10 +16,20 @@ class CheckRole
      */
     public function handle($request, Closure $next, $role)
     {
+        $role_names = explode('|', $role);
         $tip_korisnika = Auth::user()->tip_korisnika;
 
-        if($role == $tip_korisnika) {
-            return $next($request);
+        if(count($role_names) > 1) {
+            foreach ($role_names as $role_name) {
+                if($role_name == $tip_korisnika) {
+                    return $next($request);
+                }
+            }
+        } else {
+
+            if($role == $tip_korisnika) {
+                return $next($request);
+            }
         }
 
         return redirect('/'. $tip_korisnika);
