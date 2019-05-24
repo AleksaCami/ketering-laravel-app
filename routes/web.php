@@ -59,7 +59,7 @@ Route::group(['prefix'=>'eventi', 'middleware' => 'role:admin|prodaja'], functio
 
 
 // Prikaz, dodavanje, editovanje i brisanje magacina
-Route::group(['prefix'=>'magacini'], function (){
+Route::group(['prefix'=>'magacini', 'middleware' => 'role:admin|prodaja'], function (){
     Route::get('/', 'MagacinController@index');
     Route::get('/create', 'MagacinController@create');
     Route::post('/store', 'MagacinController@store');
