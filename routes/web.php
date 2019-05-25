@@ -89,6 +89,13 @@ Route::group(['prefix'=>'kuhinje', 'middleware' => 'role:admin|prodaja'], functi
 
 });
 
+// Prikaz, dodavanje, editovanje i brisanje inventara
+Route::group(['prefix'=>'inventory', 'middleware' => 'role:admin|prodaja'], function () {
+    Route::get('/', 'InventoryController@index');
+    Route::get('/create', 'InventoryController@create');
+    Route::post('/store', 'InventoryController@store');
+});
+
 // Kontakt strana
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact/store', 'ContactController@store');
