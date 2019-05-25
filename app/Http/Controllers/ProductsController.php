@@ -45,9 +45,16 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
-        $products = Product::find($id);
+        $product = Product::find($id);
+        $kuhinje = Kuhinja::all();
 
-        return view('products.edit')->with('product', $products);
+        $prodKuhinjaId = $product->kuhinja->id;
+
+        return view('products.edit', [
+            'kuhinje' => $kuhinje,
+            'product' => $product,
+            'prodKuhinjaId' => $prodKuhinjaId
+        ]);
     }
 
     public function update(Request $request, $id)

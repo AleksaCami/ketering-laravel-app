@@ -15,7 +15,6 @@
                                 <label for="klijent" class="col-md-4 col-form-label text-md-right">{{ __('Klijent') }}</label>
 
                                 <div class="col-md-6">
-                                    {{--                                <input id="tip_korisnika" type="text" class="form-control @error('tip_korisnika') is-invalid @enderror" name="tip_korisnika" value="{{ old('tip_korisnika') }}" required autocomplete="tip_korisnika">--}}
                                     <select name="klijent" class="form-control" id="exampleFormControlSelect1">
                                         <option value="">- Izaberite klijenta -</option>
                                         @foreach($klijenti as $klijent)
