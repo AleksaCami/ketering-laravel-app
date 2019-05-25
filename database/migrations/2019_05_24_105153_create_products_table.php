@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('mera');
             $table->float('cena');
             $table->string('opis');
-            $table->string('kategorija');
+            $table->integer('kuhinja_id');
             $table->timestamps();
         });
     }

@@ -14,4 +14,8 @@ class Kuhinja extends Model
     public function magacin() {
         return $this->belongsTo('App\Magacin');
     }
+
+    public function product() {
+        return $this->hasMany('App\Product');
+    }
 }

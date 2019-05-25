@@ -28,7 +28,7 @@
                             <td>{{$product->mera}}</td>
                             <td>{{$product->cena}}</td>
                             <td>{{$product->opis}}</td>
-                            <td>{{$product->kategorija}}</td>
+                            <td>{{$product->kuhinja->naziv}}</td>
                             <td><a href="/products/edit/{{$product->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
                             <td>
                                 <form method="POST" action="/products/destroy/{{$product->id}}">

@@ -56,14 +56,20 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="kategorija" class="col-md-4 col-form-label text-md-right">{{ __('Kategorija') }}</label>
+                                <label for="kuhinja" class="col-md-4 col-form-label text-md-right">{{ __('Kategorija') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="kategorija" type="text" class="form-control @error('kategorija') is-invalid @enderror" name="kategorija" value="{{ old('kategorija') }}" required autocomplete="kategorija"></input>
-                                    @error('kategorija')
+
+                                    <select name="kuhinja" class="form-control" id="exampleFormControlSelect1">
+                                        <option selected="selected" value="null">- Izaberite kuhinju -</option>
+                                        @foreach($kuhinje as $kuhinja)
+                                            <option value="{{ $kuhinja->id }}">{{ $kuhinja->naziv }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('kuhinja')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
