@@ -76,8 +76,14 @@ class EventiController extends Controller
     {
         $event = Event::find($id);
         $klijenti = Klijent::all();
+        //pravimo novu varijablu koja iz tabele eventa trazi klijenta s nekim ID-om
+        $eventovKlijentId = $event->klijent->id;
 
-        return view('eventi.edit')->with('event', $event)->with('klijenti', $klijenti);
+        return view('eventi.edit', [
+            'event' => $event,
+            'klijenti' => $klijenti,
+            'eventovKlijentId' => $eventovKlijentId
+        ]);
     }
 
     public function update(Request $request, $id)
