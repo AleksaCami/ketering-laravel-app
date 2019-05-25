@@ -81,6 +81,7 @@ Route::group(['prefix'=>'products', 'middleware' => 'role:admin|prodaja'], funct
     Route::delete('/destroy/{id}', 'ProductsController@destroy');
 });
 
+// Prikaz, dodavanje, editovanje i brisanje kuhinja
 Route::group(['prefix'=>'kuhinje', 'middleware' => 'role:admin|prodaja'], function () {
     Route::get('/', 'KuhinjeController@index');
     Route::get('/create', 'KuhinjeController@create');
@@ -90,5 +91,8 @@ Route::group(['prefix'=>'kuhinje', 'middleware' => 'role:admin|prodaja'], functi
 
 // Kontakt strana
 Route::get('/contact', 'ContactController@index');
+Route::post('/contact/store', 'ContactController@store');
+
+
 
 

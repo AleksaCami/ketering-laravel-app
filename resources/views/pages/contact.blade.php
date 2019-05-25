@@ -10,44 +10,37 @@
             <!--Section description-->
             <p class="text-center w-responsive mx-auto mb-5">Ukoliko imate tehnickih problema sa aplikacijom, mozete nas obavestiti putem kontakt forme.</p>
 
-            <div class="row">
-
-                <!--Grid column-->
-                <div class="col-md-12 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-                        <!--Grid row-->
+            <form method="POST" action="/contact/store">
+                @csrf
+                <div class="row">
+                    <div class="col-md-12 mb-md-0 mb-5">
                         <div class="row">
-
-                            <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <label for="name" class="">Ime</label>
-                                    <input type="text" id="name" name="name" class="form-control">
+                                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" required autofocus>
+
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <label for="email" class="">Email</label>
-                                    <input type="text" id="email" name="email" class="form-control">
+                                    <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" name="email" required>
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <!--Grid column-->
 
-                        </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <label for="subject" class="">Predmet poruke</label>
-                                    <input type="text" id="subject" name="subject" class="form-control">
-                                </div>
-                            </div>
                         </div>
                         <!--Grid row-->
 
@@ -59,43 +52,33 @@
 
                                 <div class="md-form">
                                     <label for="message">Poruka</label>
-                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                    <textarea rows="4" cols="50" type="text" id="message" name="message" rows="2" class="form-control @error('message') is-invalid @enderror" name="message" value="{{ old('message') }}" required></textarea>
+
+                                    @error('message')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
 
                             </div>
                         </div>
-                        <!--Grid row-->
-
-                    </form>
-
-                    <div class="text-center text-md-center mt-3">
-                        <a class="btn btn-primary p-3" onclick="document.getElementById('contact-form').submit();" style="color: white;"><b>Posalji</b></a>
+                        <div class="row">
+                            <div class="text-center text-md-left">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4 mt-4">
+                                        <button type="submit" class="btn btn-primary p-3 center-block">
+                                            {{ __('Posalji') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="status"></div>
                 </div>
-                <!--Grid column-->
-
-            </div>
+            </form>
 
         </section>
-        <!--Section: Contact v.2-->
-{{--        <div class="row justify-content-center">--}}
-{{--            <div class="col-md-8 mt-3">--}}
-{{--                <div class="card">--}}
-{{--                    <div class="card-header">Kontakt</div>--}}
-
-{{--                    <div class="card-body">--}}
-{{--                        @if (session('status'))--}}
-{{--                            <div class="alert alert-success" role="alert">--}}
-{{--                                {{ session('status') }}--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
-
-{{--                        You are logged in!--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
     </div>
 @endsection
 
