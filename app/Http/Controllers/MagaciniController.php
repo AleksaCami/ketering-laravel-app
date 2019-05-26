@@ -62,8 +62,8 @@ class MagaciniController extends Controller
 
     public function destroy($id)
     {
-        $magacini = Magacin::find($id);
-        $magacini->delete();
+        $magacin = Magacin::find($id);
+        $magacin->delete();
 
         return redirect('/magacini')->with('success', 'Magacin uspesno obrisan!');
     }

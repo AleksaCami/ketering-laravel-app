@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Edituj event') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/eventi/update/{{$event->id}}">
+                        <form method="POST" action="/eventi/update/{{ $event->id }}">
                             @csrf
                             @method('PUT')
                             <div class="form-group row">

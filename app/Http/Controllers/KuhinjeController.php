@@ -28,7 +28,6 @@ class KuhinjeController extends Controller
             'magacin' => 'required'
         ]);
 
-
         $kuhinje = new Kuhinja;
         $kuhinje->naziv = $request->input('naziv');
         $kuhinje->opis = $request->input('opis');
@@ -39,5 +38,42 @@ class KuhinjeController extends Controller
         return redirect('/kuhinje')->with('success', 'Uspesno dodata nova kuhinja!');
     }
 
+    public function edit($id)
+    {
+        $kuhinja = Kuhinja::find($id);
+        $magacini = Magacin::all();
+        $kuhinjaMagacinId = $kuhinja->magacin->id;
 
+        return view('kuhinje.edit', [
+            'kuhinja' => $kuhinja,
+            'magacini' => $magacini,
+            'kuhinjaMagacinId' => $kuhinjaMagacinId
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'naziv' => 'required',
+            'opis' => 'required',
+            'magacin' => 'required'
+        ]);
+
+        $kuhinje = Kuhinja::find($id);
+        $kuhinje->naziv = $request->input('naziv');
+        $kuhinje->opis = $request->input('opis');
+        $kuhinje->magacin_id = $request->input('magacin');
+
+        $kuhinje->save();
+
+        return redirect('/kuhinje')->with('success', 'Vase promene su uspesno sacuvane!');
+    }
+
+    public function destroy($id)
+    {
+        $kuhinja = Kuhinja::find($id);
+        $kuhinja->delete();
+
+        return redirect('/kuhinje')->with('success', 'Kuhinja uspesno obrisana!');
+    }
 }

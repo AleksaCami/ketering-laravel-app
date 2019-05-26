@@ -25,9 +25,9 @@
                             <td>{{$kuhinja->naziv}}</td>
                             <td>{{$kuhinja->opis}}</td>
                             <td>{{$kuhinja->magacin->naziv}}</td>
-                            <td><a href="/kuhinje/edit/{{$kuhinja->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
+                            <td><a href="/kuhinje/edit/{{ $kuhinja->id }}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
                             <td>
-                                <form method="POST" action="/magacini/destroy/{{$kuhinja->id}}">
+                                <form method="POST" action="/kuhinje/destroy/{{ $kuhinja->id }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button>
