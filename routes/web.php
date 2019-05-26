@@ -96,6 +96,9 @@ Route::group(['prefix'=>'inventory', 'middleware' => 'role:admin|prodaja'], func
     Route::get('/', 'InventoryController@index');
     Route::get('/create', 'InventoryController@create');
     Route::post('/store', 'InventoryController@store');
+    Route::get('/edit/{id}', 'InventoryController@edit');
+    Route::put('/update/{id}', 'InventoryController@update');
+    Route::delete('/destroy/{id}', 'InventoryController@destroy');
 });
 
 // Kontakt strana

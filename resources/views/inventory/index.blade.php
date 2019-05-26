@@ -31,7 +31,7 @@
                             <td>{{$item->magacin->naziv}}</td>
                             <td><a href="/inventory/edit/{{$item->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
                             <td>
-                                <form method="POST" action="/inventory/destroy/{{$item->id}}">
+                                <form method="POST" action="/inventory/destroy/{{ $item->id }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button>
