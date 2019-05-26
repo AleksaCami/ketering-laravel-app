@@ -85,7 +85,9 @@ Route::group(['prefix'=>'kuhinje', 'middleware' => 'role:admin|prodaja'], functi
     Route::get('/', 'KuhinjeController@index');
     Route::get('/create', 'KuhinjeController@create');
     Route::post('/store', 'KuhinjeController@store');
-
+    Route::get('/edit/{id}', 'KuhinjeController@edit');
+    Route::put('/update{id}', 'KuhinjeController@update');
+    Route::delete('/destroy/{id}', 'KuhinjeController@destroy');
 });
 
 // Kontakt strana
