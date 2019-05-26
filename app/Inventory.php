@@ -4,18 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kuhinja extends Model
+class Inventory extends Model
 {
-    protected $table = 'kuhinje';
+    protected $table = 'inventory';
     protected $fillable = [
-        'naziv', 'opis', 'magacin_id'
+        'naziv', 'mera', 'cena', 'pocetno_stanje', 'magacin_id'
     ];
 
     public function magacin() {
         return $this->belongsTo('App\Magacin');
-    }
-
-    public function product() {
-        return $this->hasMany('App\Product');
     }
 }

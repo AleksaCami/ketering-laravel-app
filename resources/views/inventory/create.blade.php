@@ -5,14 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Dodaj novi proizvod') }}</div>
+                    <div class="card-header">{{ __('Dodaj novi predmet u inventar') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/products/store">
+                        <form method="POST" action="/inventory/store">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Naziv proizvoda') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Naziv predmeta') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="naziv" type="text" class="form-control @error('naziv') is-invalid @enderror" name="naziv" value="{{ old('naziv') }}" required autocomplete="naziv" autofocus>
@@ -56,30 +56,11 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="kuhinja" class="col-md-4 col-form-label text-md-right">{{ __('Kategorija') }}</label>
+                                <label for="pocetno_stanje" class="col-md-4 col-form-label text-md-right">{{ __('Kolicina') }}</label>
 
                                 <div class="col-md-6">
-
-                                    <select name="kuhinja" class="form-control" id="exampleFormControlSelect1">
-                                        <option selected="selected" value="null">- Izaberite kuhinju -</option>
-                                        @foreach($kuhinje as $kuhinja)
-                                            <option value="{{ $kuhinja->id }}">{{ $kuhinja->naziv }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('kuhinja')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="opis" class="col-md-4 col-form-label text-md-right">{{ __('Opis') }}</label>
-
-                                <div class="col-md-6">
-                                    <textarea id="opis" type="text" class="form-control @error('opis') is-invalid @enderror" name="opis" value="{{ old('opis') }}" required autocomplete="adresa"></textarea>
-                                    @error('opis')
+                                    <input id="pocetno_stanje" type="number" class="form-control @error('pocetno_stanje') is-invalid @enderror" name="pocetno_stanje" value="{{ old('pocetno_stanje') }}" required autocomplete="pocetno_stanje">
+                                    @error('pocetno_stanje')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -87,10 +68,28 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="magacin" class="col-md-4 col-form-label text-md-right">{{ __('Magacin') }}</label>
+
+                                <div class="col-md-6">
+                                    <select name="magacin" class="form-control" id="exampleFormControlSelect1">
+                                        <option selected="selected" value="null">- Izaberite magacin -</option>
+                                        @foreach($magacini as $magacin)
+                                            <option value="{{ $magacin->id }}">{{ $magacin->naziv }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('magacin')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Dodaj proizvod') }}
+                                        {{ __('Dodaj predmet') }}
                                     </button>
                                 </div>
                             </div>

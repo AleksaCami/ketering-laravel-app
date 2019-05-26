@@ -15,7 +15,7 @@ class Event extends Model
 
     /*
      * Relationship
-     * Svaki evnet pripada nekom klijentu.
+     * Svaki event pripada nekom klijentu.
      * Pravimo relationship jedan prema vise, posto jedan klijent moze imati
      * vise evenata, dok jedan event moze pripadati samo jednom klijentu.
      * */

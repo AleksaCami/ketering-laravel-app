@@ -17,4 +17,8 @@ class Magacin extends Model
         return $this->hasMany('App\Kuhinja');
     }
 
+    public function inventory(){
+        return $this->hasMany('App\Inventory');
+    }
+
 }

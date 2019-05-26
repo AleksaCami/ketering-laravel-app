@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use App\Kuhinja;
 
 
 class ProductsController extends Controller
@@ -16,8 +17,8 @@ class ProductsController extends Controller
 
     public function create()
     {
-        // Dodaj novog klijenta
-        return view('products.create');
+        $kuhinje = Kuhinja::all();
+        return view('products.create')->with('kuhinje', $kuhinje);
     }
 
     public function store(Request $request)
@@ -27,7 +28,7 @@ class ProductsController extends Controller
             'mera' => 'required',
             'cena' => 'required',
             'opis' => 'required',
-            'kategorija' => 'required'
+            'kuhinja' => 'required'
         ]);
 
         $products = new Product;
@@ -35,7 +36,7 @@ class ProductsController extends Controller
         $products->mera = $request->input('mera');
         $products->cena = $request->input('cena');
         $products->opis = $request->input('opis');
-        $products->kategorija = $request->input('kategorija');
+        $products->kuhinja_id = $request->input('kuhinja');
 
         $products->save();
 
@@ -44,9 +45,16 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
-        $products = Product::find($id);
+        $product = Product::find($id);
+        $kuhinje = Kuhinja::all();
 
-        return view('products.edit')->with('product', $products);
+        $prodKuhinjaId = $product->kuhinja->id;
+
+        return view('products.edit', [
+            'kuhinje' => $kuhinje,
+            'product' => $product,
+            'prodKuhinjaId' => $prodKuhinjaId
+        ]);
     }
 
     public function update(Request $request, $id)
@@ -56,7 +64,7 @@ class ProductsController extends Controller
             'mera' => 'required',
             'cena' => 'required',
             'opis' => 'required',
-            'kategorija' => 'required'
+            'kuhinja' => 'required'
         ]);
 
         $products = Product::find($id);
@@ -64,7 +72,7 @@ class ProductsController extends Controller
         $products->mera = $request->input('mera');
         $products->cena = $request->input('cena');
         $products->opis = $request->input('opis');
-        $products->kategorija = $request->input('kategorija');
+        $products->kuhinja_id = $request->input('kuhinja');
 
         $products->save();
 

@@ -86,10 +86,10 @@
                 <a href="#kuhinjaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kuhinja</a>
                 <ul class="collapse list-unstyled" id="kuhinjaSubmenu">
                     <li>
-                        <a href="#">Dodaj kuhinju</a>
+                        <a href="/kuhinje/create">Dodaj kuhinju</a>
                     </li>
                     <li>
-                        <a href="#">Pregled kuhinja</a>
+                        <a href="/kuhinje">Pregled kuhinja</a>
                     </li>
                 </ul>
             </li>
@@ -108,7 +108,10 @@
                 <a href="#inventarSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inventar</a>
                 <ul class="collapse list-unstyled" id="inventarSubmenu">
                     <li>
-                        <a href="#">Pregled stanja inventara</a>
+                        <a href="/inventory/create">Dodaj inventar</a>
+                    </li>
+                    <li>
+                        <a href="/inventory">Pregled stanja inventara</a>
                     </li>
                     <li>
                         <a href="#">Pregled izgubljenog inventara</a>
@@ -201,7 +204,10 @@
                 <a href="#inventarSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inventar</a>
                 <ul class="collapse list-unstyled" id="inventarSubmenu">
                     <li>
-                        <a href="#">Pregled stanja inventara</a>
+                        <a href="/inventory/create">Dodaj inventar</a>
+                    </li>
+                    <li>
+                        <a href="/inventory">Pregled stanja inventara</a>
                     </li>
                     <li>
                         <a href="#">Pregled izgubljenog inventara</a>
