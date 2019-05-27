@@ -122,10 +122,10 @@
                 <a href="#narudzbineKlijentaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine klijenata</a>
                 <ul class="collapse list-unstyled" id="narudzbineKlijentaSubmenu">
                     <li>
-                        <a href="#">Dodaj narudžbinu</a>
+                        <a href="/orders/create">Dodaj narudžbinu</a>
                     </li>
                     <li>
-                        <a href="#">Pregled narudžbina</a>
+                        <a href="/orders">Pregled narudžbina</a>
                     </li>
                 </ul>
             </li>
@@ -218,10 +218,10 @@
                 <a href="#narudzbineKlijentaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine klijenata</a>
                 <ul class="collapse list-unstyled" id="narudzbineKlijentaSubmenu">
                     <li>
-                        <a href="#">Dodaj narudžbinu</a>
+                        <a href="/orders/create">Dodaj narudžbinu</a>
                     </li>
                     <li>
-                        <a href="#">Pregled narudžbina</a>
+                        <a href="/orders">Pregled narudžbina</a>
                     </li>
                 </ul>
             </li>
