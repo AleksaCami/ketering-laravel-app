@@ -12,42 +12,20 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4">
-                <figure class="card card-product p-4">
-                    <div class="img-wrap m-4"><img src="/storage/img/catering_logo.png" style="width: 100%; display: block; margin: auto;"></div>
-                    <figcaption class="info-wrap">
-                        <h4 class="title">Another name of item</h4>
-                        <p class="desc">Some small description goes here</p>
-                    </figcaption>
-                    <div class="bottom-wrap">
-                        <a href="" class="btn btn-block btn-primary float-right">Dodaj u korpu</a>
-                    </div> <!-- bottom-wrap.// -->
-                </figure>
-            </div> <!-- col // -->
-            <div class="col-md-4">
-                <figure class="card card-product p-4">
-                    <div class="img-wrap m-4"><img src="/storage/img/catering_logo.png" style="width: 100%; display: block; margin: auto;"></div>
-                    <figcaption class="info-wrap">
-                        <h4 class="title">Another name of item</h4>
-                        <p class="desc">Some small description goes here</p>
-                    </figcaption>
-                    <div class="bottom-wrap">
-                        <a href="" class="btn btn-block btn-primary float-right">Dodaj u korpu</a>
-                    </div> <!-- bottom-wrap.// -->
-                </figure>
-            </div> <!-- col // -->
-            <div class="col-md-4">
-                <figure class="card card-product p-4">
-                    <div class="img-wrap m-4"><img src="/storage/img/catering_logo.png" style="width: 100%; display: block; margin: auto;"></div>
-                    <figcaption class="info-wrap">
-                        <h4 class="title">Another name of item</h4>
-                        <p class="desc">Some small description goes here</p>
-                    </figcaption>
-                    <div class="bottom-wrap">
-                        <a href="" class="btn btn-block btn-primary float-right">Dodaj u korpu</a>
-                    </div> <!-- bottom-wrap.// -->
-                </figure>
-            </div> <!-- col // -->
+            @foreach($products as $product)
+                <div class="col-md-4">
+                    <figure class="card card-product p-4">
+                        <div class="img-wrap m-4"><img src="/storage/products_images/{{$product->products_images}}" style="width: 100%; display: block; margin: auto;"></div>
+                        <figcaption class="info-wrap">
+                            <h4 class="title">{{$product->naziv}}</h4>
+                            <p class="desc">{{$product->opis}}</p>
+                        </figcaption>
+                        <div class="bottom-wrap">
+                            <a href="" class="btn btn-block btn-primary float-right">Dodaj u korpu</a>
+                        </div> <!-- bottom-wrap.// -->
+                    </figure>
+                </div> <!-- col // -->
+            @endforeach
         </div> <!-- row.// -->
 
 
