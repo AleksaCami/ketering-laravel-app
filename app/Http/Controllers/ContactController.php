@@ -27,7 +27,21 @@ class ContactController extends Controller
             'message' => 'required'
         ]);
 
+//        $data = array(
+//            'name' => $request->input('name'),
+//            'email' => $request->input('email'),
+//            'user_message' => $request->input('message')
+//        );
+//
+//        Mail::send('pages.email', $data, function($message) {
+//            $message->to('mobrenic17@raf.rs', 'Obren')
+//                    ->subject('OVO JE PROBNI EMAIL');
+//            $message->from('obrenicmarko3@gmail.com', 'Makro Obrenic');
+//        });
+
         Contact::create($request->all());
+
+
         Mail::send('pages.email',
             array(
                 'name' => $request->get('name'),
@@ -35,7 +49,7 @@ class ContactController extends Controller
                 'user_message' => $request->get('message')
             ), function($message)
             {
-                $message->from('techanical-atom@gmail.com');
+                $message->from('ketering.app.laravel@gmail.com');
                 $message->to('ketering.app.laravel@gmail.com', 'Ketering')
                     ->subject('Contact Form Query');
             });

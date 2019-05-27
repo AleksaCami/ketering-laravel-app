@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->float('cena');
             $table->string('opis');
             $table->integer('kuhinja_id');
+            $table->string('products_images');
             $table->timestamps();
         });
     }
