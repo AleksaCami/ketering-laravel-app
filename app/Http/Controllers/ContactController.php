@@ -35,7 +35,7 @@ class ContactController extends Controller
                 'user_message' => $request->get('message')
             ), function($message)
             {
-                $message->from('techanical-atom@gmail.com');
+                $message->from('ketering.app.laravel@gmail.com');
                 $message->to('ketering.app.laravel@gmail.com', 'Ketering')
                     ->subject('Contact Form Query');
             });
