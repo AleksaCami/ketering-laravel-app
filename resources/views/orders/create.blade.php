@@ -27,17 +27,16 @@
                         </figure>
                     </div> <!-- col // -->
                 @endforeach
-                <div class="row">
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4">{{$products->links()}}</div>
-                    <div class="col-lg-4"></div>
-                </div>
             @else
                 <h2>Nemate proizvoda</h2>
             @endif
 
         </div> <!-- row.// -->
-
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">{{$products->links()}}</div>
+            <div class="col-lg-4"></div>
+        </div>
 
 
     </div>

@@ -15,7 +15,7 @@ class OrdersController extends Controller
     }
 
     public function create(){
-        $products = Product::orderBy('created_at', 'desc')->paginate(3);
+        $products = Product::orderBy('created_at', 'desc')->paginate(9);
         return view('orders.create')->with('products', $products);
     }
 }
