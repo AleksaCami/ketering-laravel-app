@@ -125,7 +125,7 @@
                         <a href="#">Dodaj narudžbinu</a>
                     </li>
                     <li>
-                        <a href="#">Pregled narudžbina</a>
+                        <a href="/orders">Pregled narudžbina</a>
                     </li>
                 </ul>
             </li>
@@ -221,7 +221,7 @@
                         <a href="#">Dodaj narudžbinu</a>
                     </li>
                     <li>
-                        <a href="#">Pregled narudžbina</a>
+                        <a href="/orders">Pregled narudžbina</a>
                     </li>
                 </ul>
             </li>
