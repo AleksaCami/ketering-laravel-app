@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Dodaj novi proizvod') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/products/store">
+                        <form method="POST" action="/products/store" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -84,6 +84,14 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="slika" class="col-md-4 col-form-label text-md-right">{{ __('Dodaj sliku') }}</label>
+
+                                <div class="col-md-6">
+                                    <input type="file" name="products_images">
                                 </div>
                             </div>
 
