@@ -101,8 +101,10 @@ Route::group(['prefix'=>'inventory', 'middleware' => 'role:admin|prodaja'], func
     Route::delete('/destroy/{id}', 'InventoryController@destroy');
 });
 
+// Prikaz porudzbenica
 Route::group(['prefix'=>'orders'], function() {
     Route::get('/', 'OrdersController@index');
+    Route::get('/create', 'OrdersController@create');
 });
 
 // Kontakt strana

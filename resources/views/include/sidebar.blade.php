@@ -122,7 +122,7 @@
                 <a href="#narudzbineKlijentaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine klijenata</a>
                 <ul class="collapse list-unstyled" id="narudzbineKlijentaSubmenu">
                     <li>
-                        <a href="#">Dodaj narudžbinu</a>
+                        <a href="/orders/create">Dodaj narudžbinu</a>
                     </li>
                     <li>
                         <a href="/orders">Pregled narudžbina</a>
@@ -218,7 +218,7 @@
                 <a href="#narudzbineKlijentaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine klijenata</a>
                 <ul class="collapse list-unstyled" id="narudzbineKlijentaSubmenu">
                     <li>
-                        <a href="#">Dodaj narudžbinu</a>
+                        <a href="/orders/create">Dodaj narudžbinu</a>
                     </li>
                     <li>
                         <a href="/orders">Pregled narudžbina</a>
