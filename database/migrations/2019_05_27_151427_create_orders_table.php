@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->integer('event_id');
             $table->text('napomena');
-            $table->date('rok_izrade');
+            $table->dateTime('rok_izrade');
             $table->integer('magacin_id');
             $table->integer('klijent_id');
             $table->integer('kuhinja_id');
