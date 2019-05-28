@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class OrdersController extends Controller
 {
@@ -14,7 +15,7 @@ class OrdersController extends Controller
     }
 
     public function create(){
-        $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->paginate(9);
         return view('orders.create')->with('products', $products);
     }
 }
