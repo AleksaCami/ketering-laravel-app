@@ -12,7 +12,7 @@
         </div>
 
         <div class="row">
-            @if(count($products) >= 0)
+            @if(count($products) > 0)
                 @foreach($products as $product)
                     <div class="col-md-4">
                         <figure class="card card-product p-4">
@@ -28,7 +28,13 @@
                     </div> <!-- col // -->
                 @endforeach
             @else
-                <h2>Nemate proizvoda</h2>
+                <div class='row'>
+                    <div class="col">
+                        <h2>Nemate proizvoda</h2>
+                        <br>
+                        <a href="/products/create"><button class="btn btn-primary btn-block mt-4">Dodaj proizvod</button></a>
+                    </div>
+                </div>
             @endif
 
         </div> <!-- row.// -->
