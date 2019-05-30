@@ -105,6 +105,7 @@ Route::group(['prefix'=>'inventory', 'middleware' => 'role:admin|prodaja'], func
 Route::group(['prefix'=>'orders'], function() {
     Route::get('/', 'OrdersController@index');
     Route::get('/create', 'OrdersController@create');
+    Route::post('/store', 'OrdersController@store');
 });
 
 // Kontakt strana

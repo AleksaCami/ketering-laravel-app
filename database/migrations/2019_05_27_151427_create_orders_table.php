@@ -18,11 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('event_id');
             $table->text('napomena');
             $table->dateTime('rok_izrade');
-            $table->integer('magacin_id');
-            $table->integer('klijent_id');
-            $table->integer('kuhinja_id');
             $table->string('status');
-            $table->integer('stavke_id');
             $table->timestamps();
         });
     }
