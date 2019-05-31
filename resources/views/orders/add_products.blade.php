@@ -63,16 +63,17 @@
 </div>
 
 <script>
-    $('#proizvodi').on('click', '#dodaj_proizvod', function() {
+    $(document).ready(() => {
+        $('#proizvodi').on('click', '#dodaj_proizvod', function() {
 
-        let product_id = $(this).val();
+            let product_id = $(this).val();
 
-        $.ajax({
-            url: 'http://localhost:8000/api/product/' + product_id,
-            type: 'GET',
-            success: function(result) {
-                console.log(result);
-                $('#bindProducts').append(`
+            $.ajax({
+                url: 'http://localhost:8000/api/product/' + product_id,
+                type: 'GET',
+                success: function(result) {
+                    console.log(result);
+                    $('#bindProducts').append(`
                     <tr>
                         <td>
                             <div class="img-wrap"><img src="/storage/products_images/${result.products_images}" class="img-thumbnail img-sm"></div>
@@ -97,9 +98,11 @@
                         </td>
                     </tr>
                 `);
-            }
+                }
+            });
         });
     });
+
 </script>
 
 @endsection
