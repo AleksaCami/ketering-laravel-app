@@ -89,4 +89,11 @@ class OrdersController extends Controller
 
         return redirect('/orders')->with('success', 'Porudzbenica uspesno obrisana!');
     }
+
+    public function add_products($id) {
+
+        $products = Product::orderBy('naziv', 'desc')->paginate(10);
+
+        return view('orders.add_products')->with('products', $products);
+    }
 }

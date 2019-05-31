@@ -6,6 +6,7 @@
         <div class="row">
             <h2>Prikaz porudzbenica</h2>
             <br>
+
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
@@ -25,7 +26,9 @@
                     @foreach($orders as $order)
                         <tr>
                             <td><input type="checkbox" name=""></td>
-                            <td><a href="#"><button class="btn btn-primary btn-xs"><i class="fas fa-plus"></i></button></a></td>
+                            <td class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary">Stavke</button>
+                            </td>
                             <td>{{$order->event->naziv}}</td>
                             <td>{{$order->event->klijent->naziv}}</td>
                             <td>{{$order->rok_izrade}}</td>

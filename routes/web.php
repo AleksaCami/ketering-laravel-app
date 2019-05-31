@@ -109,6 +109,11 @@ Route::group(['prefix'=>'orders'], function() {
     Route::get('/edit/{id}', 'OrdersController@edit');
     Route::put('/update/{id}', 'OrdersController@update');
     Route::delete('/destroy/{id}', 'OrdersController@destroy');
+    Route::get('/add_products/{id}', 'OrdersController@add_products');
+});
+
+Route::group(['prefix'=>'api', 'middleware' => 'role:admin|prodaja'], function () {
+    Route::get('/product/{id}', 'ProductsController@getProudctById');
 });
 
 // Kontakt strana

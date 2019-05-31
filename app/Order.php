@@ -15,8 +15,8 @@ class Order extends Model
     ];
 
     public function event() {
-        return $this->belongsTo('App\Event');
-    }
+    return $this->belongsTo('App\Event');
+}
 
     public function stavka() {
         return $this->hasMany('App\Stavka');

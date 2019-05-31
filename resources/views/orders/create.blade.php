@@ -99,6 +99,5 @@
 {{--            <div class="col-lg-4"></div>--}}
 {{--        </div>--}}
 {{--
-{{--    </div>--}}
 
 @endsection
