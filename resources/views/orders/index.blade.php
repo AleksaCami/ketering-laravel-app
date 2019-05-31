@@ -36,9 +36,9 @@
                             @else
                                 <td><i style="font-size: 50px; color: green;" class="fas fa-check"></i></td>
                             @endif
-                            <td><a href="#"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
+                            <td><a href="/orders/edit/{{$order->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
                             <td>
-                                <form method="POST" action="#">
+                                <form method="POST" action="/orders/destroy/{{$order->id}}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></button>

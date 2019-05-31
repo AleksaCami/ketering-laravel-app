@@ -101,11 +101,14 @@ Route::group(['prefix'=>'inventory', 'middleware' => 'role:admin|prodaja'], func
     Route::delete('/destroy/{id}', 'InventoryController@destroy');
 });
 
-// Prikaz porudzbenica
+// Prikaz, dodavanje, editovanje i brisanje porudzbenica
 Route::group(['prefix'=>'orders'], function() {
     Route::get('/', 'OrdersController@index');
     Route::get('/create', 'OrdersController@create');
     Route::post('/store', 'OrdersController@store');
+    Route::get('/edit/{id}', 'OrdersController@edit');
+    Route::put('/update/{id}', 'OrdersController@update');
+    Route::delete('/destroy/{id}', 'OrdersController@destroy');
 });
 
 // Kontakt strana
