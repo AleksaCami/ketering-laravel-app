@@ -12,7 +12,7 @@
         </div>
 
         <div class="row">
-            @if(count($products) >= 0)
+            @if(count($products) > 0)
                 @foreach($products as $product)
                     <div class="col-md-4">
                         <figure class="card card-product p-4">
@@ -22,7 +22,9 @@
                                 <p class="desc">{{$product->opis}}</p>
                             </figcaption>
                             <div class="bottom-wrap">
-                                <a href="" class="btn btn-block btn-primary float-right">Dodaj u korpu</a>
+                                <a href="" class="btn btn-block btn-primary float-right">
+                                    <i class="fa fa-shopping-cart"></i> Dodaj u korpu
+                                </a>
                             </div> <!-- bottom-wrap.// -->
                         </figure>
                     </div> <!-- col // -->

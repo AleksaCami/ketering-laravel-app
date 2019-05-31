@@ -11,8 +11,7 @@ class EventiController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('role:admin');
-//        $this->middleware('role:prodaja');
+        $this->middleware('auth');
     }
 
     public function index()
