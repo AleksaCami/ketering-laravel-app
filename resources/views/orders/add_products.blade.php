@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col">
-            <button class="btn btn-primary float-right sticky-top">Savke proizvoda <span>(0)</span></button>
+            <button class="btn btn-primary float-right sticky-top">Stavke proizvoda <span>(0)</span></button>
         </div>
     </div>
     <form action="/stavke/store" method="post">
@@ -42,7 +42,7 @@
                         </figcaption>
                         <div class="bottom-wrap">
                             <button value="{{$product->id}}" id="dodaj_proizvod" class="btn btn-block btn-primary float-right">
-                                Dodaj u podudžbenicu
+                                Dodaj u porudžbenicu
                             </button>
                         </div> <!-- bottom-wrap.// -->
                     </figure>
@@ -50,6 +50,8 @@
             @endforeach
         @else
             <h2>Nemate proizvoda</h2>
+            <br>
+            <a href="/products/create"><button class="btn btn-primary btn-block"></button></a>
         @endif
 
         </div> <!-- row.// -->
