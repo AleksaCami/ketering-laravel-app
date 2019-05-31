@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col">
-            <button class="btn btn-primary float-right sticky-top">Savke proizvoda <span>(0)</span></button>
+            <button class="btn btn-primary float-right sticky-top">Stavke proizvoda <span>(0)</span></button>
         </div>
     </div>
     <form class="mb-4" action="/stavke/store" method="post">
@@ -43,7 +43,7 @@
                         </figcaption>
                         <div class="bottom-wrap">
                             <button value="{{$product->id}}" id="dodaj_proizvod" class="btn btn-block btn-primary float-right">
-                                Dodaj u podudžbenicu
+                                Dodaj u porudžbenicu
                             </button>
                         </div> <!-- bottom-wrap.// -->
                     </figure>
@@ -51,6 +51,8 @@
             @endforeach
         @else
             <h2>Nemate proizvoda</h2>
+            <br>
+            <a href="/products/create"><button class="btn btn-primary btn-block">Dodaj proizvod</button></a>
         @endif
 
         </div> <!-- row.// -->
@@ -77,8 +79,7 @@
                 success: function(result) {
 
                     if($.inArray(result.id, productsInCart) !== -1) {
-                        // let cena = $('#cena').text();
-                        // $('#cena').text(cena+1);
+
                         $('#cena').val( function(i, oldval) {
                             return parseInt( oldval, 10) + 1;
                         });
@@ -117,6 +118,7 @@
             });
         });
     });
+
 </script>
 
 @endsection

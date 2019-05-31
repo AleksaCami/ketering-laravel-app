@@ -15,8 +15,8 @@
                     <th>Email<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                     <th>Pozicija<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                     <th>Nalog kreiran<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                    <th>Izmeni<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                    <th>Obrisi<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                    <th>Izmeni</th>
+                    <th>Obrisi</th>
                 </tr>
                 </thead>
                 <tbody>

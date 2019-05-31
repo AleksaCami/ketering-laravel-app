@@ -13,8 +13,8 @@
                         <th>Naziv<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Opis<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Magacin<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Izmeni<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Obrisi<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                        <th>Izmeni</th>
+                        <th>Obrisi</th>
                     </tr>
                     </thead>
                     <tbody>

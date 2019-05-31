@@ -15,8 +15,8 @@
                     <th>Broj telefona<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                     <th>E-mail<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                     <th>Kontakt osoba<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                    <th>Izmeni<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                    <th>Obrisi<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                    <th>Izmeni</th>
+                    <th>Obrisi</th>
                 </tr>
                 </thead>
                 <tbody>
