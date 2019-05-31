@@ -27,20 +27,7 @@ class ContactController extends Controller
             'message' => 'required'
         ]);
 
-//        $data = array(
-//            'name' => $request->input('name'),
-//            'email' => $request->input('email'),
-//            'user_message' => $request->input('message')
-//        );
-//
-//        Mail::send('pages.email', $data, function($message) {
-//            $message->to('mobrenic17@raf.rs', 'Obren')
-//                    ->subject('OVO JE PROBNI EMAIL');
-//            $message->from('obrenicmarko3@gmail.com', 'Makro Obrenic');
-//        });
-
         Contact::create($request->all());
-
 
         Mail::send('pages.email',
             array(
