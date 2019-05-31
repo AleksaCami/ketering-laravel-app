@@ -8,7 +8,7 @@
             <button class="btn btn-primary float-right sticky-top">Savke proizvoda <span>(0)</span></button>
         </div>
     </div>
-    <form action="/stavke/store" method="post">
+    <form class="mb-4" action="/stavke/store" method="post">
         <div class="card">
             <div class="table-responsive">
                 <table class="table table-hover shopping-cart-wrap">
@@ -26,6 +26,7 @@
                     </tbody>
                 </table>
             </div>
+            <button type="submit" class="btn btn-primary">Dodaj u porudžbenicu</button>
         </div>
 
     </form>
@@ -61,41 +62,59 @@
 </div>
 
 <script>
-    $('#proizvodi').on('click', '#dodaj_proizvod', function() {
+    $(document).ready(function () {
 
-        let product_id = $(this).val();
+        let productsInCart = [];
 
-        $.ajax({
-            url: 'http://localhost:8000/api/product/' + product_id,
-            type: 'GET',
-            success: function(result) {
-                console.log(result);
-                $('#bindProducts').append(`
-                    <tr>
-                        <td>
-                            <div class="img-wrap"><img src="/storage/products_images/${result.products_images}" class="img-thumbnail img-sm"></div>
-                        </td>
-                        <td>
-                            <figure class="media">
-                                <figcaption class="media-body">
-                                    <h6 class="title text-truncate">${result.naziv}</h6>
-                                </figcaption>
-                            </figure>
-                        </td>
-                        <td>
-                            <input class="form-control" type="number">
-                        </td>
-                        <td>
-                            <div class="price-wrap">
-                                <var class="price">${result.cena} din.</var>
-                            </div> <!-- price-wrap .// -->
-                        </td>
-                        <td class="text-right">
-                            <a href="" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
-                `);
-            }
+        $('#proizvodi').on('click', '#dodaj_proizvod', function() {
+
+            let product_id = $(this).val();
+
+
+            $.ajax({
+                url: 'http://localhost:8000/api/product/' + product_id,
+                type: 'GET',
+                success: function(result) {
+
+                    if($.inArray(result.id, productsInCart) !== -1) {
+                        // let cena = $('#cena').text();
+                        // $('#cena').text(cena+1);
+                        $('#cena').val( function(i, oldval) {
+                            return parseInt( oldval, 10) + 1;
+                        });
+
+                    } else {
+
+                        productsInCart.push(result.id);
+
+                        $('#bindProducts').append(`
+                            <tr>
+                                <td>
+                                    <div class="img-wrap"><img src="/storage/products_images/${result.products_images}" class="img-thumbnail img-sm"></div>
+                                </td>
+                                <td>
+                                    <figure class="media">
+                                        <figcaption class="media-body">
+                                            <h6 class="title text-truncate">${result.naziv}</h6>
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <input id="cena" style="width: 70px" class="form-control" type="number" name="kolicina" value="1">
+                                </td>
+                                <td>
+                                    <div class="price-wrap">
+                                        <var class="price">${result.cena} din.</var>
+                                    </div> <!-- price-wrap .// -->
+                                </td>
+                                <td class="text-right">
+                                    <a href="" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        `);
+                    }
+                }
+            });
         });
     });
 </script>
