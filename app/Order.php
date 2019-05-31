@@ -11,24 +11,8 @@ class Order extends Model
         'event_id',
         'napomena',
         'rok_izrade',
-        'magacin_id',
-        'klijent_id',
-        'kuhinja_id',
-        'status',
-        'stavke_id'
+        'status'
     ];
-
-    public function kuhinja() {
-        return $this->belongsTo('App\Kuhinja');
-    }
-
-    public function klijent() {
-        return $this->belongsTo('App\Klijent');
-    }
-
-    public function magacin() {
-        return $this->belongsTo('App\Magacin');
-    }
 
     public function event() {
         return $this->belongsTo('App\Event');
