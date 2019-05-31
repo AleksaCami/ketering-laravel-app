@@ -51,7 +51,7 @@
         @else
             <h2>Nemate proizvoda</h2>
             <br>
-            <a href="/products/create"><button class="btn btn-primary btn-block"></button></a>
+            <a href="/products/create"><button class="btn btn-primary btn-block">Dodaj proizvod</button></a>
         @endif
 
         </div> <!-- row.// -->
