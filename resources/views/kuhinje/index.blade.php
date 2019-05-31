@@ -10,7 +10,6 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
-                        <th><input type="checkbox" onclick="checkAll(this)"></th>
                         <th>Naziv<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Opis<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Magacin<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
@@ -21,7 +20,6 @@
                     <tbody>
                     @foreach($kuhinje as $kuhinja)
                         <tr>
-                            <td><input type="checkbox" name=""></td>
                             <td>{{$kuhinja->naziv}}</td>
                             <td>{{$kuhinja->opis}}</td>
                             <td>{{$kuhinja->magacin->naziv}}</td>

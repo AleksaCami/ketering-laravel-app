@@ -10,7 +10,6 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
-                        <th><input type="checkbox" onclick="checkAll(this)"></th>
                         <th>Stavke</th>
                         <th>Event<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Klijent<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
