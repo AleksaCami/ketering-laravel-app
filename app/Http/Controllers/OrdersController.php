@@ -10,6 +10,11 @@ use Illuminate\Support\Collection;
 
 class OrdersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         $orders = Order::all();
         return view('orders.index')->with('orders', $orders);

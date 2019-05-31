@@ -70,15 +70,6 @@
         </div>
     </div>
 
-{{--    <div class="container">--}}
-{{--        <div class="row sticky-top">--}}
-{{--            <div class="col mb-4">--}}
-{{--                <a href="#" class="btn btn-info btn-lg float-right">--}}
-{{--                    <i class="fa fa-shopping-cart"></i><span> (0)</span>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
 {{--        <div class="row">--}}
 {{--            @if(count($products) > 0)--}}
 {{--                @foreach($products as $product)--}}
@@ -90,19 +81,15 @@
 {{--                                <p class="desc">{{$product->opis}}</p>--}}
 {{--                            </figcaption>--}}
 {{--                            <div class="bottom-wrap">--}}
-{{--                                <a href="" class="btn btn-block btn-primary float-right">Dodaj u korpu</a>--}}
+{{--                                <a href="" class="btn btn-block btn-primary float-right">--}}
+{{--                                    <i class="fa fa-shopping-cart"></i> Dodaj u korpu--}}
+{{--                                </a>--}}
 {{--                            </div> <!-- bottom-wrap.// -->--}}
 {{--                        </figure>--}}
 {{--                    </div> <!-- col // -->--}}
 {{--                @endforeach--}}
 {{--            @else--}}
-{{--                <div class='row'>--}}
-{{--                    <div class="col">--}}
-{{--                        <h2>Nemate proizvoda</h2>--}}
-{{--                        <br>--}}
-{{--                        <a href="/products/create"><button class="btn btn-primary btn-block mt-4">Dodaj proizvod</button></a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+{{--                <h2>Nemate proizvoda</h2>--}}
 {{--            @endif--}}
 
 {{--        </div> <!-- row.// -->--}}
@@ -111,8 +98,7 @@
 {{--            <div class="col-lg-4">{{$products->links()}}</div>--}}
 {{--            <div class="col-lg-4"></div>--}}
 {{--        </div>--}}
-
-
+{{--
 {{--    </div>--}}
 
 @endsection

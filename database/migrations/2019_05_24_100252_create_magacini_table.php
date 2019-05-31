@@ -19,6 +19,21 @@ class CreateMagaciniTable extends Migration
             $table->string('opis');
             $table->timestamps();
         });
+
+        DB::connection('mysql')->table('magacini')->insert([
+            [
+                'naziv' => 'Magacin jedan',
+                'opis' => 'Ovo je magacin jedan',
+            ],
+            [
+                'naziv' => 'Magacin dva',
+                'opis' => 'Ovo je magacin dva',
+            ],
+            [
+                'naziv' => 'Magacin tri',
+                'opis' => 'Ovo je magacin tri',
+            ],
+        ]);
     }
 
     /**
