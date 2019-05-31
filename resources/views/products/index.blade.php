@@ -10,7 +10,6 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
-                        <th><input type="checkbox" onclick="checkAll(this)"></th>
                         <th>Naziv<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Jedinica mere<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Cena<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
@@ -24,7 +23,6 @@
                     <tbody>
                     @foreach($products as $product)
                         <tr>
-                            <td><input type="checkbox" name=""></td>
                             <td>{{$product->naziv}}</td>
                             <td>{{$product->mera}}</td>
                             <td>{{$product->cena}}</td>
