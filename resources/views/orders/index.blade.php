@@ -25,7 +25,7 @@
                     @foreach($orders as $order)
                         <tr>
                             <td><input type="checkbox" name=""></td>
-                            <td><a href="#"><button class="btn btn-primary btn-xs"><i class="fas fa-plus"></i></button></a></td>
+                            <td><a href="#"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
                             <td>{{$order->event->naziv}}</td>
                             <td>{{$order->event->klijent->naziv}}</td>
                             <td>{{$order->rok_izrade}}</td>
