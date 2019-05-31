@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class KuhinjeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $kuhinje = Kuhinja::all();
