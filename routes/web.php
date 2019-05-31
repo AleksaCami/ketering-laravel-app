@@ -109,6 +109,7 @@ Route::group(['prefix'=>'orders'], function() {
     Route::get('/edit/{id}', 'OrdersController@edit');
     Route::put('/update/{id}', 'OrdersController@update');
     Route::delete('/destroy/{id}', 'OrdersController@destroy');
+    Route::get('/show/{id}', 'OrdersController@show');
 });
 
 // Kontakt strana

@@ -17,7 +17,9 @@ class OrdersController extends Controller
 
     public function index(){
         $orders = Order::all();
-        return view('orders.index')->with('orders', $orders);
+        return view('orders.index', [
+            'orders' => $orders
+        ]);
     }
 
     public function create(){
@@ -89,4 +91,20 @@ class OrdersController extends Controller
 
         return redirect('/orders')->with('success', 'Porudzbenica uspesno obrisana!');
     }
+
+    public function show($id)
+    {
+        $order = Order::find($id);
+        $events = Event::all();
+        $nazivKlijenta = $order->event->klijent->naziv;
+        $nazivEventa = $order->event->naziv;
+
+        return view('orders.show', [
+            'order' => $order,
+            'events' => $events,
+            'nazivEventa' => $nazivEventa,
+            'nazivKlijenta' => $nazivKlijenta
+        ]);
+    }
 }
+
