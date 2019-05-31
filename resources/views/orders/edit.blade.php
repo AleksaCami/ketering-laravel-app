@@ -33,7 +33,7 @@
                                 <label for="rok_izrade" class="col-md-4 col-form-label text-md-right">{{ __('Rok izrade') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="rok_izrade" type="datetime-local" class="form-control @error('rok_izrade') is-invalid @enderror" name="rok_izrade" value="{{ old('rok_izrade', $event->rok_izrade) }}" required autocomplete="rok_izrade">
+                                    <input id="rok_izrade" type="datetime" class="form-control @error('rok_izrade') is-invalid @enderror" name="rok_izrade" value="{{ old('rok_izrade', $order->rok_izrade) }}" required autocomplete="rok_izrade">
 
                                     @error('rok_izrade')
                                     <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                                 <label for="napomena" class="col-md-4 col-form-label text-md-right">{{ __('Napomena') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="napomena" type="text" class="form-control @error('napomena') is-invalid @enderror" name="napomena" value="{{ old('napomena', $event->napomena) }}" required autocomplete="napomena">
+                                    <input id="napomena" type="text" class="form-control @error('napomena') is-invalid @enderror" name="napomena" value="{{ old('napomena', $order->napomena) }}" required autocomplete="napomena">
                                     @error('napomena')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
