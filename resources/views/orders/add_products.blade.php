@@ -85,11 +85,30 @@
 
             let product_id = $(this).val();
 
+            // pretvaram product_id u integer
+            let id = parseInt(product_id);
+
+            // url zbog preglednosti stavljamo u promenljivu
+            let url = 'http://localhost:8000/api/product/' + id;
+
+            // primer JavaScript async fetch metode koju cemo implementirati kasnije u pravu aplikaciju umesto ajax-a.
+            // fetch(url)
+            //     .then(response => {
+            //         return response.json();
+            //     })
+            //     .then(myJson => {
+            //         console.log(JSON.stringify(myJson));
+            //     });
 
             $.ajax({
-                url: 'http://localhost:8000/api/product/' + product_id,
+                url: url,
                 type: 'GET',
-                success: function(result) {
+                // !!!!!!!!
+                dataType: "json",
+                complete: function(result) {
+
+                    // Sada je result objekat, u kome se nalazi response u JSON obliku sa kojim mozete da radite sta ocete
+                    // console.log(result);
 
                     // Ako se u listi productInCard nalazi id proizvoda, inkrementuj
                     // vrednost, u suprotom dodaj proizvod u tabelu.
@@ -97,41 +116,44 @@
 
                         alert('Proizvod je vec u korpi');
 
-
                     } else {
                         productsInCart.push(result.id);
+
+                        // Problem je bio sto niste eksplicitno rekli Ajax-u da ocekujete JSON, cim sam to uradio sve je proradilo
+                        // Ukoliko iz nekog razloga nece da vam radi, ocistite app cache i config cache
+                        // console.log(result.responseJSON.id);
 
                         $('#bindProducts').append(`
                             <tr>
                                 <td>
-                                    <div class="img-wrap"><img src="/storage/products_images/${result.products_images}" class="img-thumbnail img-sm"></div>
+                                    <div class="img-wrap"><img src="/storage/products_images/${result.responseJSON.products_images}" class="img-thumbnail img-sm"></div>
                                 </td>
                                 <td>
                                     <figure class="media pt-4">
                                         <figcaption class="media-body">
-                                            <h6 class="title text-truncate">${result.naziv}</h6>
+                                            <h6 class="title text-truncate">${result.responseJSON.naziv}</h6>
                                         </figcaption>
                                     </figure>
                                 </td>
                                 <td>
                                     <div class="price-wrap">
-                                        <var id="cena${result.id}" class="price"><span id="cena">${result.cena}</span> din.</var>
+                                        <var id="cena${result.responseJSON.id}" class="price"><span id="cena">${result.responseJSON.cena}</span> din.</var>
                                     </div> <!-- price-wrap .// -->
                                 </td>
                                 <td>
-                                    <input id="kolicina${result.id}" style="width: 70px" class="kolicina form-control" type="number" name="kolicina" value="1">
+                                    <input id="kolicina${result.responseJSON.id}" style="width: 70px" class="kolicina form-control" type="number" name="kolicina" value="1">
                                 </td>
                                 <td>
                                     <div class="price-wrap">
-                                        <var id="ukupno${result.id}" class="price"><span id="ukupnaCena">${result.cena}</span> din.</var>
+                                        <var id="ukupno${result.responseJSON.id}" class="price"><span id="ukupnaCena">${result.responseJSON.cena}</span> din.</var>
                                     </div> <!-- price-wrap .// -->
                                 </td>
                                 <td class="text-right">
 
                                     <a href="#" id="deleteProduct" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
 
-                                </td>
                             </tr>
+                                </td>
                         `);
                         povecajUkupnuCenuSvihProizvoda();
                     }

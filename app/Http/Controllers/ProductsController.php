@@ -135,7 +135,7 @@ class ProductsController extends Controller
         return redirect('/products')->with('success', 'Proizvod uspesno obrisan!');
     }
 
-    public function getProudctById($id)
+    public function getProductById($id)
     {
         $product = Product::find($id);
         return response()->json($product);
