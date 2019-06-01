@@ -109,7 +109,7 @@
                                     </div> <!-- price-wrap .// -->
                                 </td>
                                 <td class="text-right">
-                                    <a href="" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                                    <a href="#" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         `);
