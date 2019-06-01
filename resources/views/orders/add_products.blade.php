@@ -8,6 +8,7 @@
             <button class="btn btn-primary float-right sticky-top">Stavke proizvoda <span>(0)</span></button>
         </div>
     </div>
+
     <form class="mb-4" action="/stavke/store" method="post">
         <div class="card">
             <div class="table-responsive">
@@ -28,17 +29,22 @@
             </div>
             <button type="submit" class="btn btn-primary">Dodaj u porudžbenicu</button>
         </div>
-
     </form>
+
+    <div class="row mb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <input id="pretraga" class="form-control border border-primary" type="search" placeholder="Search" aria-label="Search">
+        </div>
+    </div>
 
     <div id="proizvodi" class="row">
         @if(count($products) > 0)
             @foreach($products as $product)
-                <div class="col-md-4">
+                <div id="proizvod" class="col-md-4">
                     <figure class="card card-product p-4">
                         <div class="img-wrap m-4"><img src="/storage/products_images/{{$product->products_images}}" style="width: 100%;"></div>
                         <figcaption class="info-wrap">
-                            <h4 class="title">{{$product->naziv}}</h4>
+                            <h4 id="nazivProizvoda" class="title">{{$product->naziv}}</h4>
                             <p class="desc">{{$product->opis}}</p>
                         </figcaption>
                         <div class="bottom-wrap">
@@ -117,6 +123,24 @@
                 }
             });
         });
+    });
+
+    $("#pretraga").keyup(function() {
+
+        let input = $(this).val();
+        let regex = new RegExp("/\btest123/");
+
+        let test = $("h4#nazivProizvoda").toArray();
+
+        $.each(test, function(index, value){
+            let proizvod = $(value).text();
+            let provera = regex.test(input);
+
+            if(provera)
+            {
+                alert("grrr");
+            }
+        })
     });
 
 </script>
