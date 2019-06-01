@@ -8,7 +8,7 @@ class Inventory extends Model
 {
     protected $table = 'inventory';
     protected $fillable = [
-        'naziv', 'mera', 'cena', 'pocetno_stanje', 'magacin_id'
+        'naziv', 'mera', 'cena', 'pocetno_stanje', 'magacin_id', 'izgubljen'
     ];
 
     public function magacin() {

@@ -39,3 +39,13 @@ var {
     max-height: 75px;
     object-fit: cover;
 }
+
+.table {
+    margin-bottom: 1px;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+}
