@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 use App\Event;
+use App\Stavka;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -103,6 +104,7 @@ class OrdersController extends Controller
     {
         $order = Order::find($id);
         $events = Event::all();
+        $stavke = Stavka::all();
         $nazivKlijenta = $order->event->klijent->naziv;
         $nazivEventa = $order->event->naziv;
 
@@ -110,8 +112,13 @@ class OrdersController extends Controller
             'order' => $order,
             'events' => $events,
             'nazivEventa' => $nazivEventa,
-            'nazivKlijenta' => $nazivKlijenta
+            'nazivKlijenta' => $nazivKlijenta,
+            'stavke' => $stavke
         ]);
+    }
+
+    public function store_stavka(){
+        // metoda za store-ovanje stavki u bazu
     }
 }
 

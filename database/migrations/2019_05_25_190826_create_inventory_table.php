@@ -20,6 +20,7 @@ class CreateInventoryTable extends Migration
             $table->float('cena');
             $table->integer('pocetno_stanje');
             $table->integer('magacin_id');
+            $table->string('izgubljen');
             $table->timestamps();
         });
 
@@ -30,6 +31,7 @@ class CreateInventoryTable extends Migration
                 'cena' => '50',
                 'pocetno_stanje' => '80',
                 'magacin_id' => '3',
+                'izgubljen' => 'false'
             ],
             [
                 'naziv' => 'Duboki tanjiri',
@@ -37,6 +39,7 @@ class CreateInventoryTable extends Migration
                 'cena' => '100',
                 'pocetno_stanje' => '300',
                 'magacin_id' => '3',
+                'izgubljen' => 'false'
             ],
             [
                 'naziv' => 'Kašike',
@@ -44,6 +47,7 @@ class CreateInventoryTable extends Migration
                 'cena' => '20',
                 'pocetno_stanje' => '460',
                 'magacin_id' => '3',
+                'izgubljen' => 'false'
             ],
             [
                 'naziv' => 'Viljuške',
@@ -51,13 +55,15 @@ class CreateInventoryTable extends Migration
                 'cena' => '20',
                 'pocetno_stanje' => '460',
                 'magacin_id' => '3',
+                'izgubljen' => 'false'
             ],
             [
-                'naziv' => 'Niževi',
+                'naziv' => 'Noževi',
                 'mera' => 'komad',
                 'cena' => '20',
                 'pocetno_stanje' => '460',
                 'magacin_id' => '3',
+                'izgubljen' => 'false'
             ],
         ]);
     }
