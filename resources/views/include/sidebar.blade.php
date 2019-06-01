@@ -15,7 +15,7 @@
                 <a href="#inventarSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine</a>
                 <ul class="collapse list-unstyled" id="inventarSubmenu">
                     <li>
-                        <a href="#">Pregled stanja inventara</a>
+                        <a href="/inventory">Pregled stanja inventara</a>
                     </li>
                     <li>
                         <a href="#">Povrat inventara</a>
@@ -53,7 +53,7 @@
                 <a href="#">Pregled narudžbenica spreminih za dostavu</a>
             </li>
             <li>
-                <a href="#">Pregled narudžbina koji nisu vrećene</a>
+                <a href="#">Pregled narudžbina koje nisu vrećene</a>
             </li>
             @break
 
@@ -112,9 +112,6 @@
                     </li>
                     <li>
                         <a href="/inventory">Pregled stanja inventara</a>
-                    </li>
-                    <li>
-                        <a href="#">Pregled izgubljenog inventara</a>
                     </li>
                 </ul>
             </li>
@@ -208,9 +205,6 @@
                     </li>
                     <li>
                         <a href="/inventory">Pregled stanja inventara</a>
-                    </li>
-                    <li>
-                        <a href="#">Pregled izgubljenog inventara</a>
                     </li>
                 </ul>
             </li>
