@@ -22,7 +22,6 @@
                     </tr>
                     </thead>
                     <tbody id="bindProducts">
-
                     </tbody>
                 </table>
             </div>
@@ -31,12 +30,12 @@
 
     </form>
 
-    <div id="proizvodi" class="row">
+    <div id="proizvodi" class="row mt-5">
         @if(count($products) > 0)
             @foreach($products as $product)
-                <div class="col-md-4">
-                    <figure class="card card-product p-4">
-                        <div class="img-wrap m-4"><img src="/storage/products_images/{{$product->products_images}}" style="width: 100%;"></div>
+                <div class="col-md-4 col-lg-4 mt-3">
+                    <figure class="card card-product p-3 flex-fixed-width-item h-100">
+                        <div class="d-flex m-4"><img class="img-fluid" style="object-fit: cover; height: 35vh; width: auto" src="/storage/products_images/{{$product->products_images}}"></div>
                         <figcaption class="info-wrap">
                             <h4 class="title">{{$product->naziv}}</h4>
                             <p class="desc">{{$product->opis}}</p>
@@ -94,7 +93,7 @@
                                     <div class="img-wrap"><img src="/storage/products_images/${result.products_images}" class="img-thumbnail img-sm"></div>
                                 </td>
                                 <td>
-                                    <figure class="media">
+                                    <figure class="media pt-4">
                                         <figcaption class="media-body">
                                             <h6 class="title text-truncate">${result.naziv}</h6>
                                         </figcaption>

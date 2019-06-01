@@ -307,3 +307,9 @@ var {
      object-fit: cover;
 }
 
+.table > tbody > tr > td {
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
