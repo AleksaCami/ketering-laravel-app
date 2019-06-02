@@ -3,14 +3,14 @@
 @section('content')
 
 <div class="container">
-    <div class="row mb-4">
+    <div class="row">
         <div class="col">
-            <button class="btn btn-primary float-right sticky-top">Stavke proizvoda <span>(0)</span></button>
+            <button id="stavkeProizvoda" class="btn btn-success col-12 rounded-0">Stavke proizvoda (<span id="brojProizvoda"> 0 </span>)</button>
         </div>
     </div>
 
-    <form class="mb-4" action="/stavke/store" method="post">
-        <div class="card">
+    <form id="tabelaSaProizvodima" style="display: none" class="mb-4" action="/stavke/store" method="post">
+        <div class="card border-top-0">
             <div class="table-responsive">
                 <table class="table table-hover shopping-cart-wrap mb-0">
                     <thead class="text-muted">
@@ -40,14 +40,14 @@
 
     <div class="row">
         <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-            <input id="pretraga" class="form-control border border-primary" type="search" placeholder="Search" aria-label="Search">
+            <input id="pretraga" class="form-control border border-primary mt-3" type="search" placeholder="Search" aria-label="Search">
         </div>
     </div>
 
     <div id="proizvodi" class="row mt-2">
         @if(count($products) > 0)
             @foreach($products as $product)
-                <div class="col-md-4 col-lg-4 mt-3">
+                <div id="proizvod" class="col-md-4 col-lg-4 mt-3">
                     <figure class="card card-product p-3 flex-fixed-width-item h-100">
                         <div class="d-flex m-4"><img class="img-fluid" style="object-fit: cover; height: 35vh; width: auto" src="/storage/products_images/{{$product->products_images}}"></div>
                         <figcaption class="info-wrap">
@@ -69,11 +69,11 @@
         @endif
 
         </div> <!-- row.// -->
-        <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">{{$products->links()}}</div>
-            <div class="col-lg-4"></div>
-        </div>
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-4"></div>--}}
+{{--            <div class="col-lg-4">{{$products->links()}}</div>--}}
+{{--            <div class="col-lg-4"></div>--}}
+{{--        </div>--}}
 </div>
 
 <script>
@@ -81,6 +81,7 @@
 
         let productsInCart = [];
 
+        // Event na dugme za dodavanje proizvoda u korpu
         $('#proizvodi').on('click', '#dodaj_proizvod', function() {
 
             let product_id = $(this).val();
@@ -110,14 +111,15 @@
                     // Sada je result objekat, u kome se nalazi response u JSON obliku sa kojim mozete da radite sta ocete
                     // console.log(result);
 
-                    // Ako se u listi productInCard nalazi id proizvoda, inkrementuj
-                    // vrednost, u suprotom dodaj proizvod u tabelu.
-                    if($.inArray(result.id, productsInCart) !== -1) {
+                    // Ako se u listi productInCard nalazi id proizvoda, ispisi
+                    // alert poruku, u suprotom dodaj proizvod u tabelu.
+                    if($.inArray(result.responseJSON.id, productsInCart) !== -1) {
 
                         alert('Proizvod je vec u korpi');
 
                     } else {
-                        productsInCart.push(result.id);
+
+                        productsInCart.push(result.responseJSON.id);
 
                         // Problem je bio sto niste eksplicitno rekli Ajax-u da ocekujete JSON, cim sam to uradio sve je proradilo
                         // Ukoliko iz nekog razloga nece da vam radi, ocistite app cache i config cache
@@ -150,27 +152,37 @@
                                 </td>
                                 <td class="text-right">
 
-                                    <a href="#" id="deleteProduct" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                                    <a data-id="${result.responseJSON.id}" href="#" id="deleteProduct" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
 
                             </tr>
                                 </td>
                         `);
                         povecajUkupnuCenuSvihProizvoda();
+                        povecajBrojProizvoda();
                     }
                 }
             }); // ajax
 
-            // Povecaj total
-
         }); // event dodaj_proizvod
 
+        // Event za brisanje proizvoda
         $('body').on('click', '#deleteProduct', function(e) {
             e.preventDefault();
 
+            // Obisi id iz liste productsInCart pa zatim obrisi ceo elemenat
+            let index = productsInCart.indexOf($(this).data('id'));
+            if (index > -1) {
+                productsInCart.splice(index, 1);
+            }
+
             $(this).parents('tr').detach();
 
+            povecajUkupnuCenuSvihProizvoda();
+            povecajBrojProizvoda();
         });
 
+
+        // Event za dodavanje kolicine na proizvod
         $('body').on('change', '.kolicina', function(e) {
 
             let kolicina = $(this).val();
@@ -184,7 +196,32 @@
 
             povecajUkupnuCenuSvihProizvoda();
         });
-        
+
+        // Event za pretragu
+        $("#pretraga").keyup(function() {
+
+            let valueOfInput = $(this).val().toLowerCase();
+
+            $("h4#nazivProizvoda").filter(function() {
+                let proizvod = $(this).parents('#proizvod');
+                let nazivProizvoda = $(this).text();
+
+                if(nazivProizvoda.toLowerCase().indexOf(valueOfInput)) {
+                    console.log('Nema proizvoda');
+                    $(proizvod).hide();
+                } else {
+                    $(proizvod).show();
+                }
+
+            });
+        });
+
+        // Event za prikaz tabele sa proizvodima
+        $("#stavkeProizvoda").on('click', function () {
+            $('#tabelaSaProizvodima').slideToggle(200, 'linear');
+        });
+
+
         function povecajUkupnuCenuSvihProizvoda() {
             let kolicinaSvihProizvoda = $('#bindProducts tr').toArray();
             let ukupnaCenaSvihProizvoda = $('#total');
@@ -200,25 +237,18 @@
 
             $(ukupnaCenaSvihProizvoda).text(novaCenaSvihProizvoda);
         }
-    });
 
-    $("#pretraga").keyup(function() {
+        function povecajBrojProizvoda() {
 
-        let input = $(this).val();
-        let regex = new RegExp("/\btest123/");
+            $('#brojProizvoda').text(productsInCart.length);
 
-        let test = $("h4#nazivProizvoda").toArray();
+        }
 
-        $.each(test, function(index, value){
-            let proizvod = $(value).text();
-            let provera = regex.test(input);
 
-            if(provera)
-            {
-                alert("grrr");
-            }
-        })
-    });
+
+
+    }); // Document ready
+
 
 </script>
 

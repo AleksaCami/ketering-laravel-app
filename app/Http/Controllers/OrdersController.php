@@ -95,7 +95,12 @@ class OrdersController extends Controller
 
     public function add_products($id)
     {
-        $products = Product::orderBy('naziv', 'desc')->paginate(10);
+
+        // Paginacija jebe prilikom pretrazivanja proizvoda
+        // Ne moze da pronadje proizvode koji se nalaze na drugoj strani
+        //$products = Product::orderBy('naziv', 'desc')->paginate(9);
+        $products = Product::all();
+
 
         return view('orders.add_products')->with('products', $products);
     }
