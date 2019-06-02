@@ -34,7 +34,7 @@
                 <a href="#narudzbineSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine</a>
                 <ul class="collapse list-unstyled" id="narudzbineSubmenu">
                     <li>
-                        <a href="#">Pregled svih pristiglih narudžbina</a>
+                        <a href="/orders/kuhinja">Pregled svih pristiglih narudžbina</a>
                     </li>
                     <li>
                         <a href="#">Pregled svih prihvacenih narudžbina</a>

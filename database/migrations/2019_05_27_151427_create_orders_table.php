@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->text('napomena');
             $table->dateTime('rok_izrade');
             $table->boolean('status');
+            $table->boolean('prihvacena');
             $table->timestamps();
         });
         DB::connection('mysql')->table('orders')->insert([
@@ -27,18 +28,21 @@ class CreateOrdersTable extends Migration
                 'rok_izrade' => '2019-06-06 17:00:00',
                 'status' => '0',
                 'event_id' => '1',
+                'prihvacena' => '0'
             ],
             [
                 'napomena' => 'Pica mora biti vruca',
                 'rok_izrade' => '2019-06-01 15:30:00',
                 'status' => '0',
                 'event_id' => '2',
+                'prihvacena' => '0'
             ],
             [
                 'napomena' => 'Podvarak mora biti masan',
                 'rok_izrade' => '2019-06-24 17:00:00',
                 'status' => '0',
                 'event_id' => '3',
+                'prihvacena' => '0'
             ],
         ]);
     }

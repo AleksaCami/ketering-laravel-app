@@ -11,7 +11,8 @@ class Order extends Model
         'event_id',
         'napomena',
         'rok_izrade',
-        'status'
+        'status',
+        'prihvacena'
     ];
 
     public function event() {

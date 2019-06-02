@@ -140,5 +140,12 @@ class OrdersController extends Controller
 
         return redirect('/orders')->with('success', 'Uspesno dodate stavke');
     }
+
+    public function kuhinja_pregled(){
+        $orders = Order::all();
+        return view('orders.kuhinja', [
+            'orders' => $orders
+        ]);
+    }
 }
 
