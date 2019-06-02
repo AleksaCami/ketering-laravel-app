@@ -11,6 +11,8 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
+                        <th>Potvrdi</th>
+                        <th>Storniraj</th>
                         <th>Stavke</th>
                         <th>Event<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Klijent<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
@@ -22,24 +24,32 @@
                     <tbody>
                     @foreach($orders as $order)
                         @if($order->prihvacena == true)
-                            <tr>
-                {{--  Mozda da napravimo foru da mogu da odbiju porudzbinu, odnosno storniraju?? --}}
-{{--                                <td>--}}
-{{--                                    <form method="post" action="/orders/accept/{{$order->id}}">--}}
-{{--                                        @csrf--}}
-{{--                                        <input type="hidden" name="prihvacena" value="{{$order->id}}">--}}
-{{--                                        <button id="prihvati" class="btn btn-primary btn-xs" type="submit">Prihvati</button></a>--}}
-{{--                                    </form>--}}
-{{--                                </td>--}}
-                                <td><a href="/orders/show/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
-                                <td>{{$order->event->naziv}}</td>
-                                <td>{{$order->event->klijent->naziv}}</td>
-                                <td>{{$order->rok_izrade}}</td>
-                                <td>{{$order->napomena}}</td>
-                                @if($order->status == false)
-                                    <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
-                                @endif
-                            </tr>
+                            @if($order->status == false)
+                                <tr>
+                                    <td>
+                                        <form method="post" action="/orders/finish/{{$order->id}}">
+                                            @csrf
+                                            <input type="hidden" name="status" value="{{$order->id}}">
+                                            <button id="prihvati" class="btn btn-primary btn-xs" type="submit">Zavrsi narudzbinu</button></a>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="/orders/storniraj/{{$order->id}}">
+                                            @csrf
+                                            <input type="hidden" name="prihvacena" value="{{$order->id}}">
+                                            <button class="btn btn-danger btn-xs" type="submit">Storniraj</button></a>
+                                        </form>
+                                    </td>
+                                    <td><a href="/orders/show/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
+                                    <td>{{$order->event->naziv}}</td>
+                                    <td>{{$order->event->klijent->naziv}}</td>
+                                    <td>{{$order->rok_izrade}}</td>
+                                    <td>{{$order->napomena}}</td>
+                                    @if($order->status == false)
+                                        <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
+                                    @endif
+                                </tr>
+                            @endif
                         @endif
                     @endforeach
                     </tbody>

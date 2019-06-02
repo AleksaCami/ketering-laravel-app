@@ -23,7 +23,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#">Pregled kompletiranih narudžbina</a>
+                <a href="/orders/finished">Pregled kompletiranih narudžbina</a>
             </li>
             @break
 
@@ -53,7 +53,7 @@
                 <a href="#">Pregled narudžbenica spreminih za dostavu</a>
             </li>
             <li>
-                <a href="#">Pregled narudžbina koje nisu vrećene</a>
+                <a href="#">Pregled narudžbina koje nisu vraćene</a>
             </li>
             @break
 

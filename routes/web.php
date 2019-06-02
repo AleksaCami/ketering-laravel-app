@@ -102,7 +102,7 @@ Route::group(['prefix'=>'inventory', 'middleware' => 'role:admin|prodaja|magacin
 });
 
 // Prikaz, dodavanje, editovanje i brisanje porudzbenica
-Route::group(['prefix'=>'orders'], function() {
+Route::group(['prefix'=>'orders', 'middleware' => 'role:admin|magacin|kuhinja'], function() {
     Route::get('/', 'OrdersController@index');
     Route::get('/create', 'OrdersController@create');
     Route::post('/store', 'OrdersController@store');
@@ -115,6 +115,10 @@ Route::group(['prefix'=>'orders'], function() {
     Route::get('/kuhinja', 'OrdersController@kuhinja_pregled');
     Route::post('/accept/{id}', 'OrdersController@accept_order');
     Route::get('/kuhinja/prihvacene', 'OrdersController@kuhinja_prihvacene');
+    Route::post('/storniraj/{id}', 'OrdersController@storniraj');
+    Route::post('/finish/{id}', 'OrdersController@finalize_order');
+    Route::get('/finished', 'OrdersController@finished_orders');
+
 });
 
 Route::group(['prefix'=>'api', 'middleware' => 'role:admin|prodaja'], function () {
