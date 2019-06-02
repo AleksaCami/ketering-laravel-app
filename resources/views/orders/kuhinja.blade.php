@@ -22,18 +22,25 @@
                     </thead>
                     <tbody>
                     @foreach($orders as $order)
+                        @if($order->prihvacena == false)
                         <tr>
-                            <td><a href="#"><button class="btn btn-primary btn-xs">Prihvati</button></a></td>
+                            <td>
+                                <form method="post" action="/orders/accept/{{$order->id}}">
+                                    @csrf
+                                    <input type="hidden" name="prihvacena" value="{{$order->id}}">
+                                    <button id="prihvati" class="btn btn-primary btn-xs" type="submit">Prihvati</button></a>
+                                </form>
+                            </td>
                             <td><a href="/orders/show/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
                             <td>{{$order->event->naziv}}</td>
                             <td>{{$order->event->klijent->naziv}}</td>
                             <td>{{$order->rok_izrade}}</td>
                             <td>{{$order->napomena}}</td>
-                            {{-- Ukoliko je status false, prikazace crveni iks, ukoliko je true zeleni checkmark --}}
                             @if($order->status == false)
                                 <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
                             @endif
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>

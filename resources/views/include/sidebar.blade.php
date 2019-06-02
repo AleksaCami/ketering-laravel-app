@@ -37,7 +37,7 @@
                         <a href="/orders/kuhinja">Pregled svih pristiglih narudžbina</a>
                     </li>
                     <li>
-                        <a href="#">Pregled svih prihvacenih narudžbina</a>
+                        <a href="/orders/kuhinja/prihvacene">Pregled svih prihvacenih narudžbina</a>
                     </li>
                 </ul>
             </li>

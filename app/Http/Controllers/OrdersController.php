@@ -36,7 +36,8 @@ class OrdersController extends Controller
             'event_id' => 'required',
             'rok_izrade' => 'required',
             'napomena' => 'required',
-            'status' => ''
+            'status' => '',
+            'prihvacena' => ''
         ]);
 
         $orders = new Order;
@@ -45,6 +46,8 @@ class OrdersController extends Controller
         $orders->napomena = $request->input('napomena');
         // Status je postavljen na false na pocetku, sve dok se porudzbina ne izvrsi
         $orders->status = false;
+        // Porudzbenica nije prihvacena po kreaciji
+        $orders->prihvacena = false;
 
         $orders->save();
 
@@ -144,6 +147,22 @@ class OrdersController extends Controller
     public function kuhinja_pregled(){
         $orders = Order::all();
         return view('orders.kuhinja', [
+            'orders' => $orders
+        ]);
+    }
+
+    public function accept_order($id){
+
+        $order = Order::find($id);
+        $order->prihvacena = 1;
+        $order->update();
+
+        return redirect('/orders/kuhinja')->with('success', 'Uspesno prihvacena porudzbenica');
+    }
+
+    public function kuhinja_prihvacene(){
+        $orders = Order::all();
+        return view('orders.prihvacene', [
             'orders' => $orders
         ]);
     }

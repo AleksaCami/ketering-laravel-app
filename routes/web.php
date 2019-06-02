@@ -113,6 +113,8 @@ Route::group(['prefix'=>'orders'], function() {
     Route::get('/add_products/{id}', 'OrdersController@add_products');
     Route::post('/stavke/store', 'OrdersController@store_stavka');
     Route::get('/kuhinja', 'OrdersController@kuhinja_pregled');
+    Route::post('/accept/{id}', 'OrdersController@accept_order');
+    Route::get('/kuhinja/prihvacene', 'OrdersController@kuhinja_prihvacene');
 });
 
 Route::group(['prefix'=>'api', 'middleware' => 'role:admin|prodaja'], function () {
