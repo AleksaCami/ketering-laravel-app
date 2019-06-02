@@ -9,7 +9,8 @@
         </div>
     </div>
 
-    <form id="tabelaSaProizvodima" style="display: none" class="mb-4" action="/stavke/store" method="post">
+    <form id="tabelaSaProizvodima" style="display: none" class="mb-4" action="/orders/stavke/store" method="post">
+        @csrf
         <div class="card border-top-0">
             <div class="table-responsive">
                 <table class="table table-hover shopping-cart-wrap mb-0">
@@ -53,6 +54,7 @@
                         <figcaption class="info-wrap">
                             <h4 id="nazivProizvoda" class="title">{{$product->naziv}}</h4>
                             <p class="desc">{{$product->opis}}</p>
+                            <p style="font-size: 20px; font-weight: bold; color: #007BFF">{{$product->cena}}<span> din.</span></p>
                         </figcaption>
                         <div class="bottom-wrap">
                             <button value="{{$product->id}}" id="dodaj_proizvod" class="btn btn-block btn-primary float-right">

@@ -111,6 +111,7 @@ Route::group(['prefix'=>'orders'], function() {
     Route::delete('/destroy/{id}', 'OrdersController@destroy');
     Route::get('/show/{id}', 'OrdersController@show');
     Route::get('/add_products/{id}', 'OrdersController@add_products');
+    Route::post('/stavke/store', 'OrdersController@store_stavka');
 });
 
 Route::group(['prefix'=>'api', 'middleware' => 'role:admin|prodaja'], function () {

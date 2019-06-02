@@ -122,8 +122,23 @@ class OrdersController extends Controller
         ]);
     }
 
-    public function store_stavka(){
-        // metoda za store-ovanje stavki u bazu
+    public function store_stavka(Request $request){
+        $this->validate($request, [
+            'order_id' => 'required',
+            'product_id' => 'required',
+            'kolicina' => 'required'
+        ]);
+
+        // Nacin kako da dodamo u bazu proizvode iz korpe
+        // posto nemamo name na poljima nigde??
+        $stavke = new Stavka;
+       // $stavke->order_id = $request->
+       // $stavke->product_id;
+       // $stavke->kolicina;
+
+        $stavke->save();
+
+        return redirect('/orders')->with('success', 'Uspesno dodate stavke');
     }
 }
 
