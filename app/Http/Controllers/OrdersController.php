@@ -6,6 +6,7 @@ use App\Order;
 use App\Product;
 use App\Event;
 use App\Stavka;
+use App\Kuhinja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -94,54 +95,6 @@ class OrdersController extends Controller
         $order->delete();
 
         return redirect('/orders')->with('success', 'Porudzbenica uspesno obrisana!');
-    }
-
-    public function add_products($id)
-    {
-
-        // Paginacija jebe prilikom pretrazivanja proizvoda
-        // Ne moze da pronadje proizvode koji se nalaze na drugoj strani
-        //$products = Product::orderBy('naziv', 'desc')->paginate(9);
-        $products = Product::all();
-
-
-        return view('orders.add_products')->with('products', $products);
-    }
-
-    public function show($id)
-    {
-        $order = Order::find($id);
-        $events = Event::all();
-        $stavke = Stavka::all();
-        $nazivKlijenta = $order->event->klijent->naziv;
-        $nazivEventa = $order->event->naziv;
-
-        return view('orders.show', [
-            'order' => $order,
-            'events' => $events,
-            'nazivEventa' => $nazivEventa,
-            'nazivKlijenta' => $nazivKlijenta,
-            'stavke' => $stavke
-        ]);
-    }
-
-    public function store_stavka(Request $request){
-        $this->validate($request, [
-            'order_id' => 'required',
-            'product_id' => 'required',
-            'kolicina' => 'required'
-        ]);
-
-        // Nacin kako da dodamo u bazu proizvode iz korpe
-        // posto nemamo name na poljima nigde??
-        $stavke = new Stavka;
-       // $stavke->order_id = $request->
-       // $stavke->product_id;
-       // $stavke->kolicina;
-
-        $stavke->save();
-
-        return redirect('/orders')->with('success', 'Uspesno dodate stavke');
     }
 
     public function kuhinja_pregled(){

@@ -10,14 +10,14 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
-                        <th>Naziv<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Datum pocetka<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Vreme pocetka<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Datum zavrsetka<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Vreme zavrsetka<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Klijent<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Izmeni</th>
-                        <th>Obrisi</th>
+                        <th scope="col" style="width: 180px">Naziv<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                        <th scope="col" style="width: 220px">Datum pocetka<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                        <th scope="col" style="width: 220px">Vreme pocetka<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                        <th scope="col" style="width: 220px">Datum zavrsetka<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                        <th scope="col" style="width: 220px">Vreme zavrsetka<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                        <th scope="col">Klijent<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                        <th scope="col">Izmeni</th>
+                        <th scope="col">Obrisi</th>
                     </tr>
                     </thead>
                     <tbody>
