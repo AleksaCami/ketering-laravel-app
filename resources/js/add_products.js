@@ -6,7 +6,6 @@ $(document).ready(function () {
     $('#proizvodi').on('click', '#dodaj_proizvod', function() {
 
         let product_id = $(this).val();
-        console.log($(this).val());
         // pretvaram product_id u integer
         let id = parseInt(product_id);
 
@@ -149,6 +148,39 @@ $(document).ready(function () {
     // Event za prikaz tabele sa proizvodima
     $("#stavkeProizvoda").on('click', function () {
         $('#tabelaSaProizvodima').slideToggle(200, 'linear');
+    });
+
+    // Submit stavke
+
+    $('#tabelaSaProizvodima').submit(function (e) {
+        e.preventDefault();
+
+        // kolicina${result.responseJSON.id}
+
+        let order_id = $('#order_id').val();
+        let url = 'http://localhost:8000/stavkeProizvoda/store/' + order_id;
+
+        $.each(productsInCart, function (i, val) {
+            let kolicina = $('#kolicina'+val).val();
+            let product_id = val;
+            console.log(order_id);
+            console.log(kolicina);
+            console.log(product_id);
+
+            $.ajax({
+                url : url,
+                type : 'POST',
+                data : {
+                    'order_id': order_id,
+                    'kolicina': kolicina,
+                    'product_id': product_id
+                },
+                success : function(result) {
+
+                    console.log(result);
+                }
+            });
+        });
     });
 
 

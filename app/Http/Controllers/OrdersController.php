@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 use App\Event;
-use App\Stavka;
+use App\StavkaProizvoda;
 use App\Kuhinja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;

@@ -22,5 +22,6 @@ class VerifyCsrfToken extends Middleware
         'api/*',
         'orders/finish/*',
         'orders/storniraj/*',
+        '/stavkeProizvoda/store/*'
     ];
 }

@@ -10,7 +10,6 @@
         </div>
 
         <form id="tabelaSaProizvodima" style="display: none" class="mb-4" action="/orders/stavke/store" method="post">
-            @csrf
             <div class="card border-top-0">
                 <div class="table-responsive">
                     <table class="table table-hover shopping-cart-wrap mb-0">
@@ -31,7 +30,10 @@
                         <tr>
                             <td colspan="4"></td>
                             <td class="text-center justify-content-center align-middle"><strong class="align-middle">Total: <span id="total">0</span></strong></td>
-                            <td><button type="submit" class="btn btn-primary">Dodaj u porudžbenicu</button></td>
+                            <td>
+                                <input id="order_id" type="hidden" value="{{$order_id}}" name="order_id">
+                                <button id="storeStavke" type="submit" class="btn btn-primary">Dodaj u porudžbenicu</button>
+                            </td>
                         </tr>
                         </tfoot>
                     </table>

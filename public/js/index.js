@@ -97,8 +97,7 @@ $(document).ready(function () {
   var productsInCart = []; // Event na dugme za dodavanje proizvoda u korpu
 
   $('#proizvodi').on('click', '#dodaj_proizvod', function () {
-    var product_id = $(this).val();
-    console.log($(this).val()); // pretvaram product_id u integer
+    var product_id = $(this).val(); // pretvaram product_id u integer
 
     var id = parseInt(product_id); // url zbog preglednosti stavljamo u promenljivu
 
@@ -179,6 +178,32 @@ $(document).ready(function () {
 
   $("#stavkeProizvoda").on('click', function () {
     $('#tabelaSaProizvodima').slideToggle(200, 'linear');
+  }); // Submit stavke
+
+  $('#tabelaSaProizvodima').submit(function (e) {
+    e.preventDefault(); // kolicina${result.responseJSON.id}
+
+    var order_id = $('#order_id').val();
+    var url = 'http://localhost:8000/stavkeProizvoda/store/' + order_id;
+    $.each(productsInCart, function (i, val) {
+      var kolicina = $('#kolicina' + val).val();
+      var product_id = val;
+      console.log(order_id);
+      console.log(kolicina);
+      console.log(product_id);
+      $.ajax({
+        url: url,
+        type: 'POST',
+        data: {
+          'order_id': order_id,
+          'kolicina': kolicina,
+          'product_id': product_id
+        },
+        success: function success(result) {
+          console.log(result);
+        }
+      });
+    });
   });
 
   function povecajUkupnuCenuSvihProizvoda() {
