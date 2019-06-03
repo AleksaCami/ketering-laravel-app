@@ -37,7 +37,7 @@
                                         <button class="btn btn-danger btn-xs" type="submit">Storniraj</button>
                                     </form>
                                 </td>
-                                <td><a href="/orders/show/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
+                                <td><a href="/stavkeProizvoda/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
                                 <td>{{$order->event->naziv}}</td>
                                 <td>{{$order->event->klijent->naziv}}</td>
                                 <td>{{$order->rok_izrade}}</td>

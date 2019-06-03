@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StavkeController extends Controller
+class StavkeInventaraController extends Controller
 {
     //
 }

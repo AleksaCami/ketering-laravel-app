@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Collection;
 use App\Kuhinja;
+use App\Product;
+use Illuminate\Support\Facades\DB;
 
 
 class ProductsController extends Controller
@@ -137,7 +139,14 @@ class ProductsController extends Controller
 
     public function getProductById($id)
     {
-        $product = Product::find($id);
+
+        $product = DB::table('products')
+                        ->join('kuhinje', 'products.kuhinja_id', '=', 'kuhinje.id')
+                        ->select('products.*', 'kuhinje.naziv AS nazivKuhinje')
+                        ->where('products.id', $id)
+                        ->get();
+
+
         return response()->json($product);
     }
 }
