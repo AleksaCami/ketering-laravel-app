@@ -12,7 +12,8 @@ class Order extends Model
         'napomena',
         'rok_izrade',
         'status',
-        'prihvacena'
+        'prihvacena',
+        'stanje_dostava'
     ];
 
     public function event() {
