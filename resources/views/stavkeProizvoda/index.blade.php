@@ -19,7 +19,7 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
-                        <th colspan="5" class="text-center">Stavke narudzbenice</th>
+                        <th colspan="4" class="text-center">Stavke narudzbenice</th>
                     </tr>
                     <tr>
                         <th scope="col">Slika</th>
@@ -27,6 +27,7 @@
 {{--                        <th scope="col">Kuhinja</th>--}}
                         <th scope="col">Cena</th>
                         <th scope="col">Kolicina</th>
+
                     </tr>
                     </thead>
                     <tbody>
