@@ -185,6 +185,7 @@ class OrdersController extends Controller
 
     public function finished_orders(){
         $orders = Order::all();
+
         return view('orders.magacin', [
             'orders' => $orders
         ]);
