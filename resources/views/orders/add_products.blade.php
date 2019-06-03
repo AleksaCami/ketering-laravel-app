@@ -61,9 +61,9 @@
                         </li>
 
                         @foreach($kuhinje as $kuhinja)
-                        <li class="nav-item">
-                            <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">{{$kuhinja->naziv}}</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">{{$kuhinja->naziv}}</a>
+                            </li>
                         @endforeach
 
                     </ul>
@@ -97,17 +97,6 @@
                                     <a href="/products/create"><button class="btn btn-primary btn-block">Dodaj proizvod</button></a>
                                 @endif
                             </div>
-                        </div>
-
-                        @foreach($kuhinje as $kuhinja)
-                            <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
-                                <h5 class="card-title">{{$kuhinja->naziv}} proizvodi</h5>
-                                @foreach($products as $product)
-                                    @if( $product->kuhinja_id == $kuhinja->id)
-
-                                    @endif
-                                @endforeach
-                            @endforeach
                         </div>
                     </div>
                 </div>

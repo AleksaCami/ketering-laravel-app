@@ -104,12 +104,19 @@ class OrdersController extends Controller
         // Ne moze da pronadje proizvode koji se nalaze na drugoj strani
         //$products = Product::orderBy('naziv', 'desc')->paginate(9);
         $products = Product::all();
-        $kuhinja = Kuhinja::all();
+        $kuhinje = Kuhinja::all();
+        $product = Product::find($id);
+        $kuhinja = Kuhinja::find($id);
+
+        //$productKuhinjaId = $product->kuhinja_id;
+        //$kuhinjaId = $kuhinja->id;
 
 
         return view('orders.add_products', [
             'products' => $products,
-            'kuhinje' => $kuhinja
+            'kuhinje' => $kuhinje,
+            'product' => $product,
+            'kuhinja' => $kuhinja
         ]);
     }
 
