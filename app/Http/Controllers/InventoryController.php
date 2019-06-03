@@ -130,7 +130,6 @@ class InventoryController extends Controller
     {
         $item = Inventory::find($id);
 
-
         if($item->inventory_images != 'noimage.png') {
             // Delete image
             Storage::delete('public/inventory_images/' . $item->inventory_images);
@@ -138,5 +137,11 @@ class InventoryController extends Controller
         $item->delete();
 
         return redirect('/inventory')->with('success', 'Predmet uspesno obrisan iz inventara!');
+    }
+
+    public function getInventarById($id){
+        $item = Inventory::find($id);
+
+        return response()->json($item);
     }
 }

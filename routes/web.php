@@ -136,7 +136,7 @@ Route::group(['prefix'=>'stavkeInventara'], function() {
 // API za ispis proizvoda u stavkama
 Route::group(['prefix'=>'api', 'middleware' => 'role:admin|prodaja'], function () {
     Route::get('/product/{id}', 'ProductsController@getProductById');
-    Route::delete('/product/{id}', 'ProductsController@deleteProductById');
+    Route::get('/inventory/{id}', 'InventoryController@getInventarById');
 });
 
 // Kontakt strana
