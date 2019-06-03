@@ -16,7 +16,6 @@
                         <th>Klijent<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Rok izrade<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Napomena<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,9 +35,6 @@
                                 <td>{{$order->event->klijent->naziv}}</td>
                                 <td>{{$order->rok_izrade}}</td>
                                 <td>{{$order->napomena}}</td>
-                                @if($order->status == false)
-                                    <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
-                                @endif
                             </tr>
                         @endif
                     @endforeach
