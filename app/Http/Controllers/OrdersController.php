@@ -6,6 +6,7 @@ use App\Order;
 use App\Product;
 use App\Event;
 use App\Stavka;
+use App\Kuhinja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -103,9 +104,13 @@ class OrdersController extends Controller
         // Ne moze da pronadje proizvode koji se nalaze na drugoj strani
         //$products = Product::orderBy('naziv', 'desc')->paginate(9);
         $products = Product::all();
+        $kuhinja = Kuhinja::all();
 
 
-        return view('orders.add_products')->with('products', $products);
+        return view('orders.add_products', [
+            'products' => $products,
+            'kuhinje' => $kuhinja
+        ]);
     }
 
     public function show($id)
