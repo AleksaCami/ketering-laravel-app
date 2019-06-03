@@ -6,7 +6,7 @@ $(document).ready(function () {
     $('#proizvodi').on('click', '#dodaj_proizvod', function() {
 
         let product_id = $(this).val();
-
+        console.log($(this).val());
         // pretvaram product_id u integer
         let id = parseInt(product_id);
 
