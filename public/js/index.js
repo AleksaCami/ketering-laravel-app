@@ -97,7 +97,8 @@ $(document).ready(function () {
   var productsInCart = []; // Event na dugme za dodavanje proizvoda u korpu
 
   $('#proizvodi').on('click', '#dodaj_proizvod', function () {
-    var product_id = $(this).val(); // pretvaram product_id u integer
+    var product_id = $(this).val();
+    console.log($(this).val()); // pretvaram product_id u integer
 
     var id = parseInt(product_id); // url zbog preglednosti stavljamo u promenljivu
 

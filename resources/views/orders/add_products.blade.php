@@ -59,22 +59,53 @@
                         <li class="nav-item">
                             <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">Sve kuhinje</a>
                         </li>
-
-                        @foreach($kuhinje as $kuhinja)
-                            <li class="nav-item">
-                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">{{$kuhinja->naziv}}</a>
-                            </li>
-                        @endforeach
-
+{{--                        @foreach($kuhinje as $kuhinja)--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" id="two-tab" data-toggle="tab" href="#tab{{$kuhinja->id}}" role="tab" aria-controls="Two" aria-selected="false">{{$kuhinja->naziv}}</a>--}}
+{{--                        </li>--}}
+{{--                        @endforeach--}}
                     </ul>
                 </div>
 
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
-                            <h5 class="card-title">Svi proizvodi</h5>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                        <h5 class="card-title">Svi proizvodi</h5>
+                        <div id="proizvodi" class="row mt-2">
+                            @if(count($products) > 0)
+                                @foreach($products as $product)
+                                    <div id="proizvod" class="col-md-4 col-lg-4 mt-3">
+                                        <figure class="card card-product p-3 flex-fixed-width-item h-100">
+                                            <div class="d-flex m-4"><img class="img-fluid" style="object-fit: cover; height: 35vh; width: auto" src="/storage/products_images/{{$product->products_images}}"></div>
+                                            <figcaption class="info-wrap">
+                                                <h4 id="nazivProizvoda" class="title">{{$product->naziv}}</h4>
+                                                <p class="desc">{{$product->opis}}</p>
+                                                <p style="font-size: 20px; font-weight: bold; color: #007BFF">{{$product->cena}}<span> din.</span></p>
+                                            </figcaption>
+                                            <div class="bottom-wrap">
+                                                <button value="{{$product->id}}" id="dodaj_proizvod" class="btn btn-block btn-primary float-right">
+                                                    Dodaj proizvod
+                                                </button>
+                                            </div> <!-- bottom-wrap.// -->
+                                        </figure>
+                                    </div> <!-- col // -->
+                                @endforeach
+                            @else
+                                <h2>Nemate proizvoda</h2>
+                                <br>
+                                <a href="/products/create"><button class="btn btn-primary btn-block">Dodaj proizvod</button></a>
+                            @endif
+                        </div>
+                    </div>
+
+                    @foreach($kuhinje as $kuhinja)
+                        <div class="tab-pane fade p-3" id="tab{{$kuhinja->id}}" role="tabpanel" aria-labelledby="">
+                            <h5 class="card-title">
+                                {{$kuhinja->naziv}}
+                            </h5>
                             <div id="proizvodi" class="row mt-2">
                                 @if(count($products) > 0)
                                     @foreach($products as $product)
+                                        @if($product->kuhinja_id == $kuhinja->id)
                                         <div id="proizvod" class="col-md-4 col-lg-4 mt-3">
                                             <figure class="card card-product p-3 flex-fixed-width-item h-100">
                                                 <div class="d-flex m-4"><img class="img-fluid" style="object-fit: cover; height: 35vh; width: auto" src="/storage/products_images/{{$product->products_images}}"></div>
@@ -90,6 +121,7 @@
                                                 </div> <!-- bottom-wrap.// -->
                                             </figure>
                                         </div> <!-- col // -->
+                                        @endif
                                     @endforeach
                                 @else
                                     <h2>Nemate proizvoda</h2>
@@ -98,11 +130,12 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
