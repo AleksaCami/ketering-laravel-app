@@ -166,5 +166,29 @@ class OrdersController extends Controller
             'orders' => $orders
         ]);
     }
+
+    public function storniraj($id){
+        $order = Order::find($id);
+        $order->prihvacena = 0;
+        $order->update();
+
+        return redirect('/orders/kuhinja/prihvacene')->with('success', 'Uspesno stornirana porudzbenica');
+    }
+
+    public function finalize_order($id){
+        $order = Order::find($id);
+        $order->status = 1;
+        $order->update();
+
+        return redirect('/orders/kuhinja/prihvacene')->with('success', 'Uspesno izvrsena porudzbina');
+    }
+
+    public function finished_orders(){
+        $orders = Order::all();
+        return view('orders.magacin', [
+            'orders' => $orders
+        ]);
+    }
+
 }
 

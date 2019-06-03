@@ -236,9 +236,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Aleksa Camilovic\ketering-app\resources\js\index.js */"./resources/js/index.js");
-__webpack_require__(/*! C:\Users\Aleksa Camilovic\ketering-app\resources\js\add_products.js */"./resources/js/add_products.js");
-module.exports = __webpack_require__(/*! C:\Users\Aleksa Camilovic\ketering-app\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Johny\ketering-laravel-app\resources\js\index.js */"./resources/js/index.js");
+__webpack_require__(/*! C:\Users\Johny\ketering-laravel-app\resources\js\add_products.js */"./resources/js/add_products.js");
+module.exports = __webpack_require__(/*! C:\Users\Johny\ketering-laravel-app\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
