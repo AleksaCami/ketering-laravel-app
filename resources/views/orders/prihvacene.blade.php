@@ -18,37 +18,31 @@
                         <th>Klijent<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Rok izrade<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Napomena<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($orders as $order)
                         @if($order->prihvacena == true)
                             @if($order->status == false)
-                                <tr>
-                                    <td>
-                                        <form method="post" action="/orders/finish/{{$order->id}}">
-                                            @csrf
-                                            <input type="hidden" name="status" value="{{$order->id}}">
-                                            <button id="prihvati" class="btn btn-primary btn-xs" type="submit">Zavrsi narudzbinu</button></a>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form method="post" action="/orders/storniraj/{{$order->id}}">
-                                            @csrf
-                                            <input type="hidden" name="prihvacena" value="{{$order->id}}">
-                                            <button class="btn btn-danger btn-xs" type="submit">Storniraj</button></a>
-                                        </form>
-                                    </td>
-                                    <td><a href="/orders/show/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
-                                    <td>{{$order->event->naziv}}</td>
-                                    <td>{{$order->event->klijent->naziv}}</td>
-                                    <td>{{$order->rok_izrade}}</td>
-                                    <td>{{$order->napomena}}</td>
-                                    @if($order->status == false)
-                                        <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
-                                    @endif
-                                </tr>
+                            <tr>
+                                <td>
+                                    <form method="post" action="/orders/finish/{{$order->id}}">
+                                        <input type="hidden" name="status" value="{{$order->id}}">
+                                        <button class="btn btn-primary btn-xs" type="submit">Zavrsi narudzbinu</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post" action="/orders/storniraj/{{$order->id}}">
+                                        <input type="hidden" name="status" value="{{$order->id}}">
+                                        <button class="btn btn-danger btn-xs" type="submit">Storniraj</button>
+                                    </form>
+                                </td>
+                                <td><a href="/orders/show/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
+                                <td>{{$order->event->naziv}}</td>
+                                <td>{{$order->event->klijent->naziv}}</td>
+                                <td>{{$order->rok_izrade}}</td>
+                                <td>{{$order->napomena}}</td>
+                            </tr>
                             @endif
                         @endif
                     @endforeach

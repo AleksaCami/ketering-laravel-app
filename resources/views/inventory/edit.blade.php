@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Edituj predmet u inventaru') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/inventory/update/{{ $item->id }}">
+                        <form method="POST" action="/inventory/update/{{ $item->id }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
@@ -96,6 +96,15 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="slika" class="col-md-4 col-form-label text-md-right">{{ __('Dodaj sliku') }}</label>
+
+                                <div class="col-md-6">
+                                    <input type="file" name="inventory_images">
                                 </div>
                             </div>
 
