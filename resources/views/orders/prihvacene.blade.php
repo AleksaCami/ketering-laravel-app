@@ -23,13 +23,27 @@
                     <tbody>
                     @foreach($orders as $order)
                         @if($order->prihvacena == true)
+                            @if($order->status == false)
                             <tr>
+                                <td>
+                                    <form method="post" action="/orders/finish/{{$order->id}}">
+                                        <input type="hidden" name="status" value="{{$order->id}}">
+                                        <button class="btn btn-primary btn-xs" type="submit">Zavrsi narudzbinu</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post" action="/orders/storniraj/{{$order->id}}">
+                                        <input type="hidden" name="status" value="{{$order->id}}">
+                                        <button class="btn btn-danger btn-xs" type="submit">Storniraj</button>
+                                    </form>
+                                </td>
                                 <td><a href="/orders/show/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
                                 <td>{{$order->event->naziv}}</td>
                                 <td>{{$order->event->klijent->naziv}}</td>
                                 <td>{{$order->rok_izrade}}</td>
                                 <td>{{$order->napomena}}</td>
                             </tr>
+                            @endif
                         @endif
                     @endforeach
                     </tbody>
