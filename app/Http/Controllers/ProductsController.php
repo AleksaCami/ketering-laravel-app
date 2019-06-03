@@ -113,7 +113,7 @@ class ProductsController extends Controller
         $products->opis = $request->input('opis');
         $products->kuhinja_id = $request->input('kuhinja');
         if($request->hasFile('products_images')) {
-            $products->products_images =  $fileNameToStore;
+            $products->products_images = $fileNameToStore;
         }
 
         $products->save();
