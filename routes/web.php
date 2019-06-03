@@ -133,7 +133,7 @@ Route::group(['prefix'=>'stavkeInventara'], function() {
     Route::post('/store/{id}', 'StavkeInventaraController@store')->middleware('role:admin|magacin|kuhinja');;
 });
 
-// API za ispis proizvoda u stavkama
+// API za ispis proizvoda i inventara u stavkama
 Route::group(['prefix'=>'api', 'middleware' => 'role:admin|prodaja'], function () {
     Route::get('/product/{id}', 'ProductsController@getProductById');
     Route::get('/inventory/{id}', 'InventoryController@getInventarById');

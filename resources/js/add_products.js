@@ -177,8 +177,8 @@ $(document).ready(function () {
                 },
                 success : function(result) {
 
-                    console.log(result);
-                }
+                    location.href = "http://localhost:8000/stavkeProizvoda/" + order_id;
+        }
             });
         });
     });

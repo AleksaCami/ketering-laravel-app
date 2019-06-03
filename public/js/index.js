@@ -200,7 +200,7 @@ $(document).ready(function () {
           'product_id': product_id
         },
         success: function success(result) {
-          console.log(result);
+          location.href = "http://localhost:8000/stavkeProizvoda/" + order_id;
         }
       });
     });
