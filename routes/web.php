@@ -116,22 +116,24 @@ Route::group(['prefix'=>'orders'], function() {
     Route::get('/kuhinja/prihvacene', 'OrdersController@kuhinja_prihvacene')->middleware('role:kuhinja');
     Route::post('/storniraj/{id}', 'OrdersController@storniraj')->middleware('role:kuhinja');
     Route::post('/finish/{id}', 'OrdersController@finalize_order')->middleware('role:kuhinja');
-
     Route::get('/magacin', 'OrdersController@finished_orders')->middleware('role:magacin');
 });
 
+// Prikaz i dodavanje stavki proizvoda
 Route::group(['prefix'=>'stavkeProizvoda'], function() {
     Route::get('/{id}', 'StavkeProizvodaController@index')->middleware('role:admin|prodaja|kuhinja');
     Route::get('/create/{id}', 'StavkeProizvodaController@create')->middleware('role:admin|prodaja');;
     Route::post('/store/{id}', 'StavkeProizvodaController@store')->middleware('role:admin|prodaja');;
 });
 
+// Prikaz i dodavanje stavki inventara
 Route::group(['prefix'=>'stavkeInventara'], function() {
     Route::get('/{id}', 'StavkeInventaraController@index')->middleware('role:admin|magacin|kuhinja');
     Route::get('/create/{id}', 'StavkeInventaraController@create')->middleware('role:admin|magacin|kuhinja');;
     Route::post('/store/{id}', 'StavkeInventaraController@store')->middleware('role:admin|magacin|kuhinja');;
 });
 
+// API za ispis proizvoda u stavkama
 Route::group(['prefix'=>'api', 'middleware' => 'role:admin|prodaja'], function () {
     Route::get('/product/{id}', 'ProductsController@getProductById');
     Route::delete('/product/{id}', 'ProductsController@deleteProductById');
