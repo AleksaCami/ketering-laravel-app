@@ -25,4 +25,6 @@ class StavkeInventaraController extends Controller
             'stavke' => $stavke
         ]);
     }
+
+
 }
