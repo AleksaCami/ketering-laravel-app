@@ -8,11 +8,34 @@
                 <h2>Event: {{$nazivEventa}}</h2>
                 <h2>Klijent: {{$nazivKlijenta}}</h2>
             </div>
-            @if(Auth::user()->tip_korisnika != 'kuhinja' && Auth::user()->tip_korisnika != 'magacin')
+            @switch(Auth::user()->tip_korisnika)
+
+            @case('admin')
             <div class="col-lg-3 px-0">
                 <a href="/orders/add_products/{{$order->id}}"><button type="button" class="btn btn-primary float-right">Dodaj stavku</button></a>
             </div>
-            @endif
+            @break
+
+            @case('prodaja')
+                <div class="col-lg-3 px-0">
+                    <a href="/orders/add_products/{{$order->id}}"><button type="button" class="btn btn-primary float-right">Dodaj stavku</button></a>
+                </div>
+            @break
+
+            @case('kuhinja')
+            <div class="col-lg-3 px-0">
+                <a href="/orders/add_products/{{$order->id}}"><button type="button" class="btn btn-primary float-right">Dodaj stavku</button></a>
+            </div>
+            @break
+
+            @case('magacin')
+            <div class="col-lg-3 px-0">
+                <a href="#"><button type="button" class="btn btn-primary float-right">Prihvati porudzbenicu</button></a>
+            </div>
+            @break
+
+            @endswitch
+
         </div>
         <div class="row">
             <div class="table-responsive">
