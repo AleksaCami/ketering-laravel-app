@@ -14,7 +14,7 @@
                         <th scope="col" style="width: 150px">Stavke</th>
                         <th scope="col">Event<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th scope="col" style="width: 140px">Klijent<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th scope="col">Rok izrade<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
+                        <th scope="col" style="width: 155px">Rok izrade<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th scope="col">Napomena<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th scope="col">Status</th>
                         <th scope="col">Izmeni</th>
