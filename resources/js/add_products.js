@@ -40,6 +40,8 @@ $(document).ready(function () {
 
                 } else {
 
+                    result.responseJSON = result.responseJSON[0];
+
                     productsInCart.push(result.responseJSON.id);
 
                     // Problem je bio sto niste eksplicitno rekli Ajax-u da ocekujete JSON, cim sam to uradio sve je proradilo
@@ -55,6 +57,13 @@ $(document).ready(function () {
                                     <figure class="media pt-4">
                                         <figcaption class="media-body">
                                             <h6 class="title text-truncate">${result.responseJSON.naziv}</h6>
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <figure class="media pt-4">
+                                        <figcaption class="media-body">
+                                            <h6 class="title text-truncate">${result.responseJSON.nazivKuhinje}</h6>
                                         </figcaption>
                                     </figure>
                                 </td>

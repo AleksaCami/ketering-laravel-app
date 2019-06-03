@@ -18,6 +18,7 @@
                         <tr>
                             <th scope="col">Slika</th>
                             <th scope="col">Proizvod</th>
+                            <th  scope="col">Kuhinja</th>
                             <th scope="col" width="120">Cena</th>
                             <th scope="col" width="120">Kolicina</th>
                             <th scope="col" width="120">Ukupno</th>
