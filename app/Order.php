@@ -21,6 +21,6 @@ class Order extends Model
 }
 
     public function stavka() {
-        return $this->hasMany('App\Stavka');
+        return $this->hasMany('App\StavkaProizvoda');
     }
 }

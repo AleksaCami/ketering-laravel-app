@@ -6,20 +6,30 @@ use App\Event;
 use App\Kuhinja;
 use App\Order;
 use App\Product;
-use App\Stavka;
+use App\StavkaProizvoda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StavkeProizvodaController extends Controller
 {
     public function index($id)
     {
+
+        $products = DB::table('stavkeproizvoda')
+            ->join('products', 'stavkeproizvoda.product_id', '=', 'products.id')
+            ->join('orders', 'stavkeproizvoda.order_id', '=', 'orders.id')
+            ->select('products.*', 'stavkeproizvoda.kolicina')
+            ->where('stavkeproizvoda.order_id', $id)
+            ->get();
+
         $order = Order::find($id);
         $events = Event::all();
-        $stavke = Stavka::all();
+        $stavke = StavkaProizvoda::all();
         $nazivKlijenta = $order->event->klijent->naziv;
         $nazivEventa = $order->event->naziv;
 
         return view('stavkeProizvoda.index', [
+            'products' => $products,
             'order' => $order,
             'events' => $events,
             'nazivEventa' => $nazivEventa,
@@ -28,23 +38,16 @@ class StavkeProizvodaController extends Controller
         ]);
     }
 
-    public function store(Request $request){
-        $this->validate($request, [
-            'order_id' => 'required',
-            'product_id' => 'required',
-            'kolicina' => 'required'
-        ]);
+    public function store(Request $request, $id)
+    {
 
-        // Nacin kako da dodamo u bazu proizvode iz korpe
-        // posto nemamo name na poljima nigde??
-        $stavke = new Stavka;
-        // $stavke->order_id = $request->
-        // $stavke->product_id;
-        // $stavke->kolicina;
+        $stavkeProizovda = new StavkaProizvoda;
+        $stavkeProizovda->order_id = (int)$request->order_id;
+        $stavkeProizovda->product_id = (int)$request->product_id;
+        $stavkeProizovda->kolicina = (int)$request->kolicina;
+        $stavkeProizovda->save();
 
-        $stavke->save();
-
-        return redirect('/orders')->with('success', 'Uspesno dodate stavke');
+        return response()->json($request);
     }
 
     public function create($id)
@@ -64,7 +67,8 @@ class StavkeProizvodaController extends Controller
             'products' => $products,
             'kuhinje' => $kuhinje,
             'product' => $product,
-            'kuhinja' => $kuhinja
+            'kuhinja' => $kuhinja,
+            'order_id' => $id
         ]);
     }
 }
