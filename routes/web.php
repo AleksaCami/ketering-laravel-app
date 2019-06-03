@@ -118,7 +118,7 @@ Route::group(['prefix'=>'orders', 'middleware' => 'role:admin|magacin|kuhinja'],
     Route::post('/storniraj/{id}', 'OrdersController@storniraj');
     Route::post('/finish/{id}', 'OrdersController@finalize_order');
     Route::get('/finished', 'OrdersController@finished_orders');
-
+    Route::get('/magacin', 'OrdersController@magacin_pregled');
 });
 
 Route::group(['prefix'=>'api', 'middleware' => 'role:admin|prodaja'], function () {
