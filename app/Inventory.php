@@ -14,4 +14,9 @@ class Inventory extends Model
     public function magacin() {
         return $this->belongsTo('App\Magacin');
     }
+
+    public function stavka() {
+        return $this->hasMany('App\StavkaInventara');
+    }
+
 }

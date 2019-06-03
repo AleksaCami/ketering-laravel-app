@@ -6,7 +6,7 @@ use App\Event;
 use App\Inventory;
 use App\Magacin;
 use App\Order;
-use App\Stavka;
+use App\StavkaInventara;
 use Illuminate\Http\Request;
 
 class StavkeInventaraController extends Controller
@@ -15,7 +15,7 @@ class StavkeInventaraController extends Controller
     {
         $order = Order::find($id);
         $events = Event::all();
-        $stavke = Stavka::all();
+        $stavke = StavkaInventara::all();
         $nazivKlijenta = $order->event->klijent->naziv;
         $nazivEventa = $order->event->naziv;
 
