@@ -145,7 +145,7 @@ class OrdersController extends Controller
     }
 
     public function kuhinja_pregled(){
-        $orders = Order::all();
+        $orders = Order::orderBy('rok_izrade' ,'asc')->get();
         return view('orders.kuhinja', [
             'orders' => $orders
         ]);
@@ -180,7 +180,7 @@ class OrdersController extends Controller
         $order->status = 1;
         $order->update();
 
-        return redirect('/orders/kuhinja/prihvacene')->with('success', 'Uspesno izvrsena porudzbina');
+        return redirect('/orders/kuhinja/prihvacene')->with('success', 'Uspesno poslata porudzbina');
     }
 
     public function finished_orders(){
