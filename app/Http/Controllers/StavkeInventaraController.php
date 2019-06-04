@@ -8,11 +8,19 @@ use App\Magacin;
 use App\Order;
 use App\StavkaInventara;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StavkeInventaraController extends Controller
 {
     public function index($id)
     {
+        $inventari = DB::table('stavke_inventara')
+            ->join('inventory', 'stavke_inventara.inventar_id', '=', 'inventory.id')
+            ->join('orders', 'stavke_inventara.order_id', '=', 'orders.id')
+            ->select('inventory.*', 'stavke_inventara.kolicina')
+            ->where('stavke_inventara.order_id', $id)
+            ->get();
+
         $order = Order::find($id);
         $events = Event::all();
         $stavke = StavkaInventara::all();
@@ -24,7 +32,8 @@ class StavkeInventaraController extends Controller
             'events' => $events,
             'nazivEventa' => $nazivEventa,
             'nazivKlijenta' => $nazivKlijenta,
-            'stavke' => $stavke
+            'stavke' => $stavke,
+            'inventari' => $inventari,
         ]);
     }
 
@@ -45,7 +54,20 @@ class StavkeInventaraController extends Controller
             'inventory' => $inventory,
             'magacini' => $magacini,
             'item' => $item,
-            'magacin' => $magacin
+            'magacin' => $magacin,
+            'order_id' => $id,
         ]);
+    }
+
+    public function store(Request $request, $id)
+    {
+
+        $stavkeInventara = new StavkaInventara();
+        $stavkeInventara->order_id = (int)$request->order_id;
+        $stavkeInventara->inventar_id = (int)$request->inventar_id;
+        $stavkeInventara->kolicina = (int)$request->kolicina;
+        $stavkeInventara->save();
+
+        return response()->json($request);
     }
 }

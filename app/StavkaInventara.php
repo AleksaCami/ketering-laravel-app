@@ -10,6 +10,6 @@ class StavkaInventara extends Model
 {
     protected $table = 'stavke_inventara';
     protected $fillable = [
-        'magacin_id', 'item_id', 'kolicina'
+        'inventar_id', 'order_id', 'kolicina'
     ];
 }

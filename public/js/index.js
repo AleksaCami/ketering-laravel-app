@@ -116,15 +116,15 @@ $(document).ready(function () {
       // !!!!!!!!
       dataType: "json",
       complete: function complete(result) {
-        // Sada je result objekat, u kome se nalazi response u JSON obliku sa kojim mozete da radite sta ocete
+        result.responseJSON = result.responseJSON[0]; // Sada je result objekat, u kome se nalazi response u JSON obliku sa kojim mozete da radite sta ocete
         // console.log(result);
         // Ako se u listi productInCard nalazi id proizvoda, ispisi
         // alert poruku, u suprotom dodaj proizvod u tabelu.
+
         if ($.inArray(result.responseJSON.id, productsInCart) !== -1) {
           alert('Proizvod je vec u korpi');
         } else {
-          result.responseJSON = result.responseJSON[0];
-          productsInCart.push(result.responseJSON.id); // Problem je bio sto niste eksplicitno rekli Ajax-u da ocekujete JSON, cim sam to uradio sve je proradilo
+          productsInCart.push(result.responseJSON.id); // Problem je bio sto niste eksplicitno rekli Ajax-u da ocekujete JSON, cim saam to uradio sve je proradilo
           // Ukoliko iz nekog razloga nece da vam radi, ocistite app cache i config cache
           // console.log(result.responseJSON.id);
 
@@ -263,9 +263,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Aleksa Camilovic\ketering-app\resources\js\index.js */"./resources/js/index.js");
-__webpack_require__(/*! C:\Users\Aleksa Camilovic\ketering-app\resources\js\add_products.js */"./resources/js/add_products.js");
-module.exports = __webpack_require__(/*! C:\Users\Aleksa Camilovic\ketering-app\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Marko\Documents\ketering\ketering-laravel-app\resources\js\index.js */"./resources/js/index.js");
+__webpack_require__(/*! C:\Users\Marko\Documents\ketering\ketering-laravel-app\resources\js\add_products.js */"./resources/js/add_products.js");
+module.exports = __webpack_require__(/*! C:\Users\Marko\Documents\ketering\ketering-laravel-app\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

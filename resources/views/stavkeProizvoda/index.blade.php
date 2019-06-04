@@ -5,6 +5,7 @@
     <div class="container">
         <div class="row mb-4">
             <div class="col-lg-9">
+                <h1>Stavke Proizvoda</h1>
                 <h2>Event: {{$nazivEventa}}</h2>
                 <h2>Klijent: {{$nazivKlijenta}}</h2>
             </div>

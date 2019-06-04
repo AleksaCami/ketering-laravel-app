@@ -11,39 +11,28 @@
 
             @case('magacin')
             {{--  MAGACIN SIDEBAR --}}
-            <li class="active">
-                <a href="#inventarSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine</a>
-                <ul class="collapse list-unstyled" id="inventarSubmenu">
-                    <li>
-                        <a href="/inventory">Pregled stanja inventara</a>
-                    </li>
-                    <li>
-                        <a href="#">Povrat inventara</a>
-                    </li>
-                </ul>
+
+            <li>
+                <a href="/inventory">Pregled stanja inventara</a>
             </li>
             <li>
-                <a href="/orders/finished">Pregled kompletiranih narudžbina</a>
+                <a href="#">Povrat inventara</a>
+            </li>
+
+            <li>
+                <a href="/orders/magacin">Pregled kompletiranih narudžbina</a>
             </li>
             @break
 
 
             @case('kuhinja')
             {{--  KUHINJA SIDEBAR --}}
-            <li class="active">
-                <a href="#narudzbineSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine</a>
-                <ul class="collapse list-unstyled" id="narudzbineSubmenu">
-                    <li>
-                        <a href="/orders/kuhinja">Pregled svih pristiglih narudžbina</a>
-                    </li>
-                    <li>
-                        <a href="/orders/kuhinja/prihvacene">Pregled svih prihvacenih narudžbina</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Dodavanje inventara u narudžbinu</a>
-            </li>
+                <li>
+                    <a href="/orders/kuhinja">Pristigle narudžbine</a>
+                </li>
+                <li>
+                    <a href="/orders/kuhinja/prihvacene">Aktivne narudžbine</a>
+                </li>
             @break
 
 

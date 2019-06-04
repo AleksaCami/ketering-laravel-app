@@ -11,7 +11,9 @@ class Order extends Model
         'event_id',
         'napomena',
         'rok_izrade',
-        'status',
+        'statusKuhinja',
+        'statusMagacin',
+        'statusVozac',
         'prihvacena',
         'stanje_dostava'
     ];

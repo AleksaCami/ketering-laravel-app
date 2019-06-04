@@ -27,7 +27,7 @@ $(document).ready(function () {
             // !!!!!!!!
             dataType: "json",
             complete: function(result) {
-
+                result.responseJSON = result.responseJSON[0];
                 // Sada je result objekat, u kome se nalazi response u JSON obliku sa kojim mozete da radite sta ocete
                 // console.log(result);
 
@@ -39,11 +39,11 @@ $(document).ready(function () {
 
                 } else {
 
-                    result.responseJSON = result.responseJSON[0];
+
 
                     productsInCart.push(result.responseJSON.id);
 
-                    // Problem je bio sto niste eksplicitno rekli Ajax-u da ocekujete JSON, cim sam to uradio sve je proradilo
+                    // Problem je bio sto niste eksplicitno rekli Ajax-u da ocekujete JSON, cim saam to uradio sve je proradilo
                     // Ukoliko iz nekog razloga nece da vam radi, ocistite app cache i config cache
                     // console.log(result.responseJSON.id);
 

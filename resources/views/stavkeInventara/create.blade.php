@@ -10,7 +10,6 @@
         </div>
 
         <form id="tabelaSaInventarom" style="display: none" class="mb-4" action="/orders/stavke/store" method="post">
-            @csrf
             <div class="card border-top-0">
                 <div class="table-responsive">
                     <table class="table table-hover shopping-cart-wrap mb-0">
@@ -19,7 +18,6 @@
                             <th scope="col">Slika</th>
                             <th scope="col">Proizvod</th>
                             <th scope="col">Magacin</th>
-                            <th scope="col">Izgubljen</th>
                             <th scope="col" width="120">Cena</th>
                             <th scope="col" width="120">Kolicina</th>
                             <th scope="col" width="120">Ukupno</th>
@@ -32,7 +30,10 @@
                         <tr>
                             <td colspan="4"></td>
                             <td class="text-center justify-content-center align-middle"><strong class="align-middle">Total: <span id="total">0</span></strong></td>
-                            <td><button type="submit" class="btn btn-primary">Dodaj u porudžbenicu</button></td>
+                            <td>
+                                <input id="order_id" type="hidden" value="{{$order_id}}" name="order_id">
+                                <button type="submit" class="btn btn-primary">Dodaj u porudžbenicu</button>
+                            </td>
                         </tr>
                         </tfoot>
                     </table>
@@ -66,7 +67,7 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
                             <h5 class="card-title">Lista inventara</h5>
-                            <div id="proizvodi" class="row mt-2">
+                            <div id="inventari" class="row mt-2">
                                 @if(count($inventory) > 0)
                                     @foreach($inventory as $item)
                                         <div id="proizvod" class="col-md-4 col-lg-4 mt-3">
@@ -101,19 +102,17 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            let productsInCart = [];
+            let inventariInCart = [];
 
             // Event na dugme za dodavanje proizvoda u korpu
-            $('#proizvodi').on('click', '#dodaj_inventar', function() {
-
-                let product_id = $(this).val();
+            $('#inventari').on('click', '#dodaj_inventar', function() {
+                let inventar_id = $(this).val();
                 // console.log($(this).val());
-                // pretvaram product_id u integer
-                let id = parseInt(product_id);
+                // pretvaram inventar_id u integer
+                let id = parseInt(inventar_id);
 
                 // url zbog preglednosti stavljamo u promenljivu
                 let url = 'http://localhost:8000/api/inventory/' + id;
-
                 // primer JavaScript async fetch metode koju cemo implementirati kasnije u pravu aplikaciju umesto ajax-a.
                 // fetch(url)
                 //     .then(response => {
@@ -129,21 +128,21 @@
                     // !!!!!!!!
                     dataType: "json",
                     success: function(result) {
-
+                        console.log(result.id);
                         // Sada je result objekat, u kome se nalazi response u JSON obliku sa kojim mozete da radite sta ocete
                         // console.log(result);
 
                         // Ako se u listi productInCard nalazi id proizvoda, ispisi
                         // alert poruku, u suprotom dodaj proizvod u tabelu.
-                        if($.inArray(result, productsInCart) !== -1) {
+                        if($.inArray(result.id, inventariInCart) !== -1) {
 
-                            alert('Proizvod je vec u korpi');
+                            alert('Inventar je vec u korpi');
 
                         } else {
 
                             // console.log(result.id);
 
-                            productsInCart.push(result.id);
+                            inventariInCart.push(result.id);
 
                             // Problem je bio sto niste eksplicitno rekli Ajax-u da ocekujete JSON, cim sam to uradio sve je proradilo
                             // Ukoliko iz nekog razloga nece da vam radi, ocistite app cache i config cache
@@ -165,13 +164,6 @@
                                     <figure class="media pt-4">
                                         <figcaption class="media-body">
                                             <h6 class="title text-truncate">${result.magacin_id}</h6>
-                                        </figcaption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <figure class="media pt-4">
-                                        <figcaption class="media-body">
-                                            <h6 class="title text-truncate">${result.izgubljen}</h6>
                                         </figcaption>
                                     </figure>
                                 </td>
@@ -208,9 +200,9 @@
                 e.preventDefault();
 
                 // Obisi id iz liste productsInCart pa zatim obrisi ceo elemenat
-                let index = productsInCart.indexOf($(this).data('id'));
+                let index = inventariInCart.indexOf($(this).data('id'));
                 if (index > -1) {
-                    productsInCart.splice(index, 1);
+                    inventariInCart.splice(index, 1);
                 }
 
                 $(this).parents('tr').detach();
@@ -259,6 +251,37 @@
                 $('#tabelaSaInventarom').slideToggle(200, 'linear');
             });
 
+            $('#tabelaSaInventarom').submit(function (e) {
+                e.preventDefault();
+
+                // kolicina${result.responseJSON.id}
+
+                let order_id = $('#order_id').val();
+                let url = 'http://localhost:8000/stavkeInventara/store/' + order_id;
+
+                $.each(inventariInCart, function (i, val) {
+                    let kolicina = $('#kolicina'+val).val();
+                    let inventar_id = val;
+                    // console.log(order_id);
+                    // console.log(kolicina);
+                    // console.log(product_id);
+
+                    $.ajax({
+                        url : url,
+                        type : 'POST',
+                        data : {
+                            'order_id': order_id,
+                            'kolicina': kolicina,
+                            'inventar_id': inventar_id
+                        },
+                        success : function(result) {
+
+                            location.href = "http://localhost:8000/stavkeInventara/" + order_id;
+                        }
+                    });
+                });
+            });
+
 
             function povecajUkupnuCenuSvihProizvoda() {
                 let kolicinaSvihProizvoda = $('#bindProducts tr').toArray();
@@ -278,7 +301,7 @@
 
             function povecajBrojProizvoda() {
 
-                $('#brojInventara').text(productsInCart.length);
+                $('#brojInventara').text(inventariInCart.length);
 
             }
 

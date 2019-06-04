@@ -140,8 +140,8 @@ class InventoryController extends Controller
     }
 
     public function getInventarById($id){
-        $item = Inventory::find($id);
+        $inventar = Inventory::find($id);
 
-        return response()->json($item);
+        return response()->json($inventar);
     }
 }

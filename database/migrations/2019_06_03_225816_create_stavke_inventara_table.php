@@ -15,8 +15,8 @@ class CreateStavkeInventaraTable extends Migration
     {
         Schema::create('stavke_inventara', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('magacin_id');
-            $table->integer('item_id');
+            $table->integer('inventar_id');
+            $table->integer('order_id');
             $table->integer('kolicina');
             $table->timestamps();
         });

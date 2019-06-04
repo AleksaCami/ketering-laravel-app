@@ -37,7 +37,10 @@
                                         <button class="btn btn-danger btn-xs" type="submit">Storniraj</button>
                                     </form>
                                 </td>
-                                <td><a href="/stavkeProizvoda/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
+                                <td>
+                                    <a href="/stavkeProizvoda/{{$order->id}}"><button class="btn btn-info btn-xs mb-3">Stavke proizvoda</button></a>
+                                    <a href="/stavkeInventara/{{$order->id}}"><button class="btn btn-warning btn-xs">Stavke inventara</button></a>
+                                </td>
                                 <td>{{$order->event->naziv}}</td>
                                 <td>{{$order->event->klijent->naziv}}</td>
                                 <td>{{$order->rok_izrade}}</td>

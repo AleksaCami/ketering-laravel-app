@@ -18,7 +18,9 @@ class CreateOrdersTable extends Migration
             $table->integer('event_id');
             $table->text('napomena');
             $table->dateTime('rok_izrade');
-            $table->boolean('status');
+            $table->boolean('statusKuhinja');
+            $table->boolean('statusMagacin');
+            $table->integer('statusVozac');
             $table->boolean('prihvacena');
             $table->integer('stanje_dostava');
             $table->timestamps();
@@ -27,7 +29,9 @@ class CreateOrdersTable extends Migration
             [
                 'napomena' => 'Ćevapi moraju da budu dobro pečeni',
                 'rok_izrade' => '2019-06-06 17:00:00',
-                'status' => '0',
+                'statusKuhinja' => '0',
+                'statusMagacin' => '0',
+                'statusVozac' => '0',
                 'event_id' => '1',
                 'prihvacena' => '0',
                 'stanje_dostava' => '0'
@@ -35,7 +39,9 @@ class CreateOrdersTable extends Migration
             [
                 'napomena' => 'Pica mora biti vruca',
                 'rok_izrade' => '2019-06-01 15:30:00',
-                'status' => '0',
+                'statusKuhinja' => '0',
+                'statusMagacin' => '0',
+                'statusVozac' => '0',
                 'event_id' => '2',
                 'prihvacena' => '0',
                 'stanje_dostava' => '0'
@@ -43,7 +49,9 @@ class CreateOrdersTable extends Migration
             [
                 'napomena' => 'Podvarak mora biti masan',
                 'rok_izrade' => '2019-06-24 17:00:00',
-                'status' => '0',
+                'statusKuhinja' => '0',
+                'statusMagacin' => '0',
+                'statusVozac' => '0',
                 'event_id' => '3',
                 'prihvacena' => '0',
                 'stanje_dostava' => '0'

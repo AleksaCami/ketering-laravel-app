@@ -105,12 +105,12 @@ class OrdersController extends Controller
     }
     public function finalize_order($id){
         $order = Order::find($id);
-        $order->status = 1;
+        $order->statusKuhinja = 1;
         $order->update();
         return redirect('/orders/kuhinja/prihvacene')->with('success', 'Uspesno poslata porudzbina');
     }
     public function finished_orders(){
-        $orders = Order::all();
+        $orders = Order::where('statusKuhinja', 1)->get();
         return view('orders.magacin', [
             'orders' => $orders
         ]);

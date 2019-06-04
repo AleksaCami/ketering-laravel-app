@@ -30,7 +30,9 @@
                                     <button id="prihvati" class="btn btn-primary btn-xs" type="submit">Prihvati</button></a>
                                 </form>
                             </td>
-                            <td><a href="/stavkeProizvoda/{{$order->id}}"><button class="btn btn-primary btn-xs">Stavke</button></a></td>
+                            <td>
+                                <a href="/stavkeProizvoda/{{$order->id}}"><button class="btn btn-info btn-xs mb-3">Stavke proizvoda</button></a>
+                            </td>
                             <td>{{$order->event->naziv}}</td>
                             <td>{{$order->event->klijent->naziv}}</td>
                             <td>{{$order->rok_izrade}}</td>

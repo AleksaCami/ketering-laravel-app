@@ -33,7 +33,7 @@
                             <td>{{$order->rok_izrade}}</td>
                             <td>{{$order->napomena}}</td>
                             {{-- Ukoliko je status false, prikazace crveni iks, ukoliko je true zeleni checkmark --}}
-                            @if($order->status == false)
+                            @if($order->statusKuhinja == false)
                                 <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
                             @else
                                 <td><i style="font-size: 50px; color: green;" class="fas fa-check"></i></td>
