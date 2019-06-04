@@ -120,18 +120,23 @@ Route::group(['prefix'=>'orders'], function() {
     // Pregled kompletiranih narudzbina, samo magacioneri imaju pristup
     Route::get('/magacin', 'OrdersController@finished_orders')->middleware('role:magacin');
     Route::post('/magacin/finish/{id}', 'OrdersController@finalize_order_inventory')->middleware('role:magacin');
+
+    // Pregled narudzbina spremnih za dostavu, samo vozaci imaju pristup
+    Route::get('/vozac', 'OrdersController@order_ready_for_delivery')->middleware('role:vozac');
+    Route::post('/vozac/finish/{id}', 'OrdersController@finalize_order_delivery')->middleware('role:vozac');
+
 });
 
 // Prikaz i dodavanje stavki proizvoda
 Route::group(['prefix'=>'stavkeProizvoda'], function() {
-    Route::get('/{id}', 'StavkeProizvodaController@index')->middleware('role:admin|prodaja|kuhinja');
+    Route::get('/{id}', 'StavkeProizvodaController@index')->middleware('role:admin|prodaja|kuhinja|vozac');
     Route::get('/create/{id}', 'StavkeProizvodaController@create')->middleware('role:admin|prodaja');
     Route::post('/store/{id}', 'StavkeProizvodaController@store')->middleware('role:admin|prodaja');
 });
 
 // Prikaz i dodavanje stavki inventara
 Route::group(['prefix'=>'stavkeInventara'], function() {
-    Route::get('/{id}', 'StavkeInventaraController@index')->middleware('role:admin|magacin|kuhinja');
+    Route::get('/{id}', 'StavkeInventaraController@index')->middleware('role:admin|magacin|kuhinja|vozac');
     Route::get('/create/{id}', 'StavkeInventaraController@create')->middleware('role:admin|magacin|kuhinja');
     Route::post('/store/{id}', 'StavkeInventaraController@store')->middleware('role:admin|magacin|kuhinja');
 });

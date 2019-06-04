@@ -39,7 +39,7 @@
             @case('vozac')
             {{--  VOZAC SIDEBAR --}}
             <li class="active">
-                <a href="#">Pregled narudžbenica spreminih za dostavu</a>
+                <a href="/orders/vozac">Pregled narudžbenica spreminih za dostavu</a>
             </li>
             <li>
                 <a href="#">Pregled narudžbina koje nisu vraćene</a>

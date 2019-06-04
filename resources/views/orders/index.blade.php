@@ -18,6 +18,7 @@
                         <th scope="col">Napomena<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th scope="col">Status kuhinja</th>
                         <th scope="col">Status magacin</th>
+                        <th scope="col">Status vozac</th>
                         <th scope="col">Izmeni</th>
                         <th scope="col">Obrisi</th>
                     </tr>
@@ -41,6 +42,12 @@
                             @endif
 
                             @if($order->statusMagacin == false)
+                                <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
+                            @else
+                                <td><i style="font-size: 50px; color: green;" class="fas fa-check"></i></td>
+                            @endif
+
+                            @if($order->statusVozac == false)
                                 <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
                             @else
                                 <td><i style="font-size: 50px; color: green;" class="fas fa-check"></i></td>

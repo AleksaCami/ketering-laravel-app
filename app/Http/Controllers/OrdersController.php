@@ -31,7 +31,6 @@ class OrdersController extends Controller
             'event_id' => 'required',
             'rok_izrade' => 'required',
             'napomena' => 'required',
-            'status' => '',
             'prihvacena' => ''
         ]);
         $orders = new Order;
@@ -39,9 +38,12 @@ class OrdersController extends Controller
         $orders->rok_izrade = $request->input('rok_izrade');
         $orders->napomena = $request->input('napomena');
         // Status je postavljen na false na pocetku, sve dok se porudzbina ne izvrsi
-        $orders->status = false;
+        $orders->statusKuhinja = false;
+        $orders->statusMagacin = false;
+        $orders->statusVozac = false;
         // Porudzbenica nije prihvacena po kreaciji
         $orders->prihvacena = false;
+        $orders->stanje_dostava = false;
         $orders->save();
         return redirect('/orders')->with('success', 'Uspesno dodata porudzbenica');
     }
@@ -62,14 +64,12 @@ class OrdersController extends Controller
             'event_id' => 'required',
             'rok_izrade' => 'required',
             'napomena' => 'required',
-            'status' => ''
         ]);
         $orders = Order::find($id);
         $orders->event_id = $request->input('event_id');
         $orders->rok_izrade = $request->input('rok_izrade');
         $orders->napomena = $request->input('napomena');
         // Status je postavljen na false na pocetku, sve dok se porudzbina ne izvrsi
-        $orders->status = false;
         $orders->save();
         return redirect('/orders')->with('success', 'Vase promene su uspesno sacuvane!');
     }
@@ -121,5 +121,21 @@ class OrdersController extends Controller
         return view('orders.magacin', [
             'orders' => $orders
         ]);
+    }
+
+    public function order_ready_for_delivery() {
+        $orders = Order::where('statusKuhinja', 1)
+                        ->where('statusMagacin', 1)
+                        ->get();
+        return view('orders.vozac', [
+           'orders' => $orders
+        ]);
+    }
+
+    public function finalize_order_delivery($id) {
+        $order = Order::find($id);
+        $order->statusVozac = 1;
+        $order->update();
+        return redirect('/orders/vozac')->with('success', 'Uspesno dostavljena porudzbina');
     }
 }

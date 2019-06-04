@@ -9,7 +9,7 @@
                 <h2>Event: {{$nazivEventa}}</h2>
                 <h2>Klijent: {{$nazivKlijenta}}</h2>
             </div>
-            @if(Auth::user()->tip_korisnika != 'kuhinja' && Auth::user()->tip_korisnika != 'magacin')
+            @if(Auth::user()->tip_korisnika != 'kuhinja' && Auth::user()->tip_korisnika != 'magacin' && Auth::user()->tip_korisnika != 'vozac')
                 <div class="col-lg-3 px-0">
                     <a href="/stavkeProizvoda/create/{{$order->id}}"><button type="button" class="btn btn-primary float-right">Dodaj stavku</button></a>
                 </div>
