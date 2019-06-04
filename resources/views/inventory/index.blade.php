@@ -15,7 +15,6 @@
                         <th>Cena<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Pocetno stanje<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th>Magacin<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th>Izgubljen<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th scope="col" style="width: 100px">Slika</th>
                         <th>Izmeni</th>
                         <th>Obrisi</th>
@@ -29,11 +28,6 @@
                             <td>{{$item->cena}}</td>
                             <td>{{$item->pocetno_stanje}}</td>
                             <td>{{$item->magacin->naziv}}</td>
-                            @if($item->izgubljen == 'false')
-                                <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
-                            @else
-                                <td><i style="font-size: 50px; color: green;" class="fas fa-check"></i></td>
-                            @endif
                             <td><img class="img-fluid" style="height: auto" src="/storage/inventory_images/{{$item->inventory_images}}"></td>
                             <td><a href="/inventory/edit/{{$item->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
                             <td>
