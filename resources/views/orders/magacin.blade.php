@@ -21,6 +21,7 @@
                     </thead>
                     <tbody>
                     @foreach($orders as $order)
+                        @if($order->statusMagacin == 0)
                             <tr>
                                 <td>
                                     <a href="/stavkeInventara/{{$order->id}}"><button class="btn btn-warning btn-xs">Stavke inventara</button></a>
@@ -30,8 +31,8 @@
                                 <td>{{$order->rok_izrade}}</td>
                                 <td>{{$order->napomena}}</td>
                                 <td><i style="font-size: 50px; color: green;" class="fas fa-check"></i></td>
-
                             </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>

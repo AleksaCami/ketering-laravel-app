@@ -16,7 +16,8 @@
                         <th scope="col" style="width: 140px">Klijent<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th scope="col" style="width: 155px">Rok izrade<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
                         <th scope="col">Napomena<i style="margin-left: 10px" class="fas fa-arrows-alt-v"></i></th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Status kuhinja</th>
+                        <th scope="col">Status magacin</th>
                         <th scope="col">Izmeni</th>
                         <th scope="col">Obrisi</th>
                     </tr>
@@ -34,6 +35,12 @@
                             <td>{{$order->napomena}}</td>
                             {{-- Ukoliko je status false, prikazace crveni iks, ukoliko je true zeleni checkmark --}}
                             @if($order->statusKuhinja == false)
+                                <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
+                            @else
+                                <td><i style="font-size: 50px; color: green;" class="fas fa-check"></i></td>
+                            @endif
+
+                            @if($order->statusMagacin == false)
                                 <td><i style="font-size: 50px; color: red;" class="fas fa-times"></i></td>
                             @else
                                 <td><i style="font-size: 50px; color: green;" class="fas fa-check"></i></td>

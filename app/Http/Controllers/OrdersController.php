@@ -91,6 +91,7 @@ class OrdersController extends Controller
         $order->update();
         return redirect('/orders/kuhinja')->with('success', 'Uspesno prihvacena porudzbenica');
     }
+
     public function kuhinja_prihvacene(){
         $orders = Order::all();
         return view('orders.prihvacene', [
@@ -108,6 +109,12 @@ class OrdersController extends Controller
         $order->statusKuhinja = 1;
         $order->update();
         return redirect('/orders/kuhinja/prihvacene')->with('success', 'Uspesno poslata porudzbina');
+    }
+    public function finalize_order_inventory($id) {
+        $order = Order::find($id);
+        $order->statusMagacin = 1;
+        $order->update();
+        return redirect('/orders/magacin')->with('success', 'Uspesno poslata porudzbina');
     }
     public function finished_orders(){
         $orders = Order::where('statusKuhinja', 1)->get();

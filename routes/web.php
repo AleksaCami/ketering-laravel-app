@@ -119,6 +119,7 @@ Route::group(['prefix'=>'orders'], function() {
 
     // Pregled kompletiranih narudzbina, samo magacioneri imaju pristup
     Route::get('/magacin', 'OrdersController@finished_orders')->middleware('role:magacin');
+    Route::post('/magacin/finish/{id}', 'OrdersController@finalize_order_inventory')->middleware('role:magacin');
 });
 
 // Prikaz i dodavanje stavki proizvoda
