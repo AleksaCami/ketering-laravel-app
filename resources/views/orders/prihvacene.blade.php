@@ -23,7 +23,7 @@
                     <tbody>
                     @foreach($orders as $order)
                         @if($order->prihvacena == true)
-                            @if($order->status == false)
+                            @if($order->statusKuhinja == false)
                             <tr>
                                 <td>
                                     <form method="post" action="/orders/finish/{{$order->id}}">

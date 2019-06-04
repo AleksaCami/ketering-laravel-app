@@ -16,9 +16,9 @@
             @endif
             @if(Auth::user()->tip_korisnika == 'magacin')
                 <div class="col-lg-3 px-0">
-                    <a href="#"><button type="button" class="btn btn-success float-right mb-1">Prihvati inventar</button></a>
-                    <a href="#"><button type="button" class="btn btn-primary float-right mb-1">Izmeni inventar</button></a>
-                    <a href="#"><button type="button" class="btn btn-danger float-right">Odbi inventar</button></a>
+                    <a href=""><button type="button" class="btn btn-success float-right mb-1">Prihvati inventar</button></a>
+{{--                    <a href="#"><button type="button" class="btn btn-primary float-right mb-1">Izmeni inventar</button></a>--}}
+{{--                    <a href="#"><button type="button" class="btn btn-danger float-right">Odbi inventar</button></a>--}}
                 </div>
             @endif
         </div>

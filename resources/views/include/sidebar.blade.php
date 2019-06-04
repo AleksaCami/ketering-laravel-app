@@ -15,9 +15,9 @@
             <li>
                 <a href="/inventory">Pregled stanja inventara</a>
             </li>
-            <li>
-                <a href="#">Povrat inventara</a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="#">Povrat inventara</a>--}}
+{{--            </li>--}}
 
             <li>
                 <a href="/orders/magacin">Pregled kompletiranih narudžbina</a>
