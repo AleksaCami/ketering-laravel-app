@@ -13,14 +13,16 @@
             {{--  MAGACIN SIDEBAR --}}
 
             <li>
-                <a href="/inventory">Pregled stanja inventara</a>
+                <a href="/magacin"><i class="fas fa-home mr-2"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="/inventory"><i class="fas fa-warehouse mr-2"></i>Stanje inventara</a>
             </li>
 {{--            <li>--}}
 {{--                <a href="#">Povrat inventara</a>--}}
 {{--            </li>--}}
-
             <li>
-                <a href="/orders/magacin">Pregled kompletiranih narudžbina</a>
+                <a href="/orders/magacin"><i class="fas fa-clipboard-check mr-2"></i>Kompletirane narudžbine</a>
             </li>
             @break
 
@@ -28,185 +30,83 @@
             @case('kuhinja')
             {{--  KUHINJA SIDEBAR --}}
                 <li>
-                    <a href="/orders/kuhinja">Pristigle narudžbine</a>
+                    <a href="/kuhinja"><i class="fas fa-home mr-2"></i>Dashboard</a>
                 </li>
                 <li>
-                    <a href="/orders/kuhinja/prihvacene">Aktivne narudžbine</a>
+                    <a href="/orders/kuhinja"><i class="fas fa-clipboard-list mr-2"></i>Pristigle narudžbine</a>
+                </li>
+                <li>
+                    <a href="/orders/kuhinja/prihvacene"><i class="fas fa-list mr-2"></i>Aktivne narudžbine</a>
                 </li>
             @break
 
 
             @case('vozac')
             {{--  VOZAC SIDEBAR --}}
-            <li class="active">
-                <a href="/orders/vozac">Pregled narudžbenica spreminih za dostavu</a>
+            <li>
+                <a href="/vozac"><i class="fas fa-home mr-2"></i>Dashboard</a>
             </li>
             <li>
-                <a href="#">Pregled narudžbina koje nisu vraćene</a>
+                <a href="/orders/vozac"><i class="fas fa-truck-loading mr-2"></i>Spremno za dostavu</a>
             </li>
+{{--            <li>--}}
+{{--                <a href="#">Narudžbine koje nisu vraćene</a>--}}
+{{--            </li>--}}
             @break
 
 
             @case('prodaja')
             {{--  PRODAJA SIDEBAR --}}
             <li class="active">
-                <a href="#klijentiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Klijenti</a>
-                <ul class="collapse list-unstyled" id="klijentiSubmenu">
-                    <li>
-                        <a href="/klijenti/create">Dodaj klijenta</a>
-                    </li>
-                    <li>
-                        <a href="/klijenti">Pregled klijenata</a>
-                    </li>
-                </ul>
+            <li>
+                <a href="/klijenti"><i class="fas fa-user-tie mr-2"></i>Klijenti</a>
             </li>
             <li>
-                <a href="#eventiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Eventi</a>
-                <ul class="collapse list-unstyled" id="eventiSubmenu">
-                    <li>
-                        <a href="/eventi/create">Dodaj event</a>
-                    </li>
-                    <li>
-                        <a href="/eventi">Pregled evenata</a>
-                    </li>
-                </ul>
+                <a href="/eventi"><i class="fas fa-calendar mr-2"></i>Eventi</a>
             </li>
             <li>
-                <a href="#kuhinjaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kuhinja</a>
-                <ul class="collapse list-unstyled" id="kuhinjaSubmenu">
-                    <li>
-                        <a href="/kuhinje/create">Dodaj kuhinju</a>
-                    </li>
-                    <li>
-                        <a href="/kuhinje">Pregled kuhinja</a>
-                    </li>
-                </ul>
+                <a href="/kuhinje"><i class="fas fa-utensils mr-2"></i>Kuhinje</a>
             </li>
             <li>
-                <a href="#prozivodiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Proizvodi</a>
-                <ul class="collapse list-unstyled" id="prozivodiSubmenu">
-                    <li>
-                        <a href="/products/create">Dodaj proizvod</a>
-                    </li>
-                    <li>
-                        <a href="/products">Pregled prodizvoda</a>
-                    </li>
-                </ul>
+                <a href="/products"><i class="fas fa-shopping-cart mr-2"></i>Proizvodi</a>
             </li>
             <li>
-                <a href="#inventarSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inventar</a>
-                <ul class="collapse list-unstyled" id="inventarSubmenu">
-                    <li>
-                        <a href="/inventory/create">Dodaj inventar</a>
-                    </li>
-                    <li>
-                        <a href="/inventory">Pregled stanja inventara</a>
-                    </li>
-                </ul>
+                <a href="/inventory"><i class="fas fa-warehouse mr-2"></i>Stanje inventara</a>
             </li>
             <li>
-                <a href="#narudzbineKlijentaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine klijenata</a>
-                <ul class="collapse list-unstyled" id="narudzbineKlijentaSubmenu">
-                    <li>
-                        <a href="/orders/create">Dodaj narudžbinu</a>
-                    </li>
-                    <li>
-                        <a href="/orders">Pregled narudžbina</a>
-                    </li>
-                </ul>
+                <a href="/orders"><i class="fas fa-clipboard-list mr-2"></i>Porudzbenice</a>
+            </li>
             </li>
             @break
 
-
             @case('admin')
             {{--  ADMIN SIDEBAR --}}
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Korisnici</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="{{route('register')}}">Dodaj korisnika</a>
-                    </li>
-                    <li>
-                        <a href="/korisnici" id="pregledSvihKorisnika">Pregled korisnika</a>
-                    </li>
-                </ul>
+            <li>
+                <a href="/admin"><i class="fas fa-home mr-2"></i>Dashboard</a>
             </li>
             <li>
-                <a href="#klijentiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Klijenti</a>
-                <ul class="collapse list-unstyled" id="klijentiSubmenu">
-                    <li>
-                        <a href="/klijenti/create">Dodaj klijenta</a>
-                    </li>
-                    <li>
-                        <a href="/klijenti">Pregled klijenata</a>
-                    </li>
-                </ul>
+{{--                    <li>--}}
+{{--                        <a href="{{route('register')}}">Dodaj korisnika</a>--}}
+{{--                    </li>--}}
+                <a href="/korisnici" id="pregledSvihKorisnika"><i class="fas fa-users mr-2"></i>Korisnici</a>
             </li>
             <li>
-                <a href="#eventiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Eventi</a>
-                <ul class="collapse list-unstyled" id="eventiSubmenu">
-                    <li>
-                        <a href="/eventi/create">Dodaj event</a>
-                    </li>
-                    <li>
-                        <a href="/eventi">Pregled evenata</a>
-                    </li>
-                </ul>
+                <a href="/klijenti"><i class="fas fa-user-tie mr-2"></i>Klijenti</a>
             </li>
             <li>
-                <a href="#magaciniSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Magacini</a>
-                <ul class="collapse list-unstyled" id="magaciniSubmenu">
-                    <li>
-                        <a href="/magacini/create">Dodaj magacin</a>
-                    </li>
-                    <li>
-                        <a href="/magacini">Pregled magacina</a>
-                    </li>
-                </ul>
+                <a href="/eventi"><i class="fas fa-calendar mr-2"></i>Eventi</a>
             </li>
             <li>
-                <a href="#kuhinjaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Kuhinja</a>
-                <ul class="collapse list-unstyled" id="kuhinjaSubmenu">
-                    <li>
-                        <a href="/kuhinje/create">Dodaj kuhinju</a>
-                    </li>
-                    <li>
-                        <a href="/kuhinje">Pregled kuhinja</a>
-                    </li>
-                </ul>
+                <a href="/kuhinje"><i class="fas fa-utensils mr-2"></i>Kuhinje</a>
             </li>
             <li>
-                <a href="#prozivodiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Proizvodi</a>
-                <ul class="collapse list-unstyled" id="prozivodiSubmenu">
-                    <li>
-                        <a href="/products/create">Dodaj proizvod</a>
-                    </li>
-                    <li>
-                        <a href="/products">Pregled prodizvoda</a>
-                    </li>
-                </ul>
+                <a href="/products"><i class="fas fa-shopping-cart mr-2"></i>Proizvodi</a>
             </li>
             <li>
-                <a href="#inventarSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inventar</a>
-                <ul class="collapse list-unstyled" id="inventarSubmenu">
-                    <li>
-                        <a href="/inventory/create">Dodaj inventar</a>
-                    </li>
-                    <li>
-                        <a href="/inventory">Pregled stanja inventara</a>
-                    </li>
-                </ul>
+                <a href="/inventory"><i class="fas fa-warehouse mr-2"></i>Stanje inventara</a>
             </li>
             <li>
-                <a href="#narudzbineKlijentaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Narudžbine klijenata</a>
-                <ul class="collapse list-unstyled" id="narudzbineKlijentaSubmenu">
-                    <li>
-                        <a href="/orders/create">Dodaj narudžbinu</a>
-                    </li>
-                    <li>
-                        <a href="/orders">Pregled narudžbina</a>
-                    </li>
-                </ul>
+                <a href="/orders"><i class="fas fa-clipboard-list mr-2"></i>Porudzbenice</a>
             </li>
             @break
         @endswitch

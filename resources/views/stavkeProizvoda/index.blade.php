@@ -23,24 +23,24 @@
                         <th colspan="4" class="text-center">Stavke narudzbenice</th>
                     </tr>
                     <tr>
-                        <th scope="col">Slika</th>
                         <th scope="col">Proizvod</th>
 {{--                        <th scope="col">Kuhinja</th>--}}
                         <th scope="col">Cena</th>
                         <th scope="col">Kolicina</th>
+                        <th scope="col">Slika</th>
 
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($products as $product)
                         <tr>
-                            <td>
-                                <div class="img-wrap"><img src="/storage/products_images/{{$product->products_images}}" class="img-thumbnail img-sm"></div>
-                            </td>
+                            <td>{{$product->kolicina}}</td>
                             <td>{{$product->naziv}}</td>
 {{--                            <td>Kuhinja</td>--}}
                             <td>{{$product->cena}}</td>
-                            <td>{{$product->kolicina}}</td>
+                            <td>
+                                <div class="img-wrap"><img src="/storage/products_images/{{$product->products_images}}" class="img-thumbnail img-sm"></div>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

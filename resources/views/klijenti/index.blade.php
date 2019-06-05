@@ -3,9 +3,15 @@
 @section('content')
 
 <div class="container">
+    <div class="row mb-4">
+        <div class="col-lg-9">
+            <h2>Prikaz klijenata</h2>
+        </div>
+        <div class="col-lg-3 px-0">
+            <a href="/klijenti/create"><button class="btn btn-primary btn-block btn-xs">Dodaj klijenta</button></a>
+        </div>
+    </div>
     <div class="row">
-        <h2>Prikaz klijenata</h2>
-        <br>
         <div class="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
