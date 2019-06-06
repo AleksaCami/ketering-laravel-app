@@ -23,6 +23,7 @@ class VerifyCsrfToken extends Middleware
         'orders/finish/*',
         'orders/storniraj/*',
         '/stavkeProizvoda/store/*',
-        '/stavkeInventara/store/*'
+        '/stavkeInventara/store/*',
+        '/korisnici/destroy/*'
     ];
 }

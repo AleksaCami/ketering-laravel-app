@@ -52,18 +52,22 @@
 
         // const Swal = require('sweetalert2')
 
-        $(document).on('click', '#deleteUser', (e) => {
+        $(document).on('click', '#deleteUser', function(e) {
             e.preventDefault();
             let id = $(this).data('id');
-            let url = 'http://127.0.0.1:8000/korisnici/destroy' + id;
+            console.log(id);
+            let url = 'http://127.0.0.1:8000/korisnici/destroy/' + id;
+
             Swal.fire({
-                    title: "Are you sure!",
-                    type: "error",
-                    confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Yes!",
-                    showCancelButton: true,
-                },
-                function() {
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then(function(result) {
+                if(result.value){
                     $.ajax({
                         type: "DELETE",
                         url: url,
@@ -72,7 +76,18 @@
                             console.log(data);
                         }
                     });
-                });
+
+                   console.log(result.value);
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    Swal.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
         });
 
     </script>

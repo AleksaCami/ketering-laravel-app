@@ -39,7 +39,7 @@ Route::group(['prefix' => 'korisnici', 'middleware' => 'role:admin'], function (
     Route::get('/', 'UsersController@index');
     Route::get('/edit/{id}', 'UsersController@edit');
     Route::put('/update/{id}', 'UsersController@update');
-    Route::post('/destroy/{id}', 'UsersController@destroy');
+    Route::delete('/destroy/{id}', 'UsersController@destroy');
 });
 
 // Prikaz i dodavanje klijenata
