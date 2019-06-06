@@ -25,13 +25,13 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href='/contact'>Kontaktirajte nas</a>
+                        <a class="nav-link" href='/contact'><button class="btn btn-primary btn-warning">Korisnicki servis</button></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                            {{ __('Odjavi se') }}
+                            <button class="btn btn-primary btn-danger">{{ __('Odjavi se') }}</button>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

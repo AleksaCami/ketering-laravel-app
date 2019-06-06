@@ -56,6 +56,15 @@ class UsersController extends Controller
         return redirect('/korisnici')->with('success', 'Vase promene su uspesno sacuvane');
     }
 
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('/korisnici')->with('success', 'Korisnik uspesno obrisan!');
+    }
+
     public function adminHome()
     {
         $this->middleware('role:admin');

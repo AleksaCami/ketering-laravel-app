@@ -221,10 +221,6 @@ $(document).ready(function () {
   function povecajBrojProizvoda() {
     $('#brojProizvoda').text(productsInCart.length);
   }
-
-  function goBack() {
-    window.history.back();
-  }
 }); // Document ready
 
 /***/ }),

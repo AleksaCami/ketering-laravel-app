@@ -6,7 +6,7 @@
         <section class="mb-4">
 
             <!--Section heading-->
-            <h2 class="h1-responsive font-weight-bold text-center my-4">Kontaktirajte nas</h2>
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Korisnicki servis</h2>
             <!--Section description-->
             <p class="text-center w-responsive mx-auto mb-5">Ukoliko imate tehnickih problema sa aplikacijom, mozete nas obavestiti putem kontakt forme.</p>
 
@@ -18,7 +18,7 @@
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <label for="name" class="">Ime</label>
-                                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" required autofocus>
+                                    <input type="text" id="name" name="name" value="{{Auth::user()->name}}"class="form-control @error('name') is-invalid @enderror" required autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <label for="email" class="">Email</label>
-                                    <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" name="email" required>
+                                    <input type="text" id="email" name="email" value="{{Auth::user()->email}}" class="form-control @error('email') is-invalid @enderror" name="email" required>
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">

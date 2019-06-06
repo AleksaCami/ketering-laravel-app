@@ -16,9 +16,15 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-
+    {{--  Stilizacija i funkcionalnost za tabelu  --}}
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    {{--  Sweet alert CDN  --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+{{--    <script src="sweetalert2.all.min.js"></script>--}}
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+{{--    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>--}}
 
     {{--  BOOTSTRAP CDN  --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
