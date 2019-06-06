@@ -55,7 +55,7 @@ class RegisterController extends Controller
 //        $this->guard()->login($user);
 
         return $this->registered($request, $user)
-            ?: redirect($this->redirectPath())->with('success', 'Uspesno ste dodali novog korisnika');
+            ?: redirect('/korisnici')->with('success', 'Uspesno ste dodali novog korisnika');
     }
 
     /**

@@ -33,8 +33,7 @@
                         <td>{{$user->created_at}}</td>
                         <td><a href="/korisnici/edit/{{$user->id}}"><button class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button></a></td>
                         <td>
-{{--                            <button class="btn btn-danger btn-xs" id="deleteUser" data-id="{{$user->id}}"><i class="fas fa-trash"></i></button>--}}
-                            <a href="" id="deleteUser" class="button" data-id="{{$user->id}}">Delete</a>
+                            <button id="deleteUser" class="btn btn-danger btn-xs" data-id="{{$user->id}}"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach
@@ -43,14 +42,10 @@
         </div>
     </div>
 
-    <!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
-{{--    <script src="sweetalert2.all.min.js"></script>--}}
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
     <script type="text/javascript">
-
-        // const Swal = require('sweetalert2')
 
         $(document).on('click', '#deleteUser', function(e) {
             e.preventDefault();
@@ -59,21 +54,21 @@
             let url = 'http://127.0.0.1:8000/korisnici/destroy/' + id;
 
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Da li ste sigurni?',
+                text: "Jednom obrisan unos se ne moze povratiti!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Obrisi'
             }).then(function(result) {
                 if(result.value){
                     $.ajax({
                         type: "DELETE",
-                        url: url,
+                        url: 'http://127.0.0.1:8000/korisnici/destroy/' + id,
                         data: {id:id},
-                        success: function (data) {
-                            console.log(data);
+                        complete: function (data) {
+                           window.location.reload();
                         }
                     });
 
@@ -82,8 +77,8 @@
                     result.dismiss === Swal.DismissReason.cancel
                 ) {
                     Swal.fire(
-                        'Cancelled',
-                        'Your imaginary file is safe :)',
+                        'Otkazano',
+                        'Fajl nije obrisan!',
                         'error'
                     )
                 }
